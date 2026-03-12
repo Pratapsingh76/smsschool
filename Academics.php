@@ -1,1 +1,2130 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SMS School Udaipurwati Academics — Comprehensive CBSE curriculum from Primary to Senior Secondary with expert faculty, smart classrooms, and proven results.">
+<title>Academics — SMS School Udaipurwati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ══════════════════════════════════════════════════
+   ROOT & RESET
+══════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --navy:      #0f1f4b;
+    --blue:      #1a3a8f;
+    --sky:       #2563eb;
+    --sky-light: #3b82f6;
+    --gold:      #f59e0b;
+    --orange:    #f97316;
+    --teal:      #0891b2;
+    --green:     #059669;
+    --purple:    #7c3aed;
+    --white:     #ffffff;
+    --bg-light:  #eef2fb;
+    --bg-soft:   #f8faff;
+    --text-dark: #0f1f4b;
+    --text-mid:  #374151;
+    --text-muted:#6b7280;
+    --dark-bg:   #0d1b3e;
+    --card-bg:   #152040;
+    --border:    #e5e7eb;
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-serif:'Instrument Serif', serif;
+    --shadow:    0 4px 24px rgba(15,31,75,0.10);
+    --shadow-lg: 0 8px 40px rgba(15,31,75,0.18);
+    --shadow-xl: 0 20px 60px rgba(15,31,75,0.22);
+    --radius:    16px;
+    --radius-sm: 10px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--text-dark); background: #fff; overflow-x: hidden; }
 
+/* ══════════════════════════════════════════════════
+   NOTIFICATION BAR
+══════════════════════════════════════════════════ */
+.notif-bar { background: linear-gradient(90deg,var(--navy),#1a3a8f); border-bottom: 2px solid var(--gold); overflow: hidden; position: relative; z-index: 1100; }
+.notif-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: stretch; }
+.notif-label { background: var(--gold); color: #1a1a1a; padding: 10px 28px 10px 20px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 7px; white-space: nowrap; flex-shrink: 0; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+.notif-ticker { flex: 1; overflow: hidden; display: flex; align-items: center; padding: 10px 0; }
+.notif-track { display: flex; animation: notifScroll 35s linear infinite; white-space: nowrap; }
+.notif-track:hover { animation-play-state: paused; }
+.notif-item { display: inline-flex; align-items: center; gap: 8px; padding: 0 32px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); border-right: 1px solid rgba(255,255,255,0.15); cursor: pointer; transition: color .2s; }
+.notif-item:hover { color: var(--gold); }
+.notif-item i { color: var(--gold); font-size: 12px; }
+@keyframes notifScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ══════════════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════════════ */
+header { position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 16px rgba(15,31,75,0.08); }
+.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-img-wrap { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-img-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.logo-text .name { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -.5px; }
+.logo-text .sub { font-size: 12px; font-weight: 500; color: var(--sky); display: flex; align-items: center; gap: 6px; }
+.logo-text .sub::before { content:''; display:block; width:28px; height:2px; background:var(--sky); border-radius:2px; }
+.header-right { display: flex; align-items: center; gap: 20px; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { font-size: 15px; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color .2s; position: relative; }
+nav a:hover, nav a.active { color: var(--navy); }
+nav a.active::after { content:''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--sky); border-radius: 2px; }
+.btn-cta { background: var(--navy); color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+.btn-cta:hover { background: var(--blue); transform: translateY(-1px); }
+.hamburger { display: none; background: none; border: 2px solid #e5e7eb; width: 44px; height: 44px; border-radius: 10px; font-size: 20px; color: var(--navy); cursor: pointer; align-items: center; justify-content: center; transition: background .2s; }
+.hamburger:hover { background: var(--bg-light); }
+
+/* ══════════════════════════════════════════════════
+   MOBILE NAV
+══════════════════════════════════════════════════ */
+.mob-overlay { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(10,18,50,.55); backdrop-filter: blur(3px); }
+.mob-overlay.open { display: block; }
+.mob-drawer { position: absolute; top: 0; left: 0; width: 300px; max-width: 85vw; height: 100%; background: #fff; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); box-shadow: 4px 0 40px rgba(15,31,75,.2); overflow-y: auto; }
+.mob-overlay.open .mob-drawer { transform: translateX(0); }
+.mob-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; background: var(--navy); flex-shrink: 0; }
+.mob-head-logo { display: flex; align-items: center; gap: 10px; }
+.mob-logo-img { width: 44px; height: 44px; border-radius: 9px; overflow: hidden; flex-shrink: 0; }
+.mob-logo-img img { width: 100%; height: 100%; object-fit: cover; }
+.mob-head-logo .ln { font-size: 15px; font-weight: 800; color: #fff; }
+.mob-head-logo .ls { font-size: 11px; color: rgba(255,255,255,.6); }
+.mob-close { background: rgba(255,255,255,.15); border: none; width: 36px; height: 36px; border-radius: 8px; color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.mob-links a { display: flex; align-items: center; gap: 14px; padding: 14px 20px; font-size: 16px; font-weight: 600; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid #f5f5f5; transition: background .15s, color .15s, padding-left .2s; }
+.mob-links a .icon { width: 38px; height: 38px; border-radius: 9px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--sky); flex-shrink: 0; transition: background .15s, color .15s; }
+.mob-links a:hover { background: var(--bg-light); color: var(--navy); padding-left: 26px; }
+.mob-links a:hover .icon { background: var(--sky); color: #fff; }
+.mob-cta { padding: 14px 18px 20px; border-top: 1px solid #f0f0f0; }
+.mob-cta a { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: #fff; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+
+/* ══════════════════════════════════════════════════
+   BREADCRUMB HERO
+══════════════════════════════════════════════════ */
+.page-hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+}
+.page-hero-bg {
+    position: absolute; inset: 0;
+    background: url('images/web-hero5.png') center/cover no-repeat;
+    opacity: 0.18;
+}
+.page-hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(37,99,235,0.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245,158,11,0.15) 0%, transparent 40%);
+}
+/* Animated grid lines */
+.page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+.page-hero-content {
+    position: relative; z-index: 2;
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 24px;
+    width: 100%;
+}
+.breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 24px;
+}
+.breadcrumb a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: rgba(255,255,255,.35); font-size: 13px; }
+.breadcrumb .current { font-size: 13px; font-weight: 600; color: var(--gold); }
+.page-hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,158,11,.18);
+    border: 1px solid rgba(245,158,11,.35);
+    color: var(--gold);
+    padding: 7px 18px; border-radius: 50px;
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+}
+.page-hero h1 {
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 800; color: #fff;
+    line-height: 1.06; letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+.page-hero h1 .accent { color: var(--gold); font-style: italic; font-family: var(--font-serif); }
+.page-hero p { font-size: 17px; color: rgba(255,255,255,.78); line-height: 1.7; max-width: 560px; margin-bottom: 36px; }
+.hero-stat-chips { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(6px);
+    color: #fff; padding: 10px 18px; border-radius: 50px;
+    font-size: 14px; font-weight: 700;
+}
+.hero-chip i { color: var(--gold); }
+
+/* Floating accent cards */
+.hero-float-cards {
+    position: absolute; right: max(24px, calc((100vw - 1280px)/2 + 24px));
+    top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 14px;
+    z-index: 3;
+}
+.hero-float-card {
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    padding: 18px 22px;
+    min-width: 200px;
+    display: flex; align-items: center; gap: 14px;
+    transition: transform .3s;
+}
+.hero-float-card:hover { transform: translateX(-6px); }
+.hfc-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #fff; flex-shrink: 0;
+}
+.hfc-text .num { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; }
+.hfc-text .lbl { font-size: 12px; color: rgba(255,255,255,.65); margin-top: 2px; }
+
+/* ══════════════════════════════════════════════════
+   SECTION COMMONS
+══════════════════════════════════════════════════ */
+section { padding: 90px 24px; }
+.container { max-width: 1280px; margin: 0 auto; }
+.section-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.section-label::before, .section-label::after { content:''; display:block; height:2px; width:28px; background:var(--sky); border-radius:2px; }
+.section-label.center { justify-content: center; }
+.section-label.gold { color: var(--gold); }
+.section-label.gold::before, .section-label.gold::after { background: var(--gold); }
+.section-title { font-size: clamp(28px,4vw,44px); font-weight: 800; line-height: 1.1; color: var(--navy); letter-spacing: -1px; }
+.section-title .blue { color: var(--sky); }
+.section-title .gold { color: var(--gold); }
+.section-title.white { color: #fff; }
+.section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.65; margin-top: 12px; max-width: 600px; }
+.section-sub.center { margin: 12px auto 0; text-align: center; }
+.text-center { text-align: center; }
+
+/* ══════════════════════════════════════════════════
+   PROGRAMS OVERVIEW (Tab Section)
+══════════════════════════════════════════════════ */
+.programs-section { background: var(--bg-soft); }
+.prog-tabs-wrap { display: flex; justify-content: center; margin: 44px 0 48px; }
+.prog-tabs {
+    display: flex; gap: 6px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 6px;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.prog-tab {
+    padding: 12px 26px; border-radius: 10px; border: none;
+    background: transparent; font-family: var(--font-main);
+    font-size: 15px; font-weight: 700; color: var(--text-muted);
+    cursor: pointer; transition: all .25s; display: flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+}
+.prog-tab i { font-size: 16px; }
+.prog-tab.active { background: var(--navy); color: #fff; box-shadow: 0 4px 16px rgba(15,31,75,.25); }
+.prog-tab:not(.active):hover { background: var(--bg-light); color: var(--navy); }
+
+.prog-panel { display: none; }
+.prog-panel.active { display: block; }
+
+.prog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* Left Info */
+.prog-info-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 50px;
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 20px;
+}
+.prog-info-badge.primary { background: rgba(37,99,235,.1); color: var(--sky); }
+.prog-info-badge.middle  { background: rgba(245,158,11,.12); color: #d97706; }
+.prog-info-badge.senior  { background: rgba(7,89,133,.1); color: var(--teal); }
+.prog-info-badge.extra   { background: rgba(124,58,237,.1); color: var(--purple); }
+
+.prog-info h2 { font-size: 34px; font-weight: 800; color: var(--navy); letter-spacing: -.8px; line-height: 1.12; margin-bottom: 14px; }
+.prog-info h2 span { color: var(--sky); font-style: italic; font-family: var(--font-serif); }
+.prog-info > p { font-size: 15.5px; color: var(--text-mid); line-height: 1.75; margin-bottom: 28px; }
+
+.prog-highlights {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-bottom: 32px;
+}
+.prog-hl {
+    background: #fff; border-radius: 12px;
+    padding: 16px 18px; border: 1.5px solid var(--border);
+    display: flex; align-items: flex-start; gap: 12px;
+    transition: border-color .2s, box-shadow .2s;
+}
+.prog-hl:hover { border-color: var(--sky); box-shadow: 0 4px 16px rgba(37,99,235,.12); }
+.prog-hl-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; flex-shrink: 0; color: #fff;
+}
+.prog-hl-icon.blue   { background: linear-gradient(135deg,#1a3a8f,#2563eb); }
+.prog-hl-icon.teal   { background: linear-gradient(135deg,#0891b2,#22d3ee); }
+.prog-hl-icon.orange { background: linear-gradient(135deg,#ea580c,#f97316); }
+.prog-hl-icon.green  { background: linear-gradient(135deg,#059669,#10b981); }
+.prog-hl-icon.purple { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.prog-hl-icon.gold   { background: linear-gradient(135deg,#b45309,#f59e0b); }
+.prog-hl h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.prog-hl p  { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+.prog-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; padding: 13px 26px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all .2s; }
+.btn-primary:hover { background: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--navy); color: var(--navy); padding: 13px 26px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all .2s; background: transparent; }
+.btn-outline:hover { background: var(--navy); color: #fff; }
+
+/* Right Cards */
+.prog-right { display: flex; flex-direction: column; gap: 14px; }
+
+.subject-card {
+    background: #fff; border-radius: 14px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow .2s, border-color .2s, transform .2s;
+    cursor: pointer;
+}
+.subject-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,.25); transform: translateY(-3px); }
+.subject-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px;
+    cursor: pointer;
+}
+.subject-head-left { display: flex; align-items: center; gap: 14px; }
+.subj-icon {
+    width: 44px; height: 44px; border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; color: #fff; flex-shrink: 0;
+}
+.subj-icon.math    { background: linear-gradient(135deg,#1a3a8f,#3b82f6); }
+.subj-icon.sci     { background: linear-gradient(135deg,#059669,#10b981); }
+.subj-icon.lang    { background: linear-gradient(135deg,#0891b2,#22d3ee); }
+.subj-icon.sst     { background: linear-gradient(135deg,#b45309,#f59e0b); }
+.subj-icon.cs      { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.subj-icon.art     { background: linear-gradient(135deg,#e1306c,#f77737); }
+.subj-icon.pe      { background: linear-gradient(135deg,#ea580c,#f97316); }
+.subj-icon.commerce{ background: linear-gradient(135deg,#0f766e,#14b8a6); }
+.subject-head h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.subject-head span { font-size: 13px; color: var(--text-muted); }
+.subj-arrow { width: 30px; height: 30px; border-radius: 50%; background: var(--bg-light); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--navy); flex-shrink: 0; transition: all .2s; }
+.subject-card.open .subj-arrow { background: var(--navy); color: #fff; transform: rotate(180deg); }
+.subject-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s cubic-bezier(.4,0,.2,1);
+    border-top: 0px solid var(--border);
+}
+.subject-card.open .subject-body {
+    max-height: 300px;
+    border-top: 1.5px solid var(--border);
+}
+.subject-body-inner { padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.subj-topic { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--text-mid); font-weight: 500; }
+.subj-topic i { color: var(--gold); font-size: 11px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════════════
+   ACADEMIC STRUCTURE / TIMELINE
+══════════════════════════════════════════════════ */
+.structure-section { background: #fff; }
+.structure-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 56px; }
+.struct-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px 28px;
+    border: 2px solid var(--border);
+    transition: all .3s cubic-bezier(.34,1.56,.64,1);
+    overflow: hidden;
+    text-align: center;
+    cursor: default;
+}
+.struct-card::before {
+    content:'';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    border-radius: 20px 20px 0 0;
+}
+.struct-card.c1::before { background: linear-gradient(90deg,#1a3a8f,#3b82f6); }
+.struct-card.c2::before { background: linear-gradient(90deg,#0891b2,#22d3ee); }
+.struct-card.c3::before { background: linear-gradient(90deg,#d97706,#f59e0b); }
+.struct-card.c4::before { background: linear-gradient(90deg,#7c3aed,#a855f7); }
+.struct-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); border-color: transparent; }
+.struct-num {
+    font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+    padding: 5px 14px; border-radius: 20px; display: inline-block; margin-bottom: 20px;
+}
+.c1 .struct-num { background: rgba(26,58,143,.1); color: var(--blue); }
+.c2 .struct-num { background: rgba(8,145,178,.1); color: var(--teal); }
+.c3 .struct-num { background: rgba(245,158,11,.12); color: #d97706; }
+.c4 .struct-num { background: rgba(124,58,237,.1); color: var(--purple); }
+.struct-icon {
+    width: 72px; height: 72px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; color: #fff; margin: 0 auto 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+.c1 .struct-icon { background: linear-gradient(135deg,#1a3a8f,#3b82f6); }
+.c2 .struct-icon { background: linear-gradient(135deg,#0891b2,#22d3ee); }
+.c3 .struct-icon { background: linear-gradient(135deg,#d97706,#f59e0b); }
+.c4 .struct-icon { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.struct-card h3 { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.struct-card .grade { font-size: 14px; font-weight: 700; color: var(--text-muted); margin-bottom: 18px; }
+.struct-features { list-style: none; text-align: left; }
+.struct-features li { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-mid); margin-bottom: 8px; font-weight: 500; }
+.struct-features li i { font-size: 12px; flex-shrink: 0; }
+.c1 .struct-features li i { color: var(--blue); }
+.c2 .struct-features li i { color: var(--teal); }
+.c3 .struct-features li i { color: #d97706; }
+.c4 .struct-features li i { color: var(--purple); }
+.struct-age {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+
+/* Connector line between cards */
+.struct-connector {
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; margin: 32px 0 0;
+    position: relative;
+}
+.struct-connector::before {
+    content:'';
+    position: absolute;
+    top: 50%; left: 5%;
+    right: 5%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #22d3ee, #f59e0b, #a855f7);
+    border-radius: 2px;
+    z-index: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   TIMETABLE SECTION
+══════════════════════════════════════════════════ */
+.timetable-section { background: var(--bg-light); }
+.tt-class-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 36px 0 28px; }
+.tt-tab {
+    padding: 10px 22px; border-radius: 50px;
+    border: 2px solid var(--border);
+    background: #fff; font-family: var(--font-main);
+    font-size: 14px; font-weight: 700; color: var(--text-mid);
+    cursor: pointer; transition: all .2s;
+}
+.tt-tab.active, .tt-tab:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+.tt-table-wrap { background: #fff; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+.tt-table { width: 100%; border-collapse: collapse; }
+.tt-table thead tr { background: var(--navy); }
+.tt-table thead th { padding: 16px 18px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.85); text-align: left; letter-spacing: .5px; text-transform: uppercase; white-space: nowrap; }
+.tt-table thead th:first-child { color: var(--gold); }
+.tt-table tbody tr { border-bottom: 1px solid #f0f3fa; transition: background .15s; }
+.tt-table tbody tr:last-child { border-bottom: none; }
+.tt-table tbody tr:hover { background: #f5f8ff; }
+.tt-table tbody td { padding: 14px 18px; font-size: 14px; color: var(--text-mid); font-weight: 500; white-space: nowrap; }
+.tt-table tbody td:first-child { font-weight: 700; color: var(--navy); }
+.tt-subj-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;
+}
+.tt-subj-pill.math   { background: rgba(26,58,143,.1); color: var(--blue); }
+.tt-subj-pill.sci    { background: rgba(5,150,105,.1); color: var(--green); }
+.tt-subj-pill.lang   { background: rgba(8,145,178,.1); color: var(--teal); }
+.tt-subj-pill.sst    { background: rgba(180,83,9,.1); color: #b45309; }
+.tt-subj-pill.cs     { background: rgba(124,58,237,.1); color: var(--purple); }
+.tt-subj-pill.art    { background: rgba(225,48,108,.1); color: #e1306c; }
+.tt-subj-pill.pe     { background: rgba(249,115,22,.1); color: var(--orange); }
+.tt-subj-pill.break  { background: rgba(245,158,11,.12); color: #d97706; }
+.tt-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(37,99,235,.06); border-radius: 10px; padding: 14px 18px; margin-top: 20px; font-size: 14px; color: var(--text-mid); }
+.tt-note i { color: var(--sky); flex-shrink: 0; margin-top: 2px; }
+
+/* ══════════════════════════════════════════════════
+   EXAM & ASSESSMENT SECTION
+══════════════════════════════════════════════════ */
+.exam-section { background: var(--dark-bg); position: relative; overflow: hidden; }
+.exam-section::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(37,99,235,.06); top:-200px; right:-150px; pointer-events:none; }
+.exam-section::after  { content:''; position:absolute; width:350px; height:350px; border-radius:50%; background:rgba(245,158,11,.05); bottom:-100px; left:-100px; pointer-events:none; }
+
+.exam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; position: relative; z-index:1; }
+
+.exam-schedule-list { display: flex; flex-direction: column; gap: 16px; }
+.exam-item {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex; align-items: center; gap: 18px;
+    border: 1px solid rgba(255,255,255,.07);
+    transition: border-color .2s, transform .2s;
+    cursor: default;
+}
+.exam-item:hover { border-color: rgba(245,158,11,.3); transform: translateX(6px); }
+.exam-date-box {
+    background: linear-gradient(135deg,var(--blue),var(--sky));
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: center;
+    min-width: 64px;
+    flex-shrink: 0;
+}
+.exam-date-box .month { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: 1px; }
+.exam-date-box .day   { font-size: 26px; font-weight: 900; color: #fff; line-height: 1; margin: 2px 0; }
+.exam-date-box .year  { font-size: 11px; color: rgba(255,255,255,.65); font-weight: 600; }
+.exam-info h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.exam-info p  { font-size: 13px; color: rgba(255,255,255,.6); }
+.exam-tag {
+    margin-left: auto; flex-shrink: 0;
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+}
+.exam-tag.upcoming { background: rgba(37,99,235,.2); color: #93c5fd; border: 1px solid rgba(37,99,235,.3); }
+.exam-tag.result   { background: rgba(5,150,105,.2); color: #6ee7b7; border: 1px solid rgba(5,150,105,.3); }
+.exam-tag.holiday  { background: rgba(245,158,11,.15); color: #fcd34d; border: 1px solid rgba(245,158,11,.25); }
+
+/* Assessment Pattern */
+.assessment-cards { display: flex; flex-direction: column; gap: 16px; }
+.assess-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 24px;
+    border: 1px solid rgba(255,255,255,.07);
+    transition: transform .2s, border-color .2s;
+}
+.assess-card:hover { transform: translateX(6px); border-color: rgba(37,99,235,.25); }
+.assess-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.assess-card-title { display: flex; align-items: center; gap: 12px; }
+.assess-card-title i { font-size: 20px; color: var(--gold); }
+.assess-card-title h4 { font-size: 16px; font-weight: 700; color: #fff; }
+.assess-pct { font-size: 22px; font-weight: 800; color: var(--gold); }
+.assess-bar-wrap { height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; }
+.assess-bar { height: 100%; border-radius: 3px; transition: width 1s ease .3s; width: 0; }
+.assess-bar.blue   { background: linear-gradient(90deg,var(--blue),var(--sky)); }
+.assess-bar.gold   { background: linear-gradient(90deg,#b45309,var(--gold)); }
+.assess-bar.green  { background: linear-gradient(90deg,var(--green),#10b981); }
+.assess-bar.teal   { background: linear-gradient(90deg,#0891b2,#22d3ee); }
+.assess-desc { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 8px; }
+
+/* ══════════════════════════════════════════════════
+   FACULTY SECTION
+══════════════════════════════════════════════════ */
+.faculty-section { background: #fff; }
+.faculty-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 56px; }
+.faculty-card {
+    background: var(--bg-soft);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    transition: all .3s cubic-bezier(.34,1.56,.64,1);
+    cursor: default;
+}
+.faculty-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); border-color: rgba(37,99,235,.2); }
+.faculty-img-wrap {
+    position: relative; height: 220px;
+    background: linear-gradient(135deg, #dce8ff, #b8d0ff);
+    overflow: hidden;
+}
+.faculty-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .4s; }
+.faculty-card:hover .faculty-img-wrap img { transform: scale(1.06); }
+.faculty-dept-tag {
+    position: absolute; bottom: 12px; left: 12px;
+    background: var(--navy);
+    color: #fff; font-size: 11px; font-weight: 700;
+    padding: 4px 12px; border-radius: 20px;
+    letter-spacing: .5px; text-transform: uppercase;
+}
+.faculty-body { padding: 20px 22px; }
+.faculty-body h3 { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.faculty-body .designation { font-size: 13px; color: var(--sky); font-weight: 600; margin-bottom: 10px; }
+.faculty-meta { display: flex; gap: 14px; flex-wrap: wrap; }
+.faculty-meta span { font-size: 12.5px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; font-weight: 500; }
+.faculty-meta span i { color: var(--gold); }
+.faculty-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #dce8ff, #b8d0ff);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px; color: #9ab3e0;
+}
+
+/* ══════════════════════════════════════════════════
+   ACADEMIC CALENDAR
+══════════════════════════════════════════════════ */
+.calendar-section { background: var(--bg-light); }
+.calendar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+
+.cal-quarter {
+    background: #fff; border-radius: 20px;
+    box-shadow: var(--shadow); overflow: hidden;
+}
+.cal-quarter-head {
+    padding: 20px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.cal-quarter-head h3 { font-size: 18px; font-weight: 800; color: #fff; }
+.cal-quarter-head span { font-size: 13px; color: rgba(255,255,255,.7); font-weight: 600; }
+.q1 .cal-quarter-head { background: linear-gradient(135deg,#1a3a8f,#2563eb); }
+.q2 .cal-quarter-head { background: linear-gradient(135deg,#0891b2,#22d3ee); }
+.q3 .cal-quarter-head { background: linear-gradient(135deg,#059669,#10b981); }
+.q4 .cal-quarter-head { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+
+.cal-events { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.cal-event {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 14px; border-radius: 12px;
+    background: var(--bg-soft);
+    transition: background .15s;
+}
+.cal-event:hover { background: #e8f0ff; }
+.cal-event-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.cal-event-info { flex: 1; }
+.cal-event-info h4 { font-size: 14px; font-weight: 700; color: var(--navy); }
+.cal-event-info span { font-size: 12px; color: var(--text-muted); }
+.cal-event-type {
+    font-size: 11px; font-weight: 700; padding: 3px 10px;
+    border-radius: 20px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+}
+.type-exam    { background: rgba(124,58,237,.1); color: var(--purple); }
+.type-holiday { background: rgba(249,115,22,.1); color: var(--orange); }
+.type-event   { background: rgba(37,99,235,.1);  color: var(--sky); }
+.type-result  { background: rgba(5,150,105,.1);  color: var(--green); }
+.type-activity{ background: rgba(245,158,11,.12); color: #d97706; }
+
+/* ══════════════════════════════════════════════════
+   CO-CURRICULAR ACTIVITIES
+══════════════════════════════════════════════════ */
+.cocurr-section { background: #fff; }
+.cocurr-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+.cocurr-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 280px;
+    cursor: pointer;
+    transition: transform .3s, box-shadow .3s;
+}
+.cocurr-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+.cocurr-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    position: absolute; inset: 0;
+    display: block;
+    transition: transform .45s;
+}
+.cocurr-card:hover .cocurr-img { transform: scale(1.07); }
+.cocurr-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(15,31,75,.9) 0%, rgba(15,31,75,.3) 55%, transparent 100%);
+}
+.cocurr-body {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px;
+}
+.cocurr-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 21px; color: #fff;
+    margin-bottom: 14px;
+}
+.cocurr-body h3 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.cocurr-body p  { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.55; }
+.cocurr-tag {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--gold); color: #1a1a1a;
+    font-size: 11px; font-weight: 800; padding: 4px 12px;
+    border-radius: 20px; text-transform: uppercase; letter-spacing: .8px;
+}
+/* Placeholder bg for co-curricular if no image */
+.cocurr-placeholder { position: absolute; inset: 0; }
+.cp-sports  { background: linear-gradient(135deg,#1a3a8f,#2563eb); }
+.cp-arts    { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.cp-science { background: linear-gradient(135deg,#059669,#10b981); }
+.cp-music   { background: linear-gradient(135deg,#e1306c,#f77737); }
+.cp-debate  { background: linear-gradient(135deg,#0891b2,#22d3ee); }
+.cp-yoga    { background: linear-gradient(135deg,#d97706,#f59e0b); }
+
+/* ══════════════════════════════════════════════════
+   RESULTS & ACHIEVEMENTS
+══════════════════════════════════════════════════ */
+.results-section { background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); position: relative; overflow: hidden; }
+.results-section::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,.04); top:-100px; right:-80px; pointer-events:none; }
+.results-section::after  { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,.03); bottom:-80px; left:-60px; pointer-events:none; }
+
+.results-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; z-index:1; margin-top: 56px; }
+.result-stat {
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: transform .3s, background .2s;
+}
+.result-stat:hover { transform: translateY(-6px); background: rgba(255,255,255,.14); }
+.result-stat-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; color: #fff; margin: 0 auto 16px;
+}
+.rsi-gold   { background: linear-gradient(135deg,#b45309,#f59e0b); }
+.rsi-green  { background: linear-gradient(135deg,#059669,#10b981); }
+.rsi-blue   { background: linear-gradient(135deg,#1a3a8f,#3b82f6); }
+.rsi-purple { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+.result-stat-num { font-size: 48px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -2px; }
+.result-stat-suf { font-size: 24px; color: var(--gold); }
+.result-stat-label { font-size: 15px; color: rgba(255,255,255,.7); font-weight: 600; margin-top: 8px; }
+
+.toppers-showcase { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; position: relative; z-index:1; }
+.topper-card {
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex; align-items: center; gap: 16px;
+    transition: transform .2s, background .2s;
+}
+.topper-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.15); }
+.topper-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg,#dce8ff,#b8d0ff);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: #9ab3e0;
+}
+.topper-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.topper-info h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.topper-info .class { font-size: 12px; color: rgba(255,255,255,.6); margin-bottom: 6px; }
+.topper-pct { font-size: 18px; font-weight: 900; color: var(--gold); }
+
+/* ══════════════════════════════════════════════════
+   DIGITAL LEARNING
+══════════════════════════════════════════════════ */
+.digital-section { background: var(--bg-soft); }
+.digital-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
+.digital-features { display: flex; flex-direction: column; gap: 20px; }
+.digi-feat {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 22px; background: #fff; border-radius: 16px;
+    border: 1.5px solid var(--border);
+    transition: all .25s;
+}
+.digi-feat:hover { border-color: var(--sky); box-shadow: 0 6px 24px rgba(37,99,235,.12); transform: translateX(6px); }
+.digi-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: #fff; flex-shrink: 0;
+}
+.digi-feat-text h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.digi-feat-text p  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.digital-visual {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 24px;
+    padding: 40px;
+    min-height: 420px;
+    display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+.digital-visual::before {
+    content:'';
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+.dv-title { font-size: 13px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; position: relative; z-index:1; }
+.dv-heading { font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 28px; position: relative; z-index:1; }
+.dv-modules { display: flex; flex-direction: column; gap: 12px; position: relative; z-index:1; }
+.dv-module {
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 14px;
+    transition: transform .2s;
+}
+.dv-module:hover { transform: translateX(6px); }
+.dv-module-icon { font-size: 20px; flex-shrink: 0; }
+.dv-module-info h5 { font-size: 14px; font-weight: 700; color: #fff; }
+.dv-module-info span { font-size: 12px; color: rgba(255,255,255,.6); }
+.dv-module-stat {
+    margin-left: auto;
+    background: rgba(245,158,11,.2);
+    border: 1px solid rgba(245,158,11,.3);
+    color: var(--gold);
+    font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════
+   ADMISSION CTA
+══════════════════════════════════════════════════ */
+.acad-cta-section {
+    background: linear-gradient(135deg,#f97316 0%,#f59e0b 100%);
+    padding: 100px 24px; text-align: center;
+    position: relative; overflow: hidden;
+}
+.acad-cta-section::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,.08); top:-180px; left:-120px; pointer-events:none; }
+.acad-cta-section::after  { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,.06); bottom:-150px; right:-80px; pointer-events:none; }
+.acad-cta-inner { position: relative; z-index:1; }
+.acad-cta-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.2); color: #fff; padding: 7px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 24px; }
+.acad-cta-section h2 { font-size: clamp(28px,4vw,48px); font-weight: 800; color: #fff; max-width: 600px; margin: 0 auto 16px; line-height: 1.1; letter-spacing: -1px; }
+.acad-cta-section p { color: rgba(255,255,255,.88); font-size: 16px; max-width: 500px; margin: 0 auto 36px; line-height: 1.65; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all .2s; }
+.btn-white:hover { background: #0a1535; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,31,75,.4); }
+.btn-outline-white { display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,.7); color: #fff; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all .2s; background: rgba(255,255,255,.1); }
+.btn-outline-white:hover { background: rgba(255,255,255,.25); border-color: #fff; }
+.cta-feats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.cta-feat { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.9); font-size: 14px; font-weight: 600; }
+
+/* ══════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════ */
+footer { background: var(--dark-bg); color: #fff; padding: 72px 24px 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1.3fr; gap: 48px; max-width: 1280px; margin: 0 auto; padding-bottom: 56px; }
+.footer-logo { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.footer-logo .name { font-size: 20px; font-weight: 800; color: #fff; }
+.footer-logo .sub { font-size: 12px; color: var(--sky); display: flex; align-items: center; gap: 6px; }
+.footer-logo .sub::before { content:''; width:20px; height:2px; background:var(--sky); border-radius:2px; }
+.footer-desc { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 20px; }
+.social-icons { display: flex; gap: 12px; }
+.social-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; transition: all .2s; }
+.social-icon:hover { background: var(--sky); color: #fff; }
+.footer-col h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 11px; }
+.footer-links a { font-size: 14px; color: rgba(255,255,255,.55); text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: 8px; }
+.footer-links a::before { content:'›'; font-size:16px; color:var(--sky); font-weight:700; }
+.footer-links a:hover { color: #fff; }
+.footer-contact { list-style: none; }
+.footer-contact li { display: flex; gap: 12px; font-size: 14px; color: rgba(255,255,255,.6); margin-bottom: 14px; line-height: 1.55; }
+.footer-contact li i { color: var(--sky); flex-shrink: 0; margin-top: 2px; }
+.hours-row { display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,.6); margin-bottom: 10px; }
+.hours-row .time   { color: var(--gold); font-weight: 700; }
+.hours-row .closed { color: #ef4444; font-weight: 700; }
+.newsletter-label { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input { flex:1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 11px 14px; color: #fff; font-size: 14px; font-family: var(--font-main); outline: none; transition: border-color .2s; }
+.newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
+.newsletter-form input:focus { border-color: var(--sky); }
+.newsletter-form button { background: var(--gold); border: none; border-radius: 8px; width: 44px; height: 44px; cursor: pointer; color: #1a1a1a; font-size: 16px; transition: background .2s; flex-shrink: 0; }
+.newsletter-form button:hover { background: #e08e00; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 13px; color: rgba(255,255,255,.4); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+.footer-bottom-links a:hover { color: #fff; }
+
+/* ══════════════════════════════════════════════════
+   ANIMATIONS & UTILITIES
+══════════════════════════════════════════════════ */
+.ripple { position: absolute; border-radius: 50%; background: rgba(37,99,235,.15); transform: scale(0); animation: rippleAnim .65s linear forwards; pointer-events: none; }
+@keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.animate { animation: fadeUp .6s ease forwards; }
+.delay-1 { animation-delay: .1s; }
+.delay-2 { animation-delay: .2s; }
+.delay-3 { animation-delay: .3s; }
+
+/* ══════════════════════════════════════════════════
+   BACK TO TOP
+══════════════════════════════════════════════════ */
+.back-top {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    border: none; font-size: 17px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(15,31,75,.35);
+    transition: all .2s; opacity: 0; pointer-events: none;
+}
+.back-top.visible { opacity: 1; pointer-events: all; }
+.back-top:hover { background: var(--sky); transform: translateY(-3px); }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+    .hero-float-cards { display: none; }
+    .faculty-grid { grid-template-columns: repeat(3,1fr); }
+    .structure-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 1024px) {
+    nav, .btn-cta { display: none; }
+    .hamburger { display: flex; }
+    .prog-grid { grid-template-columns: 1fr; }
+    .exam-grid { grid-template-columns: 1fr; }
+    .digital-grid { grid-template-columns: 1fr; }
+    .calendar-grid { grid-template-columns: 1fr; }
+    .faculty-grid { grid-template-columns: repeat(2,1fr); }
+    .results-grid { grid-template-columns: repeat(2,1fr); }
+    .toppers-showcase { grid-template-columns: repeat(2,1fr); }
+    .cocurr-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .structure-grid { grid-template-columns: 1fr 1fr; }
+    .prog-highlights { grid-template-columns: 1fr; }
+    .subject-body-inner { grid-template-columns: 1fr; }
+    .toppers-showcase { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    section { padding: 64px 16px; }
+    .page-hero { min-height: 360px; }
+    .page-hero h1 { font-size: 30px; }
+    .structure-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .faculty-grid { grid-template-columns: 1fr 1fr; }
+    .cocurr-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .prog-tabs { gap: 4px; }
+    .prog-tab { padding: 10px 14px; font-size: 13px; }
+    .logo-text .name { font-size: 18px; }
+    .logo-img-wrap { width: 48px; height: 48px; }
+    .notif-label { display: none; }
+    .hero-chip { padding: 8px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     NOTIFICATION BAR
+════════════════════════════════════════════ -->
+<div class="notif-bar">
+  <div class="notif-inner">
+    <div class="notif-label"><i class="fas fa-bell"></i> Notice</div>
+    <div class="notif-ticker">
+      <div class="notif-track">
+        <span class="notif-item"><i class="fas fa-trophy"></i> Board Result 2025 — Class XII Pass: 100% | Topper: 98.6%</span>
+        <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Apply Now for Class I to XI</span>
+        <span class="notif-item"><i class="fas fa-calendar-alt"></i> Half-Yearly Exams begin 15 April 2026 — Admit Cards issued</span>
+        <span class="notif-item"><i class="fas fa-flask"></i> Science Exhibition — 28 March 2026 | All students to participate</span>
+        <span class="notif-item"><i class="fas fa-star"></i> Merit Scholarship Applications open until 30 March 2026</span>
+        <span class="notif-item"><i class="fas fa-trophy"></i> Board Result 2025 — Class XII Pass: 100% | Topper: 98.6%</span>
+        <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Apply Now for Class I to XI</span>
+        <span class="notif-item"><i class="fas fa-calendar-alt"></i> Half-Yearly Exams begin 15 April 2026 — Admit Cards issued</span>
+        <span class="notif-item"><i class="fas fa-flask"></i> Science Exhibition — 28 March 2026 | All students to participate</span>
+        <span class="notif-item"><i class="fas fa-star"></i> Merit Scholarship Applications open until 30 March 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     MOBILE NAV
+════════════════════════════════════════════ -->
+<div class="mob-overlay" id="mobOverlay" onclick="handleOverlayClick(event)">
+  <div class="mob-drawer">
+    <div class="mob-head">
+      <div class="mob-head-logo">
+        <div class="mob-logo-img"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
+        <div><div class="ln">SMS School</div><div class="ls">Udaipurwati</div></div>
+      </div>
+      <button class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mob-links">
+      <a href="index.php" onclick="closeMob()"><span class="icon"><i class="fas fa-home"></i></span> Home</a>
+      <a href="about.php" onclick="closeMob()"><span class="icon"><i class="fas fa-school"></i></span> About</a>
+      <a href="academics.php" onclick="closeMob()"><span class="icon"><i class="fas fa-book-open"></i></span> Academics</a>
+      <a href="facilities.php" onclick="closeMob()"><span class="icon"><i class="fas fa-building"></i></span> Facilities</a>
+      <a href="gallery.php" onclick="closeMob()"><span class="icon"><i class="fas fa-images"></i></span> Gallery</a>
+      <a href="faculty.php" onclick="closeMob()"><span class="icon"><i class="fas fa-chalkboard-teacher"></i></span> Faculty</a>
+      <a href="contact.php" onclick="closeMob()"><span class="icon"><i class="fas fa-phone"></i></span> Contact</a>
+    </div>
+    <div class="mob-cta">
+      <a href="admission.php" onclick="closeMob()"><i class="fas fa-user-plus"></i> Apply for Admission</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <a href="index.php" class="logo">
+      <div class="logo-img-wrap"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
+      <div class="logo-text">
+        <div class="name">SMS School</div>
+        <div class="sub">Udaipurwati</div>
+      </div>
+    </a>
+    <div class="header-right">
+      <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="academics.php" class="active">Academics</a>
+        <a href="facilities.php">Facilities</a>
+        <a href="gallery.php">Gallery</a>
+        <a href="contact.php">Contact</a>
+      </nav>
+      <a href="admission.php" class="btn-cta">Apply Now</a>
+      <button class="hamburger" onclick="openMob()" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb animate">
+      <a href="index.php"><i class="fas fa-home"></i> Home</a>
+      <span>/</span>
+      <span class="current">Academics</span>
+    </div>
+    <div class="page-hero-badge animate delay-1"><i class="fas fa-book-open"></i> CBSE Affiliated — All Programs</div>
+    <h1 class="animate delay-1">Academics at <span class="accent">SMS School</span></h1>
+    <p class="animate delay-2">A structured, comprehensive curriculum from Nursery to Class XII designed to build knowledge, critical thinking, and life skills in every student.</p>
+    <div class="hero-stat-chips animate delay-3">
+      <div class="hero-chip"><i class="fas fa-graduation-cap"></i> Classes I – XII</div>
+      <div class="hero-chip"><i class="fas fa-certificate"></i> CBSE Affiliated</div>
+      <div class="hero-chip"><i class="fas fa-percentage"></i> 100% Board Results</div>
+      <div class="hero-chip"><i class="fas fa-chalkboard-teacher"></i> 50+ Expert Faculty</div>
+    </div>
+  </div>
+
+  <!-- Floating stat cards (desktop only) -->
+  <div class="hero-float-cards animate delay-2">
+    <div class="hero-float-card">
+      <div class="hfc-icon" style="background:linear-gradient(135deg,#b45309,#f59e0b)"><i class="fas fa-trophy"></i></div>
+      <div class="hfc-text"><div class="num">100%</div><div class="lbl">Board Pass Rate</div></div>
+    </div>
+    <div class="hero-float-card">
+      <div class="hfc-icon" style="background:linear-gradient(135deg,#1a3a8f,#3b82f6)"><i class="fas fa-users"></i></div>
+      <div class="hfc-text"><div class="num">1500+</div><div class="lbl">Enrolled Students</div></div>
+    </div>
+    <div class="hero-float-card">
+      <div class="hfc-icon" style="background:linear-gradient(135deg,#059669,#10b981)"><i class="fas fa-star"></i></div>
+      <div class="hfc-text"><div class="num">20+</div><div class="lbl">Years Excellence</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ACADEMIC PROGRAMS (TAB SECTION)
+════════════════════════════════════════════ -->
+<section class="programs-section" id="programs">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">Academic Programs</div>
+      <h2 class="section-title">Tailored Learning for <span class="blue">Every Stage</span></h2>
+      <p class="section-sub center">Our programs are designed with age-appropriate pedagogy, ensuring each student gets the right challenge at the right time.</p>
+    </div>
+
+    <div class="prog-tabs-wrap">
+      <div class="prog-tabs">
+        <button class="prog-tab active" onclick="switchProgTab('primary', this)"><i class="fas fa-child"></i> Primary (I–V)</button>
+        <button class="prog-tab" onclick="switchProgTab('middle', this)"><i class="fas fa-book"></i> Middle (VI–VIII)</button>
+        <button class="prog-tab" onclick="switchProgTab('senior', this)"><i class="fas fa-graduation-cap"></i> Secondary (IX–X)</button>
+        <button class="prog-tab" onclick="switchProgTab('senior2', this)"><i class="fas fa-university"></i> Sr. Secondary (XI–XII)</button>
+        <button class="prog-tab" onclick="switchProgTab('extra', this)"><i class="fas fa-palette"></i> Co-Curricular</button>
+      </div>
+    </div>
+
+    <!-- PRIMARY PANEL -->
+    <div class="prog-panel active" id="panel-primary">
+      <div class="prog-grid">
+        <div class="prog-info">
+          <div class="prog-info-badge primary"><i class="fas fa-child"></i> Classes I – V | Age 6–11</div>
+          <h2>Primary School — <span>Building the Foundation</span></h2>
+          <p>Our primary program focuses on curiosity-driven learning, building literacy, numeracy, and social skills. We use activity-based methods, storytelling, and play to make learning joyful and effective.</p>
+          <div class="prog-highlights">
+            <div class="prog-hl"><div class="prog-hl-icon blue"><i class="fas fa-book-reader"></i></div><div><h4>Literacy First</h4><p>Hindi, English & reading comprehension</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon green"><i class="fas fa-calculator"></i></div><div><h4>Numeracy Skills</h4><p>Concept-based mathematics & logical thinking</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon orange"><i class="fas fa-paint-brush"></i></div><div><h4>Art & Craft</h4><p>Creative expression through art activities</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon teal"><i class="fas fa-running"></i></div><div><h4>Physical Education</h4><p>Daily activity & sports for healthy growth</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon purple"><i class="fas fa-music"></i></div><div><h4>Music & Rhymes</h4><p>Songs, rhymes & instruments basics</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon gold"><i class="fas fa-globe"></i></div><div><h4>EVS / GK</h4><p>Environmental awareness & general knowledge</p></div></div>
+          </div>
+          <div class="prog-cta-btns">
+            <a href="admission.php" class="btn-primary"><i class="fas fa-user-plus"></i> Enroll Now</a>
+            <a href="contact.php" class="btn-outline"><i class="fas fa-phone"></i> Enquire</a>
+          </div>
+        </div>
+        <div class="prog-right">
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon lang"><i class="fas fa-language"></i></div><div><h4>English Language</h4><span>Reading, Writing & Grammar</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Reading & Comprehension</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> English Grammar Basics</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Creative Writing</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Spoken English</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Vocabulary Building</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Poem & Story Recitation</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon math"><i class="fas fa-square-root-alt"></i></div><div><h4>Mathematics</h4><span>Number sense, Operations & Geometry</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Number Systems</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Basic Operations</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Shapes & Geometry</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Measurement & Data</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Mental Maths</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Fractions & Decimals</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sci"><i class="fas fa-leaf"></i></div><div><h4>Environmental Studies</h4><span>Nature, Science & Society</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Plants & Animals</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Our Earth & Environment</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Family & Community</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Food & Health</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Transport & Communication</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Festivals & Culture</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sst"><i class="fas fa-om"></i></div><div><h4>Hindi</h4><span>Language, Literature & Grammar</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Hindi Reading & Writing</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Hindi Grammar</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Story Comprehension</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Essay & Letter Writing</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Poem Recitation</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Vocabulary (Shabd Bhandar)</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIDDLE PANEL -->
+    <div class="prog-panel" id="panel-middle">
+      <div class="prog-grid">
+        <div class="prog-info">
+          <div class="prog-info-badge middle"><i class="fas fa-book"></i> Classes VI – VIII | Age 11–14</div>
+          <h2>Middle School — <span>Deepening Knowledge</span></h2>
+          <p>Middle school bridges elementary and secondary education, introducing students to subject-specific learning with a focus on scientific thinking, language proficiency, and social understanding.</p>
+          <div class="prog-highlights">
+            <div class="prog-hl"><div class="prog-hl-icon blue"><i class="fas fa-atom"></i></div><div><h4>Science Subjects</h4><p>Physics, Chemistry & Biology basics</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon green"><i class="fas fa-calculator"></i></div><div><h4>Advanced Maths</h4><p>Algebra, geometry & number theory</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon teal"><i class="fas fa-laptop"></i></div><div><h4>Computer Science</h4><p>Fundamentals, MS Office & Basic Coding</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon orange"><i class="fas fa-map"></i></div><div><h4>Social Studies</h4><p>History, Geography & Civics</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon purple"><i class="fas fa-language"></i></div><div><h4>3rd Language</h4><p>Sanskrit / Rajasthani as optional</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon gold"><i class="fas fa-chalkboard"></i></div><div><h4>Smart Classes</h4><p>Interactive board-based visual learning</p></div></div>
+          </div>
+          <div class="prog-cta-btns">
+            <a href="admission.php" class="btn-primary"><i class="fas fa-user-plus"></i> Enroll Now</a>
+            <a href="contact.php" class="btn-outline"><i class="fas fa-phone"></i> Enquire</a>
+          </div>
+        </div>
+        <div class="prog-right">
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sci"><i class="fas fa-flask"></i></div><div><h4>Science</h4><span>Physics, Chemistry, Biology</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Force & Motion (Physics)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Matter & Chemical Reactions</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Cell Biology</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Light & Sound</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Ecology & Environment</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Practical Lab Work</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon math"><i class="fas fa-infinity"></i></div><div><h4>Mathematics</h4><span>Algebra, Geometry & Statistics</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Integers & Rational Numbers</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Linear Equations</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Triangles & Congruence</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Mensuration</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Data Handling</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Probability Basics</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon cs"><i class="fas fa-desktop"></i></div><div><h4>Computer Science</h4><span>IT Fundamentals & Programming</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Computer Hardware & Software</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> MS Office Suite</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Internet Basics</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Introduction to Python</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Cyber Safety</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Logo / Scratch Programming</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sst"><i class="fas fa-globe-asia"></i></div><div><h4>Social Studies</h4><span>History, Geography & Civics</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Ancient & Medieval India</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Physical Geography of India</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Resources & Development</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Indian Constitution</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Democratic Governance</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Economic Development</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECONDARY PANEL (IX-X) -->
+    <div class="prog-panel" id="panel-senior">
+      <div class="prog-grid">
+        <div class="prog-info">
+          <div class="prog-info-badge senior"><i class="fas fa-graduation-cap"></i> Classes IX – X | Board Prep</div>
+          <h2>Secondary School — <span>Board Readiness</span></h2>
+          <p>The secondary program is designed to build strong foundational knowledge in all core subjects and prepare students thoroughly for the CBSE Board Examinations (Class X).</p>
+          <div class="prog-highlights">
+            <div class="prog-hl"><div class="prog-hl-icon blue"><i class="fas fa-atom"></i></div><div><h4>Science Stream</h4><p>Physics, Chemistry & Biology (PCB)</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon green"><i class="fas fa-square-root-alt"></i></div><div><h4>Mathematics</h4><p>Full NCERT syllabus + previous papers</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon teal"><i class="fas fa-newspaper"></i></div><div><h4>English & Hindi</h4><p>Literature, grammar & writing skills</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon orange"><i class="fas fa-globe"></i></div><div><h4>Social Science</h4><p>History, Geography, Economics & Polity</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon purple"><i class="fas fa-clipboard-check"></i></div><div><h4>Mock Tests</h4><p>Regular practice with CBSE pattern tests</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon gold"><i class="fas fa-user-tie"></i></div><div><h4>Career Guidance</h4><p>Stream selection counselling for Class XI</p></div></div>
+          </div>
+          <div class="prog-cta-btns">
+            <a href="admission.php" class="btn-primary"><i class="fas fa-user-plus"></i> Enroll Now</a>
+            <a href="contact.php" class="btn-outline"><i class="fas fa-phone"></i> Enquire</a>
+          </div>
+        </div>
+        <div class="prog-right">
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sci"><i class="fas fa-microscope"></i></div><div><h4>Science (PCB)</h4><span>Physics, Chemistry & Biology</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Laws of Motion & Work-Energy</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Atoms, Molecules & Bonding</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Life Processes & Reproduction</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Electricity & Magnetism</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Acids, Bases & Carbon Compounds</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Heredity & Evolution</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon math"><i class="fas fa-chart-line"></i></div><div><h4>Mathematics</h4><span>NCERT + Advanced Problem Solving</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Real Numbers & Polynomials</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Quadratic Equations</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Coordinate Geometry</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Trigonometry</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Statistics & Probability</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Areas & Volumes</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sst"><i class="fas fa-landmark"></i></div><div><h4>Social Science</h4><span>History, Geography, Economics & Polity</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Modern India — Nationalism</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Climate & Resources of India</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Money & Banking</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Indian Democracy</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Agriculture & Sectors</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Globalisation & Economy</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon cs"><i class="fas fa-code"></i></div><div><h4>IT / Computer Applications</h4><span>Coding, Web & Database basics</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Python Programming</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> HTML & Web Design</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> MySQL Basics</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Networking Fundamentals</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Cyber Security</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Project Work</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SR. SECONDARY PANEL (XI-XII) -->
+    <div class="prog-panel" id="panel-senior2">
+      <div class="prog-grid">
+        <div class="prog-info">
+          <div class="prog-info-badge senior"><i class="fas fa-university"></i> Classes XI – XII | Senior Secondary</div>
+          <h2>Senior Secondary — <span>Career Pathways</span></h2>
+          <p>We offer Science and Commerce streams for Class XI–XII, preparing students for board exams, competitive entrance tests (JEE, NEET, CA Foundation), and higher education admissions.</p>
+          <div class="prog-highlights">
+            <div class="prog-hl"><div class="prog-hl-icon blue"><i class="fas fa-atom"></i></div><div><h4>Science Stream</h4><p>PCM / PCB for JEE & NEET aspirants</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon green"><i class="fas fa-coins"></i></div><div><h4>Commerce Stream</h4><p>Accountancy, Economics & Business Studies</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon purple"><i class="fas fa-chalkboard-teacher"></i></div><div><h4>Competitive Prep</h4><p>JEE, NEET, CA Foundation coaching</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon teal"><i class="fas fa-laptop-code"></i></div><div><h4>Computer Science</h4><p>Python, Data Structures & SQL</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon orange"><i class="fas fa-user-tie"></i></div><div><h4>Career Counselling</h4><p>College guidance, entrance coaching</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon gold"><i class="fas fa-clipboard-check"></i></div><div><h4>Practicals & Projects</h4><p>Regular practicals + internal projects</p></div></div>
+          </div>
+          <div class="prog-cta-btns">
+            <a href="admission.php" class="btn-primary"><i class="fas fa-user-plus"></i> Enroll Now</a>
+            <a href="contact.php" class="btn-outline"><i class="fas fa-phone"></i> Enquire</a>
+          </div>
+        </div>
+        <div class="prog-right">
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon sci"><i class="fas fa-atom"></i></div><div><h4>Physics (Science Stream)</h4><span>Mechanics, Optics, Modern Physics</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Laws of Motion & Gravitation</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Waves & Oscillations</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Electrostatics & Current</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Optics & Ray Diagrams</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Modern Physics (Atoms & Nuclei)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Semiconductor Devices</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon commerce"><i class="fas fa-file-invoice-dollar"></i></div><div><h4>Accountancy (Commerce)</h4><span>Financial Accounting & Analysis</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Partnership Accounts</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Company Accounts</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Cash Flow Statements</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Ratio Analysis</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Issue of Shares & Debentures</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Computerised Accounting</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon math"><i class="fas fa-equals"></i></div><div><h4>Mathematics</h4><span>Calculus, Vectors & Probability</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Limits & Derivatives (Calculus)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Matrices & Determinants</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Three Dimensional Geometry</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Vectors & Linear Prog.</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Integration & Applications</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Probability & Distributions</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon cs"><i class="fas fa-laptop-code"></i></div><div><h4>Computer Science / IT</h4><span>Python, Data Structures, MySQL</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> OOP with Python</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Data Structures (Stack, Queue)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> File Handling in Python</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> MySQL & RDBMS</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Computer Networks & Internet</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Project Development</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CO-CURRICULAR PANEL -->
+    <div class="prog-panel" id="panel-extra">
+      <div class="prog-grid">
+        <div class="prog-info">
+          <div class="prog-info-badge extra"><i class="fas fa-palette"></i> Beyond the Classroom</div>
+          <h2>Co-Curricular — <span>All-Round Growth</span></h2>
+          <p>We believe education extends beyond textbooks. Our co-curricular programs develop character, creativity, teamwork and leadership — essential qualities for success in the modern world.</p>
+          <div class="prog-highlights">
+            <div class="prog-hl"><div class="prog-hl-icon blue"><i class="fas fa-futbol"></i></div><div><h4>Sports & Athletics</h4><p>Cricket, Football, Basketball, Badminton</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon purple"><i class="fas fa-music"></i></div><div><h4>Music & Dance</h4><p>Classical, western music & folk dance</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon orange"><i class="fas fa-paint-brush"></i></div><div><h4>Visual Arts</h4><p>Painting, sketching & craft activities</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon teal"><i class="fas fa-microphone-alt"></i></div><div><h4>Debate & Elocution</h4><p>Public speaking & communication skills</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon green"><i class="fas fa-seedling"></i></div><div><h4>Yoga & Wellness</h4><p>Morning yoga, meditation & fitness</p></div></div>
+            <div class="prog-hl"><div class="prog-hl-icon gold"><i class="fas fa-users-cog"></i></div><div><h4>Student Council</h4><p>Leadership, responsibility & governance</p></div></div>
+          </div>
+          <div class="prog-cta-btns">
+            <a href="gallery.php" class="btn-primary"><i class="fas fa-images"></i> View Gallery</a>
+            <a href="contact.php" class="btn-outline"><i class="fas fa-phone"></i> Enquire</a>
+          </div>
+        </div>
+        <div class="prog-right">
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon pe"><i class="fas fa-trophy"></i></div><div><h4>Sports Program</h4><span>Team & Individual Sports</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Cricket (Coaching)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Football & Basketball</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Badminton & Table Tennis</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Athletics & Track Events</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Inter-School Tournaments</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Annual Sports Day</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon art"><i class="fas fa-music"></i></div><div><h4>Music & Performing Arts</h4><span>Vocal, Instrumental & Dance</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Vocal Music (Hindustani)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Tabla & Harmonium</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Classical Dance</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Folk & Cultural Dance</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Drama & Theatre</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Annual Cultural Show</div>
+            </div></div>
+          </div>
+          <div class="subject-card" onclick="toggleSubject(this)">
+            <div class="subject-head"><div class="subject-head-left"><div class="subj-icon lang"><i class="fas fa-microphone"></i></div><div><h4>Public Speaking & Debate</h4><span>Communication & Leadership</span></div></div><button class="subj-arrow"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="subject-body"><div class="subject-body-inner">
+              <div class="subj-topic"><i class="fas fa-circle"></i> Elocution Competitions</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Hindi & English Debate</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Quiz Competitions</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Story Telling</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> MUN (Model UN)</div>
+              <div class="subj-topic"><i class="fas fa-circle"></i> Personality Development</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ACADEMIC STRUCTURE
+════════════════════════════════════════════ -->
+<section class="structure-section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">School Structure</div>
+      <h2 class="section-title">Educational <span class="blue">Journey at SMS School</span></h2>
+      <p class="section-sub center">From the very first day of school to board exams — a well-structured 12-year academic journey.</p>
+    </div>
+    <div class="structure-grid" id="structureGrid">
+      <div class="struct-card c1">
+        <div class="struct-num">Stage 1</div>
+        <div class="struct-icon"><i class="fas fa-child"></i></div>
+        <h3>Primary School</h3>
+        <div class="grade">Classes I – V</div>
+        <ul class="struct-features">
+          <li><i class="fas fa-check-circle"></i> Activity-based learning</li>
+          <li><i class="fas fa-check-circle"></i> English & Hindi Literacy</li>
+          <li><i class="fas fa-check-circle"></i> Basic Sciences & Maths</li>
+          <li><i class="fas fa-check-circle"></i> Arts, Music & PE</li>
+          <li><i class="fas fa-check-circle"></i> No formal board exams</li>
+        </ul>
+        <div class="struct-age"><i class="fas fa-birthday-cake"></i> Age: 6 – 11 years</div>
+      </div>
+      <div class="struct-card c2">
+        <div class="struct-num">Stage 2</div>
+        <div class="struct-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Middle School</h3>
+        <div class="grade">Classes VI – VIII</div>
+        <ul class="struct-features">
+          <li><i class="fas fa-check-circle"></i> Subject-wise teaching</li>
+          <li><i class="fas fa-check-circle"></i> Science, Maths, SST</li>
+          <li><i class="fas fa-check-circle"></i> Computer Education</li>
+          <li><i class="fas fa-check-circle"></i> Third Language</li>
+          <li><i class="fas fa-check-circle"></i> Half/Full Yearly exams</li>
+        </ul>
+        <div class="struct-age"><i class="fas fa-birthday-cake"></i> Age: 11 – 14 years</div>
+      </div>
+      <div class="struct-card c3">
+        <div class="struct-num">Stage 3</div>
+        <div class="struct-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Secondary</h3>
+        <div class="grade">Classes IX – X</div>
+        <ul class="struct-features">
+          <li><i class="fas fa-check-circle"></i> CBSE Board Syllabus</li>
+          <li><i class="fas fa-check-circle"></i> Practical Exams</li>
+          <li><i class="fas fa-check-circle"></i> Mock Test Series</li>
+          <li><i class="fas fa-check-circle"></i> Career Counselling</li>
+          <li><i class="fas fa-check-circle"></i> Class X Board Exam</li>
+        </ul>
+        <div class="struct-age"><i class="fas fa-birthday-cake"></i> Age: 14 – 16 years</div>
+      </div>
+      <div class="struct-card c4">
+        <div class="struct-num">Stage 4</div>
+        <div class="struct-icon"><i class="fas fa-university"></i></div>
+        <h3>Sr. Secondary</h3>
+        <div class="grade">Classes XI – XII</div>
+        <ul class="struct-features">
+          <li><i class="fas fa-check-circle"></i> Science / Commerce streams</li>
+          <li><i class="fas fa-check-circle"></i> Entrance Exam Prep</li>
+          <li><i class="fas fa-check-circle"></i> Lab Practicals</li>
+          <li><i class="fas fa-check-circle"></i> Higher-Ed Guidance</li>
+          <li><i class="fas fa-check-circle"></i> Class XII Board Exam</li>
+        </ul>
+        <div class="struct-age"><i class="fas fa-birthday-cake"></i> Age: 16 – 18 years</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TIMETABLE
+════════════════════════════════════════════ -->
+<section class="timetable-section" id="timetable">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">Daily Schedule</div>
+      <h2 class="section-title">Sample <span class="blue">Class Timetable</span></h2>
+      <p class="section-sub center">A well-balanced daily schedule ensuring adequate time for every subject, activity and rest.</p>
+    </div>
+    <div class="tt-class-tabs">
+      <button class="tt-tab active" onclick="switchTTTab('class6', this)">Class VI</button>
+      <button class="tt-tab" onclick="switchTTTab('class8', this)">Class VIII</button>
+      <button class="tt-tab" onclick="switchTTTab('class10', this)">Class X</button>
+      <button class="tt-tab" onclick="switchTTTab('class12', this)">Class XII</button>
+    </div>
+
+    <!-- Class 6 Table -->
+    <div id="tt-class6" class="tt-panel" style="display:block">
+      <div class="tt-table-wrap">
+        <table class="tt-table">
+          <thead><tr>
+            <th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>8:00 – 8:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-pray"></i> Assembly & Morning Prayer</span></td></tr>
+            <tr><td>8:30 – 9:15</td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill cs">Comp.</span></td></tr>
+            <tr><td>9:15 – 10:00</td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill art">Art</span></td></tr>
+            <tr><td>10:00 – 10:15</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-coffee"></i> Short Break</span></td></tr>
+            <tr><td>10:15 – 11:00</td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill pe">P.Ed.</span></td></tr>
+            <tr><td>11:00 – 11:45</td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill cs">Comp.</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill lang">Sanskrit</span></td></tr>
+            <tr><td>11:45 – 12:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-utensils"></i> Lunch Break</span></td></tr>
+            <tr><td>12:30 – 1:15</td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill cs">Comp.</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill art">Art</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td colspan="1">—</td></tr>
+            <tr><td>1:15 – 2:00</td><td><span class="tt-subj-pill pe">P.Ed.</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sst">Library</span></td><td colspan="1">—</td></tr>
+            <tr><td>2:00 – 3:00</td><td colspan="5" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-clock"></i> Activities / Extra Class</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tt-note"><i class="fas fa-info-circle"></i> <span>This is a representative timetable. Actual timetables are distributed at the start of each session. School hours: 8:00 AM – 3:00 PM (Mon–Fri), 8:00 AM – 1:00 PM (Sat)</span></div>
+    </div>
+
+    <!-- Class 8, 10, 12 placeholders (same structure, different label) -->
+    <div id="tt-class8" class="tt-panel" style="display:none">
+      <div class="tt-table-wrap">
+        <table class="tt-table">
+          <thead><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr></thead>
+          <tbody>
+            <tr><td>8:00 – 8:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-pray"></i> Assembly & Morning Prayer</span></td></tr>
+            <tr><td>8:30 – 9:15</td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill cs">Comp.</span></td></tr>
+            <tr><td>9:15 – 10:00</td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill art">Art</span></td></tr>
+            <tr><td>10:00 – 10:15</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-coffee"></i> Short Break</span></td></tr>
+            <tr><td>10:15 – 11:00</td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill cs">Comp.</span></td><td><span class="tt-subj-pill pe">P.Ed.</span></td></tr>
+            <tr><td>11:00 – 11:45</td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">Sanskrit</span></td></tr>
+            <tr><td>11:45 – 12:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-utensils"></i> Lunch Break</span></td></tr>
+            <tr><td>12:30 – 1:15</td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill cs">Comp.</span></td><td><span class="tt-subj-pill sci">Science</span></td><td><span class="tt-subj-pill sst">Library</span></td><td>—</td></tr>
+            <tr><td>1:15 – 2:00</td><td><span class="tt-subj-pill pe">P.Ed.</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sst">S.St.</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tt-note"><i class="fas fa-info-circle"></i> <span>Sample timetable for Class VIII. Actual timetables are distributed at the start of each session.</span></div>
+    </div>
+    <div id="tt-class10" class="tt-panel" style="display:none">
+      <div class="tt-table-wrap">
+        <table class="tt-table">
+          <thead><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr></thead>
+          <tbody>
+            <tr><td>8:00 – 8:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-pray"></i> Assembly & Morning Prayer</span></td></tr>
+            <tr><td>8:30 – 9:20</td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sci">Physics</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Chemistry</span></td><td><span class="tt-subj-pill sst">S.Sc.</span></td><td><span class="tt-subj-pill cs">IT/Comp.</span></td></tr>
+            <tr><td>9:20 – 10:10</td><td><span class="tt-subj-pill sci">Biology</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill sci">Physics</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill pe">P.Ed.</span></td></tr>
+            <tr><td>10:10 – 10:25</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-coffee"></i> Short Break</span></td></tr>
+            <tr><td>10:25 – 11:15</td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sci">Biology</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Physics</span></td><td><span class="tt-subj-pill sci">Lab</span></td></tr>
+            <tr><td>11:15 – 12:05</td><td><span class="tt-subj-pill sci">Chemistry</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Biology</span></td><td><span class="tt-subj-pill sci">Chemistry</span></td><td><span class="tt-subj-pill math">Maths</span></td><td><span class="tt-subj-pill lang">Mock Test</span></td></tr>
+            <tr><td>12:05 – 12:50</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-utensils"></i> Lunch Break</span></td></tr>
+            <tr><td>12:50 – 1:40</td><td><span class="tt-subj-pill sst">S.Sc.</span></td><td><span class="tt-subj-pill sst">S.Sc.</span></td><td><span class="tt-subj-pill cs">IT Lab</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sst">S.Sc.</span></td><td>—</td></tr>
+            <tr><td>1:40 – 3:00</td><td colspan="5" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-flask"></i> Lab / Doubt Session / Activity</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tt-note"><i class="fas fa-info-circle"></i> <span>Class X has extended periods and dedicated doubt-clearing sessions before board exams. Timetable may vary by term.</span></div>
+    </div>
+    <div id="tt-class12" class="tt-panel" style="display:none">
+      <div class="tt-table-wrap">
+        <table class="tt-table">
+          <thead><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr></thead>
+          <tbody>
+            <tr><td>8:00 – 8:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-pray"></i> Assembly & Morning Prayer</span></td></tr>
+            <tr><td>8:30 – 9:30</td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill sci">Physics/Eco</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Chemistry/BS</span></td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill cs">CS/IT</span></td></tr>
+            <tr><td>9:30 – 10:30</td><td><span class="tt-subj-pill sci">Physics/Eco</span></td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill sci">Chemistry/BS</span></td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill sci">Biology/CS</span></td><td><span class="tt-subj-pill pe">PE/Yoga</span></td></tr>
+            <tr><td>10:30 – 10:45</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-coffee"></i> Short Break</span></td></tr>
+            <tr><td>10:45 – 11:45</td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sci">Biology/CS</span></td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill sci">Physics/Eco</span></td><td><span class="tt-subj-pill sci">Lab/Proj.</span></td></tr>
+            <tr><td>11:45 – 12:45</td><td><span class="tt-subj-pill sci">Chemistry/BS</span></td><td><span class="tt-subj-pill lang">English</span></td><td><span class="tt-subj-pill lang">Hindi</span></td><td><span class="tt-subj-pill sci">Physics/Eco</span></td><td><span class="tt-subj-pill math">Maths/Acc.</span></td><td><span class="tt-subj-pill lang">Doubt Session</span></td></tr>
+            <tr><td>12:45 – 1:30</td><td colspan="6" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-utensils"></i> Lunch Break</span></td></tr>
+            <tr><td>1:30 – 3:00</td><td colspan="5" style="text-align:center"><span class="tt-subj-pill break"><i class="fas fa-flask"></i> Practicals / Lab / Entrance Prep</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tt-note"><i class="fas fa-info-circle"></i> <span>Class XII schedule includes dedicated entrance exam preparation slots. Acc = Accountancy, BS = Business Studies, Eco = Economics.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EXAM & ASSESSMENT
+════════════════════════════════════════════ -->
+<section class="exam-section" id="exams">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center gold">Exams & Assessment</div>
+      <h2 class="section-title white">Structured <span class="gold">Evaluation System</span></h2>
+      <p class="section-sub center" style="color:rgba(255,255,255,.65)">Our comprehensive assessment pattern follows CBSE guidelines to ensure fair and thorough evaluation of every student.</p>
+    </div>
+    <div class="exam-grid">
+      <!-- Exam Schedule -->
+      <div>
+        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:24px;display:flex;align-items:center;gap:10px"><i class="fas fa-calendar-alt" style="color:var(--gold)"></i> Upcoming Exam Schedule</h3>
+        <div class="exam-schedule-list">
+          <div class="exam-item">
+            <div class="exam-date-box"><div class="month">Mar</div><div class="day">20</div><div class="year">2026</div></div>
+            <div class="exam-info"><h4>Unit Test – I (Class VI–IX)</h4><p>All subjects — Class VI to IX | 90 mins each</p></div>
+            <div class="exam-tag upcoming">Upcoming</div>
+          </div>
+          <div class="exam-item">
+            <div class="exam-date-box"><div class="month">Apr</div><div class="day">15</div><div class="year">2026</div></div>
+            <div class="exam-info"><h4>Half-Yearly Examinations</h4><p>Class I – XII | Board Pattern | 3 Hours</p></div>
+            <div class="exam-tag upcoming">Upcoming</div>
+          </div>
+          <div class="exam-item">
+            <div class="exam-date-box"><div class="month">Sep</div><div class="day">5</div><div class="year">2026</div></div>
+            <div class="exam-info"><h4>Pre-Board Examination – I</h4><p>Class X & XII | CBSE Board Pattern</p></div>
+            <div class="exam-tag upcoming">Scheduled</div>
+          </div>
+          <div class="exam-item">
+            <div class="exam-date-box"><div class="month">Oct</div><div class="day">20</div><div class="year">2026</div></div>
+            <div class="exam-info"><h4>Annual / Board Practical Exams</h4><p>Class X & XII — All practical subjects</p></div>
+            <div class="exam-tag upcoming">Scheduled</div>
+          </div>
+          <div class="exam-item">
+            <div class="exam-date-box"><div class="month">Feb</div><div class="day">15</div><div class="year">2027</div></div>
+            <div class="exam-info"><h4>CBSE Board Examinations 2027</h4><p>Class X & XII — Main Board Exams</p></div>
+            <div class="exam-tag upcoming">Board</div>
+          </div>
+        </div>
+      </div>
+      <!-- Assessment Pattern -->
+      <div>
+        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:24px;display:flex;align-items:center;gap:10px"><i class="fas fa-chart-pie" style="color:var(--gold)"></i> CBSE Assessment Pattern (IX–XII)</h3>
+        <div class="assessment-cards">
+          <div class="assess-card">
+            <div class="assess-card-head">
+              <div class="assess-card-title"><i class="fas fa-file-alt"></i><h4>Board / Annual Exam</h4></div>
+              <div class="assess-pct">80%</div>
+            </div>
+            <div class="assess-bar-wrap"><div class="assess-bar blue" data-width="80%"></div></div>
+            <div class="assess-desc">Theory examination conducted by CBSE board at the end of academic year</div>
+          </div>
+          <div class="assess-card">
+            <div class="assess-card-head">
+              <div class="assess-card-title"><i class="fas fa-tasks"></i><h4>Internal Assessment</h4></div>
+              <div class="assess-pct">20%</div>
+            </div>
+            <div class="assess-bar-wrap"><div class="assess-bar gold" data-width="20%"></div></div>
+            <div class="assess-desc">Portfolio, periodic tests, subject enrichment and attendance-based evaluation</div>
+          </div>
+          <div class="assess-card">
+            <div class="assess-card-head">
+              <div class="assess-card-title"><i class="fas fa-flask"></i><h4>Practical Exam (Sci/CS)</h4></div>
+              <div class="assess-pct">30%</div>
+            </div>
+            <div class="assess-bar-wrap"><div class="assess-bar green" data-width="30%"></div></div>
+            <div class="assess-desc">Lab-based practical examinations conducted by school and external examiners</div>
+          </div>
+          <div class="assess-card">
+            <div class="assess-card-head">
+              <div class="assess-card-title"><i class="fas fa-project-diagram"></i><h4>Projects & Activities</h4></div>
+              <div class="assess-pct">10%</div>
+            </div>
+            <div class="assess-bar-wrap"><div class="assess-bar teal" data-width="10%"></div></div>
+            <div class="assess-desc">Research projects, presentations and co-curricular participation marks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FACULTY
+════════════════════════════════════════════ -->
+<section class="faculty-section" id="faculty">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">Our Faculty</div>
+      <h2 class="section-title">Meet Our <span class="blue">Expert Teachers</span></h2>
+      <p class="section-sub center">Our dedicated team of qualified, experienced educators bring passion and expertise to every classroom.</p>
+    </div>
+    <div class="faculty-grid" id="facultyGrid">
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user-tie"></i></div><div class="faculty-dept-tag">Principal</div></div>
+        <div class="faculty-body"><h3>Dr. Ramesh Kumar Sharma</h3><div class="designation">Principal & Director</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.Sc., B.Ed., Ph.D.</span><span><i class="fas fa-calendar"></i> 28 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user"></i></div><div class="faculty-dept-tag">Mathematics</div></div>
+        <div class="faculty-body"><h3>Mrs. Sunita Agarwal</h3><div class="designation">Sr. Maths Teacher (XI–XII)</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.Sc. Maths, B.Ed.</span><span><i class="fas fa-calendar"></i> 15 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user-graduate"></i></div><div class="faculty-dept-tag">Science</div></div>
+        <div class="faculty-body"><h3>Mr. Vijay Singh Meena</h3><div class="designation">Physics & Chemistry (IX–XII)</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.Sc. Physics, B.Ed.</span><span><i class="fas fa-calendar"></i> 12 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user"></i></div><div class="faculty-dept-tag">English</div></div>
+        <div class="faculty-body"><h3>Mrs. Priya Mishra</h3><div class="designation">English Language & Literature</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.A. English, B.Ed.</span><span><i class="fas fa-calendar"></i> 10 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user-tie"></i></div><div class="faculty-dept-tag">Commerce</div></div>
+        <div class="faculty-body"><h3>Mr. Anil Kumar Gupta</h3><div class="designation">Accountancy & Business Studies</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.Com., B.Ed., CA Inter</span><span><i class="fas fa-calendar"></i> 14 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user"></i></div><div class="faculty-dept-tag">Hindi</div></div>
+        <div class="faculty-body"><h3>Mrs. Kavita Sharma</h3><div class="designation">Hindi Language & Literature</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.A. Hindi, B.Ed.</span><span><i class="fas fa-calendar"></i> 18 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user-graduate"></i></div><div class="faculty-dept-tag">Biology</div></div>
+        <div class="faculty-body"><h3>Dr. Meena Kumari Yadav</h3><div class="designation">Biology (IX–XII)</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> M.Sc. Botany, Ph.D.</span><span><i class="fas fa-calendar"></i> 11 yrs exp.</span></div></div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-img-wrap"><div class="faculty-placeholder"><i class="fas fa-user"></i></div><div class="faculty-dept-tag">Computer Sc.</div></div>
+        <div class="faculty-body"><h3>Mr. Rahul Verma</h3><div class="designation">Computer Science (VI–XII)</div><div class="faculty-meta"><span><i class="fas fa-graduation-cap"></i> MCA, B.Ed.</span><span><i class="fas fa-calendar"></i> 8 yrs exp.</span></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="faculty.php" class="btn-primary"><i class="fas fa-users"></i> Meet All Faculty Members</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ACADEMIC CALENDAR
+════════════════════════════════════════════ -->
+<section class="calendar-section" id="calendar">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">Academic Calendar</div>
+      <h2 class="section-title">Session <span class="blue">2025 – 2026</span> Calendar</h2>
+      <p class="section-sub center">Key academic dates, examinations, holidays, and events planned for the academic year.</p>
+    </div>
+    <div class="calendar-grid" id="calGrid">
+      <div class="cal-quarter q1">
+        <div class="cal-quarter-head"><h3>Quarter I</h3><span>April – June 2025</span></div>
+        <div class="cal-events">
+          <div class="cal-event"><div class="cal-event-dot" style="background:#3b82f6"></div><div class="cal-event-info"><h4>New Session Begins</h4><span>1 April 2025</span></div><span class="cal-event-type type-event">Event</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f59e0b"></div><div class="cal-event-info"><h4>Unit Test – I</h4><span>15 May 2025</span></div><span class="cal-event-type type-exam">Exam</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f97316"></div><div class="cal-event-info"><h4>Summer Vacation</h4><span>25 May – 15 Jun 2025</span></div><span class="cal-event-type type-holiday">Holiday</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#10b981"></div><div class="cal-event-info"><h4>Science Exhibition</h4><span>10 June 2025</span></div><span class="cal-event-type type-activity">Activity</span></div>
+        </div>
+      </div>
+      <div class="cal-quarter q2">
+        <div class="cal-quarter-head"><h3>Quarter II</h3><span>July – September 2025</span></div>
+        <div class="cal-events">
+          <div class="cal-event"><div class="cal-event-dot" style="background:#22d3ee"></div><div class="cal-event-info"><h4>Half-Yearly Exams</h4><span>10–25 Sep 2025</span></div><span class="cal-event-type type-exam">Exam</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#10b981"></div><div class="cal-event-info"><h4>Half-Yearly Results</h4><span>5 October 2025</span></div><span class="cal-event-type type-result">Result</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#3b82f6"></div><div class="cal-event-info"><h4>Independence Day</h4><span>15 August 2025</span></div><span class="cal-event-type type-holiday">Holiday</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f59e0b"></div><div class="cal-event-info"><h4>Teachers' Day Celebration</h4><span>5 September 2025</span></div><span class="cal-event-type type-event">Event</span></div>
+        </div>
+      </div>
+      <div class="cal-quarter q3">
+        <div class="cal-quarter-head"><h3>Quarter III</h3><span>October – December 2025</span></div>
+        <div class="cal-events">
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f59e0b"></div><div class="cal-event-info"><h4>Dussehra & Diwali Break</h4><span>Oct 1–12, Nov 1–4, 2025</span></div><span class="cal-event-type type-holiday">Holiday</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#7c3aed"></div><div class="cal-event-info"><h4>Unit Test – III</h4><span>20 November 2025</span></div><span class="cal-event-type type-exam">Exam</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#3b82f6"></div><div class="cal-event-info"><h4>Annual Cultural Program</h4><span>15 December 2025</span></div><span class="cal-event-type type-event">Event</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f97316"></div><div class="cal-event-info"><h4>Winter Break</h4><span>26 Dec – 1 Jan 2026</span></div><span class="cal-event-type type-holiday">Holiday</span></div>
+        </div>
+      </div>
+      <div class="cal-quarter q4">
+        <div class="cal-quarter-head"><h3>Quarter IV</h3><span>January – March 2026</span></div>
+        <div class="cal-events">
+          <div class="cal-event"><div class="cal-event-dot" style="background:#3b82f6"></div><div class="cal-event-info"><h4>Republic Day</h4><span>26 January 2026</span></div><span class="cal-event-type type-holiday">Holiday</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#7c3aed"></div><div class="cal-event-info"><h4>Pre-Board Exams (X, XII)</h4><span>5–20 February 2026</span></div><span class="cal-event-type type-exam">Exam</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#f59e0b"></div><div class="cal-event-info"><h4>Annual Sports Day</h4><span>20 March 2026</span></div><span class="cal-event-type type-event">Event</span></div>
+          <div class="cal-event"><div class="cal-event-dot" style="background:#10b981"></div><div class="cal-event-info"><h4>Session End & Result Day</h4><span>31 March 2026</span></div><span class="cal-event-type type-result">Result</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CO-CURRICULAR ACTIVITIES
+════════════════════════════════════════════ -->
+<section class="cocurr-section" id="cocurricular">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center">Beyond Academics</div>
+      <h2 class="section-title">Co-Curricular <span class="blue">Activities</span></h2>
+      <p class="section-sub center">We nurture well-rounded individuals through a wide range of sports, arts, cultural and leadership programs.</p>
+    </div>
+    <div class="cocurr-grid" style="margin-top:56px" id="cocurrGrid">
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-sports"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-futbol"></i></div>
+          <h3>Sports & Athletics</h3>
+          <p>Cricket, Football, Basketball, Athletics & Badminton — inter-school & district championships</p>
+        </div>
+        <div class="cocurr-tag">Sports</div>
+      </div>
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-arts"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-paint-brush"></i></div>
+          <h3>Visual Arts</h3>
+          <p>Painting, Sketching, Craft & Sculpture — Annual Art Exhibition showcasing student talent</p>
+        </div>
+        <div class="cocurr-tag">Arts</div>
+      </div>
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-science"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-flask"></i></div>
+          <h3>Science Club</h3>
+          <p>Research projects, experiments & Science Olympiad participation — nurturing young scientists</p>
+        </div>
+        <div class="cocurr-tag">STEM</div>
+      </div>
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-music"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-music"></i></div>
+          <h3>Music & Dance</h3>
+          <p>Classical & western vocals, instruments, classical & folk dance — annual cultural performances</p>
+        </div>
+        <div class="cocurr-tag">Culture</div>
+      </div>
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-debate"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-microphone-alt"></i></div>
+          <h3>Debate & Quiz</h3>
+          <p>Elocution, MUN, Quiz Competitions & Debate Club — building confident communicators</p>
+        </div>
+        <div class="cocurr-tag">Leadership</div>
+      </div>
+      <div class="cocurr-card">
+        <div class="cocurr-placeholder cp-yoga"></div>
+        <div class="cocurr-overlay"></div>
+        <div class="cocurr-body">
+          <div class="cocurr-icon" style="background:rgba(255,255,255,.2)"><i class="fas fa-spa"></i></div>
+          <h3>Yoga & Wellness</h3>
+          <p>Daily morning yoga, meditation practices & physical fitness programs for mental well-being</p>
+        </div>
+        <div class="cocurr-tag">Wellness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     RESULTS & ACHIEVEMENTS
+════════════════════════════════════════════ -->
+<section class="results-section" id="results">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label center gold">Board Results</div>
+      <h2 class="section-title white">Academic <span class="gold">Achievements</span></h2>
+      <p class="section-sub center" style="color:rgba(255,255,255,.65)">Our students consistently achieve exceptional results in CBSE board examinations and competitive examinations.</p>
+    </div>
+    <div class="results-grid" id="resultsGrid">
+      <div class="result-stat">
+        <div class="result-stat-icon rsi-gold"><i class="fas fa-percentage"></i></div>
+        <div class="result-stat-num">100<span class="result-stat-suf">%</span></div>
+        <div class="result-stat-label">Class XII Pass Rate 2025</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-icon rsi-green"><i class="fas fa-star"></i></div>
+        <div class="result-stat-num">98.6<span class="result-stat-suf">%</span></div>
+        <div class="result-stat-label">Highest Score — Class XII</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-icon rsi-blue"><i class="fas fa-users"></i></div>
+        <div class="result-stat-num">45<span class="result-stat-suf">+</span></div>
+        <div class="result-stat-label">Students Scored 90%+ in 2025</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-icon rsi-purple"><i class="fas fa-trophy"></i></div>
+        <div class="result-stat-num">12<span class="result-stat-suf">+</span></div>
+        <div class="result-stat-label">District Toppers (2020–2025)</div>
+      </div>
+    </div>
+    <div class="toppers-showcase">
+      <div class="topper-card">
+        <div class="topper-avatar"><i class="fas fa-user"></i></div>
+        <div class="topper-info"><h4>Priya Sharma</h4><div class="class">Class XII — Science 2025</div><div class="topper-pct">98.6%</div></div>
+      </div>
+      <div class="topper-card">
+        <div class="topper-avatar"><i class="fas fa-user"></i></div>
+        <div class="topper-info"><h4>Rahul Meena</h4><div class="class">Class X — Board 2025</div><div class="topper-pct">97.2%</div></div>
+      </div>
+      <div class="topper-card">
+        <div class="topper-avatar"><i class="fas fa-user"></i></div>
+        <div class="topper-info"><h4>Anjali Choudhary</h4><div class="class">Class XII — Commerce 2025</div><div class="topper-pct">96.8%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     DIGITAL LEARNING
+════════════════════════════════════════════ -->
+<section class="digital-section" id="digital">
+  <div class="container">
+    <div class="digital-grid">
+      <div>
+        <div class="section-label">Digital Learning</div>
+        <h2 class="section-title">Smart <span class="blue">Tech-Enabled</span> Classrooms</h2>
+        <p class="section-sub" style="margin-top:12px;margin-bottom:40px">We integrate modern technology into every classroom to make learning interactive, engaging, and effective for the 21st century learner.</p>
+        <div class="digital-features">
+          <div class="digi-feat">
+            <div class="digi-icon" style="background:linear-gradient(135deg,#1a3a8f,#3b82f6)"><i class="fas fa-chalkboard"></i></div>
+            <div class="digi-feat-text"><h4>Smart Interactive Boards</h4><p>All classrooms (VI–XII) are equipped with digital smart boards for visual, interactive teaching.</p></div>
+          </div>
+          <div class="digi-feat">
+            <div class="digi-icon" style="background:linear-gradient(135deg,#059669,#10b981)"><i class="fas fa-laptop"></i></div>
+            <div class="digi-feat-text"><h4>E-Learning Content (DIKSHA)</h4><p>Access to NCERT DIKSHA platform videos, CBSE study materials and digital textbooks.</p></div>
+          </div>
+          <div class="digi-feat">
+            <div class="digi-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)"><i class="fas fa-wifi"></i></div>
+            <div class="digi-feat-text"><h4>High-Speed Internet & Lab</h4><p>60-system computer lab with high-speed broadband for coding, research and digital literacy.</p></div>
+          </div>
+          <div class="digi-feat">
+            <div class="digi-icon" style="background:linear-gradient(135deg,#b45309,#f59e0b)"><i class="fas fa-mobile-alt"></i></div>
+            <div class="digi-feat-text"><h4>Parent–Teacher App</h4><p>Digital attendance, homework alerts, exam schedules and progress reports via mobile app.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="digital-visual">
+          <div class="dv-title">Learning Management System</div>
+          <div class="dv-heading">Everything Connected,<br>Everyone Informed</div>
+          <div class="dv-modules">
+            <div class="dv-module">
+              <div class="dv-module-icon">📚</div>
+              <div class="dv-module-info"><h5>Digital Library</h5><span>5000+ e-books & study materials</span></div>
+              <div class="dv-module-stat">Active</div>
+            </div>
+            <div class="dv-module">
+              <div class="dv-module-icon">🎥</div>
+              <div class="dv-module-info"><h5>Video Lectures</h5><span>NCERT & CBSE video content</span></div>
+              <div class="dv-module-stat">Active</div>
+            </div>
+            <div class="dv-module">
+              <div class="dv-module-icon">📝</div>
+              <div class="dv-module-info"><h5>Online Tests</h5><span>Unit tests with instant results</span></div>
+              <div class="dv-module-stat">Active</div>
+            </div>
+            <div class="dv-module">
+              <div class="dv-module-icon">📊</div>
+              <div class="dv-module-info"><h5>Progress Tracker</h5><span>Real-time academic performance</span></div>
+              <div class="dv-module-stat">Active</div>
+            </div>
+            <div class="dv-module">
+              <div class="dv-module-icon">🔔</div>
+              <div class="dv-module-info"><h5>Parent Notifications</h5><span>Instant alerts to parents/guardians</span></div>
+              <div class="dv-module-stat">Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ADMISSION CTA
+════════════════════════════════════════════ -->
+<section class="acad-cta-section" id="admissions">
+  <div class="acad-cta-inner">
+    <div class="acad-cta-badge"><i class="fas fa-bell"></i> Admissions Open for 2026–27</div>
+    <h2>Ready to Join the SMS School Family?</h2>
+    <p>Give your child the academic advantage of a CBSE school with proven results, expert faculty and a nurturing learning environment.</p>
+    <div class="cta-btns">
+      <a href="admission.php" class="btn-white"><i class="fas fa-user-plus"></i> Apply for Admission</a>
+      <a href="contact.php" class="btn-outline-white"><i class="fas fa-phone"></i> Talk to Us</a>
+    </div>
+    <div class="cta-feats">
+      <span class="cta-feat"><i class="fas fa-check-circle"></i> Classes I – XII</span>
+      <span class="cta-feat"><i class="fas fa-check-circle"></i> Scholarship Available</span>
+      <span class="cta-feat"><i class="fas fa-check-circle"></i> Transport Facility</span>
+      <span class="cta-feat"><i class="fas fa-check-circle"></i> CBSE Affiliated</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <div style="width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0;"><img src="images/logo2.jpg" alt="SMS School Logo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div><div class="name">SMS School</div><div class="sub">Udaipurwati</div></div>
+      </div>
+      <p class="footer-desc">SMS School Udaipurwati is committed to providing quality CBSE education that nurtures young minds into confident, capable individuals.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/sms_school_udaipurwati/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Academics</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Primary School</a></li>
+        <li><a href="#programs">Middle School</a></li>
+        <li><a href="#programs">Secondary (IX–X)</a></li>
+        <li><a href="#programs">Sr. Secondary (XI–XII)</a></li>
+        <li><a href="#timetable">Timetable</a></li>
+        <li><a href="#calendar">Academic Calendar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="footer-contact">
+        <li><i class="fas fa-map-marker-alt"></i><span>SMS School Udaipurwati,<br>Near Bus Stand, Udaipurwati,<br>Rajasthan – 333307</span></li>
+        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+        <li><i class="fas fa-envelope"></i> info@smsschooludaipurwati.com</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>School Hours</h4>
+      <div class="hours-row"><span>Monday – Friday</span><span class="time">8:00 AM – 3:00 PM</span></div>
+      <div class="hours-row"><span>Saturday</span><span class="time">8:00 AM – 1:00 PM</span></div>
+      <div class="hours-row"><span>Sunday</span><span class="closed">Closed</span></div>
+      <div style="margin-top:24px">
+        <div class="newsletter-label">Newsletter</div>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email">
+          <button type="button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 SMS School Udaipurwati. All Rights Reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Admin Login</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+/* ─── MOBILE NAV ─── */
+function openMob()  { document.getElementById('mobOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function handleOverlayClick(e) { if(e.target===document.getElementById('mobOverlay')) closeMob(); }
+
+/* ─── PROGRAM TABS ─── */
+function switchProgTab(id, btn) {
+    document.querySelectorAll('.prog-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.prog-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+}
+
+/* ─── SUBJECT ACCORDION ─── */
+function toggleSubject(card) {
+    const isOpen = card.classList.contains('open');
+    // Close all in same panel
+    const panel = card.closest('.prog-panel');
+    panel.querySelectorAll('.subject-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+}
+
+/* ─── TIMETABLE TABS ─── */
+function switchTTTab(id, btn) {
+    document.querySelectorAll('.tt-panel').forEach(p => p.style.display='none');
+    document.querySelectorAll('.tt-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('tt-' + id).style.display='block';
+    btn.classList.add('active');
+}
+
+/* ─── BACK TO TOP ─── */
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backTop');
+    if(window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+});
+
+/* ─── ASSESS BAR ANIMATION ─── */
+function animateBars() {
+    const bars = document.querySelectorAll('.assess-bar[data-width]');
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if(!e.isIntersecting) return;
+            e.target.style.width = e.target.dataset.width;
+            obs.unobserve(e.target);
+        });
+    }, {threshold:0.3});
+    bars.forEach(b => obs.observe(b));
+}
+
+/* ─── COUNTER ANIMATION ─── */
+function animateCounters() {
+    const counters = document.querySelectorAll('[data-target]');
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            const el = entry.target, target = +el.dataset.target;
+            const step = target / (1500/16); let cur = 0;
+            const t = setInterval(() => {
+                cur += step;
+                if(cur >= target) { cur = target; clearInterval(t); }
+                el.textContent = Math.floor(cur).toLocaleString();
+            }, 16);
+            obs.unobserve(el);
+        });
+    }, {threshold:0.3});
+    counters.forEach(c => obs.observe(c));
+}
+
+/* ─── SCROLL REVEAL ─── */
+function initReveal() {
+    const els = document.querySelectorAll('.struct-card,.faculty-card,.cal-quarter,.result-stat,.topper-card,.cocurr-card,.digi-feat,.exam-item,.assess-card,.prog-hl');
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach((entry,i) => {
+            if(!entry.isIntersecting) return;
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, i * 60);
+            obs.unobserve(entry.target);
+        });
+    }, {threshold:0.08});
+    els.forEach(el => {
+        el.style.opacity='0';
+        el.style.transform='translateY(28px)';
+        el.style.transition='opacity .55s ease, transform .55s ease';
+        obs.observe(el);
+    });
+}
+
+/* ─── INIT ─── */
+document.addEventListener('DOMContentLoaded', () => {
+    initReveal();
+    animateCounters();
+    animateBars();
+});
+</script>
+</body>
+</html>
