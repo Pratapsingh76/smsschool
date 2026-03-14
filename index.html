@@ -1,2271 +1,1166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SMS School Udaipurwati - A premier educational institution committed to excellence in education since 2005. CBSE affiliated school in Udaipurwati, Rajasthan.">
-<title>SMS School Udaipurwati - Shaping the Future Through Quality Education</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-    --navy: #0f1f4b; --blue: #1a3a8f; --sky: #2563eb;
-    --gold: #f59e0b; --orange: #f97316; --white: #ffffff;
-    --bg-light: #eef2fb; --text-dark: #0f1f4b; --text-mid: #374151;
-    --text-muted: #6b7280; --dark-bg: #0d1b3e; --card-bg: #152040;
-    --font-main: 'Plus Jakarta Sans', sans-serif;
-    --font-serif: 'Instrument Serif', serif;
-    --shadow: 0 4px 24px rgba(15,31,75,0.10);
-    --shadow-lg: 0 8px 40px rgba(15,31,75,0.18);
-    --radius: 16px;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-main); color: var(--text-dark); background: #fff; overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="SMS School Udaipurwati - A premier educational institution committed to excellence in education since 2005. CBSE affiliated school in Udaipurwati, Rajasthan.">
+  <title>SMS School Udaipurwati - Shaping the Future Through Quality Education</title>
+  <link rel="icon" href="images/logo2.jpg" type="image/png">
+  <link rel="stylesheet" href="css/style.main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-/* ─── NOTIFICATION BAR ─── */
-.notif-bar {
-    background: linear-gradient(90deg, var(--navy) 0%, #1a3a8f 100%);
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    z-index: 1100;
-    border-bottom: 2px solid var(--gold);
-}
-.notif-inner {
-    max-width: 1280px; margin: 0 auto;
-    display: flex; align-items: stretch;
-}
-.notif-label {
-    background: var(--gold);
-    color: #1a1a1a;
-    padding: 10px 20px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
-    padding-right: 28px;
-}
-.notif-ticker {
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-}
-.notif-track {
-    display: flex;
-    gap: 0;
-    animation: notifScroll 35s linear infinite;
-    white-space: nowrap;
-}
-.notif-track:hover { animation-play-state: paused; }
-.notif-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 32px;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.9);
-    cursor: pointer;
-    transition: color 0.2s;
-    border-right: 1px solid rgba(255,255,255,0.15);
-}
-.notif-item:hover { color: var(--gold); }
-.notif-item i { color: var(--gold); font-size: 12px; }
-@keyframes notifScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.notif-btn {
-    background: transparent;
-    border: none;
-    color: rgba(255,255,255,0.6);
-    padding: 0 16px;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-family: var(--font-main);
-    font-weight: 600;
-    font-size: 12px;
-    white-space: nowrap;
-    transition: color 0.2s;
-    flex-shrink: 0;
-}
-.notif-btn:hover { color: var(--gold); }
-/* Notification Panel */
-.notif-panel-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 5000;
-    background: rgba(10,18,50,0.6);
-    backdrop-filter: blur(4px);
-}
-.notif-panel-overlay.open { display: block; }
-.notif-panel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    background: #fff;
-    border-radius: 20px;
-    width: 520px;
-    max-width: 95vw;
-    max-height: 80vh;
-    overflow: hidden;
-    box-shadow: 0 24px 80px rgba(15,31,75,0.3);
-    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-}
-.notif-panel-overlay.open .notif-panel {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-.notif-panel-head {
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    padding: 22px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-}
-.notif-panel-head h3 { font-size: 18px; font-weight: 800; color: #fff; }
-.notif-panel-head span { font-size: 13px; color: rgba(255,255,255,0.65); margin-left: 8px; }
-.notif-close-btn {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-}
-.notif-close-btn:hover { background: rgba(255,255,255,0.3); }
-.notif-panel-body { flex: 1; overflow-y: auto; padding: 16px; }
-.notif-panel-body::-webkit-scrollbar { width: 5px; }
-.notif-panel-body::-webkit-scrollbar-track { background: #f5f5f5; }
-.notif-panel-body::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 3px; }
-.notif-entry {
-    display: flex;
-    gap: 14px;
-    padding: 16px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background 0.15s;
-    border: 1px solid #f0f0f0;
-}
-.notif-entry:hover { background: var(--bg-light); }
-.notif-entry.unread { border-left: 3px solid var(--sky); background: #f0f6ff; }
-.notif-entry.unread:hover { background: #dce8ff; }
-.notif-dot {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-    color: #fff;
-}
-.notif-dot.exam { background: linear-gradient(135deg, #7c3aed, #a855f7); }
-.notif-dot.event { background: linear-gradient(135deg, #0891b2, #22d3ee); }
-.notif-dot.result { background: linear-gradient(135deg, #059669, #10b981); }
-.notif-dot.holiday { background: linear-gradient(135deg, #f97316, #fb923c); }
-.notif-dot.admission { background: linear-gradient(135deg, #1a3a8f, #2563eb); }
-.notif-dot.sports { background: linear-gradient(135deg, #dc2626, #f87171); }
-.notif-entry-text h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-.notif-entry-text p { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
-.notif-entry-time { font-size: 11px; color: var(--text-muted); margin-top: 6px; display: flex; align-items: center; gap: 4px; }
-.notif-unread-badge {
-    background: var(--sky);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 20px;
-    margin-left: auto;
-    align-self: flex-start;
-    margin-top: 2px;
-    flex-shrink: 0;
-}
-
-/* ─── HEADER ─── */
-header { position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 16px rgba(15,31,75,0.08); }
-.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 76px; }
-.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-img-wrap { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.logo-img-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.logo-text { line-height: 1.15; }
-.logo-text .name { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
-.logo-text .sub { font-size: 12px; font-weight: 500; color: var(--sky); display: flex; align-items: center; gap: 6px; }
-.logo-text .sub::before { content:''; display:block; width:28px; height:2px; background:var(--sky); border-radius:2px; }
-.header-right { display: flex; align-items: center; gap: 20px; }
-nav { display: flex; align-items: center; gap: 32px; }
-nav a { font-size: 15px; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
-nav a:hover { color: var(--navy); }
-.btn-cta { background: var(--navy); color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.2s; white-space: nowrap; }
-.btn-cta:hover { background: var(--blue); transform: translateY(-1px); }
-.header-notif-btn {
-    position: relative;
-    background: var(--bg-light);
-    border: none;
-    width: 44px; height: 44px;
-    border-radius: 10px;
-    font-size: 18px;
-    color: var(--navy);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-}
-.header-notif-btn:hover { background: #dce8ff; }
-.header-notif-btn .badge {
-    position: absolute;
-    top: 6px; right: 6px;
-    width: 18px; height: 18px;
-    background: #ef4444;
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 700;
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid #fff;
-}
-.hamburger { display: none; background: none; border: 2px solid #e5e7eb; width: 44px; height: 44px; border-radius: 10px; font-size: 20px; color: var(--navy); cursor: pointer; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
-.hamburger:hover { background: var(--bg-light); border-color: var(--sky); }
-
-/* ─── MOBILE NAV ─── */
-.mob-overlay { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(10,18,50,0.55); backdrop-filter: blur(3px); }
-.mob-overlay.open { display: block; }
-.mob-drawer { position: absolute; top: 0; left: 0; width: 300px; max-width: 85vw; height: 100%; background: #fff; display: flex; flex-direction: column; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 4px 0 40px rgba(15,31,75,0.2); overflow-y: auto; }
-.mob-overlay.open .mob-drawer { transform: translateX(0); }
-.mob-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; background: var(--navy); flex-shrink: 0; }
-.mob-head-logo { display: flex; align-items: center; gap: 10px; }
-.mob-logo-img { width: 44px; height: 44px; border-radius: 9px; overflow: hidden; flex-shrink: 0; }
-.mob-logo-img img { width: 100%; height: 100%; object-fit: cover; }
-.mob-head-logo .ln { font-size: 15px; font-weight: 800; color: #fff; line-height: 1.1; }
-.mob-head-logo .ls { font-size: 11px; color: rgba(255,255,255,0.6); }
-.mob-close { background: rgba(255,255,255,0.15); border: none; width: 36px; height: 36px; border-radius: 8px; color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-.mob-close:hover { background: rgba(255,255,255,0.3); }
-.mob-links { flex: 1; padding: 8px 0; }
-.mob-links a { display: flex; align-items: center; gap: 14px; padding: 14px 20px; font-size: 16px; font-weight: 600; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid #f5f5f5; transition: background 0.15s, color 0.15s, padding-left 0.2s; }
-.mob-links a:last-child { border-bottom: none; }
-.mob-links a .icon { width: 38px; height: 38px; border-radius: 9px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--sky); flex-shrink: 0; transition: background 0.15s, color 0.15s; }
-.mob-links a:hover { background: var(--bg-light); color: var(--navy); padding-left: 26px; }
-.mob-links a:hover .icon { background: var(--sky); color: #fff; }
-.mob-cta { padding: 14px 18px 20px; border-top: 1px solid #f0f0f0; flex-shrink: 0; }
-.mob-cta a { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: #fff; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.2s; }
-.mob-cta a:hover { background: var(--blue); transform: translateY(-1px); }
-
-/* ─── HERO CAROUSEL ─── */
-.hero {
-    position: relative;
-    height: 88vh;
-    min-height: 580px;
-    overflow: hidden;
-    background: #1a2a5e;
-}
-.hero-slides {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.hero-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-.hero-slide-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.08);
-    transition: transform 8s ease;
-    opacity: 0.5;
-}
-.hero-slide.active .hero-slide-bg { transform: scale(1); }
-.hero-slide-overlay {
-    position: absolute;
-    inset: 0;
-}
-.slide-1 .hero-slide-overlay { background: linear-gradient(100deg, rgba(10,20,60,0.88) 38%, rgba(10,20,60,0.3) 100%); }
-.slide-2 .hero-slide-overlay { background: linear-gradient(100deg, rgba(15,31,75,0.88) 35%, rgba(15,31,75,0.25) 100%); }
-.slide-3 .hero-slide-overlay { background: linear-gradient(100deg, rgba(26,58,143,0.88) 38%, rgba(26,58,143,0.2) 100%); }
-.slide-4 .hero-slide-overlay { background: linear-gradient(100deg, rgba(10,20,60,0.85) 35%, rgba(245,158,11,0.15) 100%); }
-.slide-1 .hero-slide-bg { background-image: url('images/web-hero5.png'); }
-.slide-2 .hero-slide-bg { background-image: url('images/group-img.png'); }
-.slide-3 .hero-slide-bg { background-image: url('images/insta-A.png'); }
-.slide-4 .hero-slide-bg { background-image: url('images/insta-B.png'); }
-.hero-slide-content {
-    position: relative;
-    z-index: 2;
-    padding: 80px 24px;
-    max-width: 640px;
-    margin-left: max(24px, calc((100vw - 1280px)/2 + 24px));
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
-}
-.hero-slide.active .hero-slide-content { opacity: 1; transform: translateY(0); }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #1a1a1a; padding: 7px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 24px; align-self: flex-start; }
-.hero-slide-content h1 { font-size: clamp(32px,4.5vw,56px); font-weight: 800; line-height: 1.08; color: #fff; margin-bottom: 20px; letter-spacing: -1px; }
-.hero-slide-content h1 .accent { color: var(--gold); font-style: italic; font-family: var(--font-serif); }
-.hero-slide-content p { font-size: 17px; color: rgba(255,255,255,0.85); line-height: 1.65; margin-bottom: 36px; max-width: 500px; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #1a1a1a; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-primary:hover { background: #e08e00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
-.btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); }
-.btn-outline:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
-.hero-tags { display: flex; gap: 20px; flex-wrap: wrap; }
-.hero-tag { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 600; }
-.hero-tag i { color: var(--gold); }
-
-/* Hero Nav */
-.hero-nav {
-    position: absolute;
-    bottom: 36px;
-    left: max(24px, calc((100vw - 1280px)/2 + 24px));
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.hero-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.35);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0;
-}
-.hero-dot.active { background: var(--gold); width: 28px; border-radius: 5px; }
-.hero-arrows {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    pointer-events: none;
-}
-.hero-arrow {
-    pointer-events: all;
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-}
-.hero-arrow:hover { background: var(--gold); border-color: var(--gold); color: #1a1a1a; transform: scale(1.08); }
-.hero-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background: var(--gold);
-    width: 0%;
-    transition: width 0.1s linear;
-    z-index: 10;
-}
-
-/* ─── SECTION COMMONS ─── */
-section { padding: 90px 24px; }
-.container { max-width: 1280px; margin: 0 auto; }
-.section-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-.section-label::before, .section-label::after { content:''; display:block; height:2px; width:28px; background:var(--sky); border-radius:2px; }
-.section-label.center { justify-content: center; }
-.section-label.light { color: var(--gold); }
-.section-label.light::before, .section-label.light::after { background: var(--gold); }
-.section-title { font-size: clamp(28px,4vw,44px); font-weight: 800; line-height: 1.1; color: var(--navy); letter-spacing: -1px; }
-.section-title .blue { color: var(--sky); }
-.section-title .gold { color: var(--gold); }
-.section-title.white { color: #fff; }
-.section-subtitle { font-size: 16px; color: var(--text-muted); line-height: 1.65; margin-top: 12px; max-width: 600px; }
-.section-subtitle.center { margin: 12px auto 0; text-align: center; }
-.text-center { text-align: center; }
-
-/* ─── ABOUT ─── */
-.about-section { background: #fff; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.about-images { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 210px 210px; gap: 14px; position: relative; padding-bottom: 20px; padding-right: 20px; }
-.about-images img { width: 100%; height: 100%; border-radius: var(--radius); object-fit: cover; transition: transform 0.35s ease, box-shadow 0.35s ease; display: block; }
-.about-images img:hover { transform: scale(1.04); box-shadow: var(--shadow-lg); }
-.about-badge { position: absolute; bottom: 0; right: 0; background: var(--gold); color: #1a1a1a; padding: 16px 22px; border-radius: var(--radius); font-weight: 800; text-align: center; box-shadow: var(--shadow-lg); z-index: 2; }
-.about-badge .num { font-size: 30px; line-height: 1; }
-.about-badge .lbl { font-size: 11px; font-weight: 600; opacity: 0.8; margin-top: 2px; }
-.about-text p { color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; font-size: 15.5px; }
-.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 32px; }
-.about-feat { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--navy); }
-.about-feat i { color: var(--sky); font-size: 18px; }
-.btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-dark:hover { background: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-
-
-/* WHY CHOOSE */
-    .why-section { background: var(--bg-light); }
-    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
-    .why-card { background: #fff; border-radius: var(--radius); padding: 32px 24px; box-shadow: var(--shadow); transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s; cursor: pointer; user-select: none; position: relative; overflow: hidden; }
-    .why-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 24px 64px rgba(15,31,75,0.18); }
-    .why-card:active { transform: translateY(-2px) scale(0.97) !important; box-shadow: var(--shadow) !important; }
-    .why-card::before { content:''; position:absolute; top:-40px; right:-40px; width:100px; height:100px; border-radius:50%; background:rgba(37,99,235,0.05); transition: transform 0.3s; }
-    .why-card:hover::before { transform: scale(3); }
-    .why-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; margin-bottom: 20px; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-    .why-card:hover .why-icon { transform: scale(1.18) rotate(-6deg); }
-    .why-icon.blue { background: linear-gradient(135deg,#1a3a8f,#2563eb); }
-    .why-icon.teal { background: linear-gradient(135deg,#0891b2,#22d3ee); }
-    .why-icon.orange { background: linear-gradient(135deg,#ea580c,#f97316); }
-    .why-icon.purple { background: linear-gradient(135deg,#7c3aed,#a855f7); }
-    .why-card h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
-    .why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-/* ACADEMICS */
-    .academics-section { background: #fff; }
-    .academics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
-    .ac-card { background: var(--bg-light); border-radius: var(--radius); padding: 36px 32px; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s; position: relative; overflow: hidden; cursor: pointer; user-select: none; }
-    .ac-card.featured { background: var(--navy); color: #fff; transform: scale(1.03); box-shadow: 0 12px 48px rgba(15,31,75,0.25); }
-    .ac-card:not(.featured):hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 24px 64px rgba(15,31,75,0.15); background: #dce8ff; }
-    .ac-card.featured:hover { transform: scale(1.07) translateY(-5px); box-shadow: 0 28px 72px rgba(15,31,75,0.38); }
-    .ac-card:active { transform: scale(0.97) !important; box-shadow: var(--shadow) !important; }
-    .ac-card::before { content:''; position:absolute; top:-60px; right:-60px; width:140px; height:140px; border-radius:50%; background:rgba(255,255,255,0.05); transition: transform 0.4s ease; pointer-events:none; }
-    .ac-card:hover::before { transform: scale(2.5); }
-    .ac-icon { width: 64px; height: 64px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 24px; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-    .ac-card:hover .ac-icon { transform: scale(1.18) rotate(-6deg); }
-    .ac-icon.primary-icon { background: rgba(26,58,143,0.12); color: var(--navy); }
-    .ac-icon.middle-icon { background: rgba(255,255,255,0.15); }
-    .ac-icon.senior-icon { background: rgba(14,165,233,0.15); color: #0ea5e9; }
-    .ac-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-    .ac-card .grade { font-size: 14px; opacity: 0.7; margin-bottom: 20px; font-weight: 600; }
-    .ac-list { list-style: none; margin-bottom: 28px; }
-    .ac-list li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; margin-bottom: 10px; color: var(--text-mid); font-weight: 500; }
-    .featured .ac-list li { color: rgba(255,255,255,0.85); }
-    .ac-list li i { color: var(--gold); font-size: 14px; }
-    .ac-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--navy); text-decoration: none; transition: gap 0.2s; }
-    .featured .ac-link { color: #fff; }
-    .ac-link:hover { gap: 10px; }
-    .ripple { position: absolute; border-radius: 50%; background: rgba(37,99,235,0.15); transform: scale(0); animation: rippleAnim 0.65s linear forwards; pointer-events: none; }
-    .ac-card.featured .ripple { background: rgba(255,255,255,0.1); }
-    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
-
-/* ─── FACILITIES ─── */
-.facilities-section { background: var(--dark-bg); }
-.fac-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 56px; }
-.fac-card { background: var(--card-bg); border-radius: var(--radius); overflow: hidden; transition: all 0.3s; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); }
-.fac-card:hover { transform: translateY(-6px); border-color: rgba(245,158,11,0.3); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
-.fac-img { height: 180px; position: relative; overflow: hidden; background: linear-gradient(135deg,#1e3a6e,#0d2554); }
-.fac-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.fac-card:hover .fac-img img { transform: scale(1.08); }
-.fac-badge { position: absolute; bottom: 12px; left: 12px; width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; }
-.fac-badge.orange { background: var(--gold); }
-.fac-badge.teal { background: #0891b2; }
-.fac-badge.purple { background: #7c3aed; }
-.fac-body { padding: 20px 22px; }
-.fac-body h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-.fac-body p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.65; }
-.fac-no-img { height: 180px; display: flex; align-items: center; justify-content: center; }
-.fac-gradient-blue { background: linear-gradient(135deg,#1a3a8f,#3b82f6); }
-.btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #1a1a1a; padding: 14px 32px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-gold:hover { background: #e08e00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
-.fac-cta { text-align: center; margin-top: 48px; }
-
-/* ─── STATS ─── */
-.stats-section { background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); padding: 80px 24px; position: relative; overflow: hidden; }
-.stats-section::before { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,0.04); top:-100px; right:-80px; }
-.stats-section::after { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,0.03); bottom:-80px; left:-60px; }
-.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; position: relative; z-index: 1; }
-.stat-item { text-align: center; }
-.stat-icon { width: 64px; height: 64px; border-radius: 14px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; margin: 0 auto 16px; }
-.stat-num { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -2px; }
-.stat-label { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 600; margin-top: 8px; }
-
-/* ─── GALLERY SECTION ─── */
-.gallery-section { background: var(--bg-light); }
-.gallery-filter { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 40px 0 36px; }
-.filter-btn {
-    padding: 9px 22px;
-    border-radius: 50px;
-    border: 2px solid #d1d5db;
-    background: #fff;
-    color: var(--text-mid);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--font-main);
-}
-.filter-btn:hover, .filter-btn.active {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: #fff;
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 220px;
-    gap: 14px;
-}
-.gal-item {
-    border-radius: 14px;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    background: #dce8ff;
-}
-.gal-item:nth-child(5n+1) { grid-column: span 2; grid-row: span 2; }
-.gal-item:nth-child(5n+4) { grid-column: span 2; }
-.gal-item img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.45s ease;
-}
-.gal-item:hover img { transform: scale(1.07); }
-.gal-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(15,31,75,0.7) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    align-items: flex-end;
-    padding: 18px;
-}
-.gal-item:hover .gal-overlay { opacity: 1; }
-.gal-overlay span {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.gal-tag {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--gold);
-    color: #1a1a1a;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.gallery-load-more { text-align: center; margin-top: 40px; }
-/* Lightbox */
-.lightbox-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9000;
-    background: rgba(5,10,30,0.96);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.lightbox-overlay.open { display: flex; }
-.lightbox-img-wrap { max-width: 900px; max-height: 80vh; position: relative; }
-.lightbox-img-wrap img { max-width: 100%; max-height: 80vh; border-radius: 12px; display: block; object-fit: contain; }
-.lb-close { position: absolute; top: -48px; right: 0; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; transition: color 0.2s; }
-.lb-close:hover { color: var(--gold); }
-.lb-caption { color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 14px; text-align: center; }
-.lb-arrows { display: flex; gap: 14px; margin-top: 20px; }
-.lb-arrow { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-.lb-arrow:hover { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
-
-/* ─── TOPPERS STORIES ─── */
-.stories-section { background: #fff; overflow: hidden; }
-.stories-section .container { position: relative; }
-.stories-track-wrap { overflow: hidden; position: relative; }
-.stories-track {
-    display: flex;
-    gap: 24px;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    padding-bottom: 8px;
-}
-.story-card {
-    min-width: 320px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 32px rgba(15,31,75,0.10);
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #e8eef8;
-    flex-shrink: 0;
-    transition: transform 0.25s, box-shadow 0.25s;
-}
-.story-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(15,31,75,0.18); }
-.story-img-wrap {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-}
-.story-img-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    transition: transform 0.4s;
-}
-.story-card:hover .story-img-wrap img { transform: scale(1.06); }
-.story-rank {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    font-weight: 900;
-    font-family: var(--font-serif);
-}
-.rank-gold { background: var(--gold); color: #1a1a1a; }
-.rank-silver { background: linear-gradient(135deg,#94a3b8,#cbd5e1); color: #1a1a1a; }
-.rank-bronze { background: linear-gradient(135deg,#b45309,#d97706); color: #fff; }
-.rank-general { background: var(--navy); color: #fff; font-size: 14px; }
-.story-pct {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: rgba(15,31,75,0.82);
-    backdrop-filter: blur(6px);
-    color: var(--gold);
-    font-size: 16px;
-    font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 20px;
-}
-.story-body { padding: 22px 24px; }
-.story-body h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-.story-class { font-size: 13px; color: var(--sky); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.story-class i { font-size: 12px; }
-.story-quote {
-    font-size: 14px;
-    color: var(--text-mid);
-    line-height: 1.65;
-    font-style: italic;
-    font-family: var(--font-serif);
-    padding-left: 14px;
-    border-left: 3px solid var(--gold);
-    margin-bottom: 16px;
-}
-.story-awards { display: flex; gap: 8px; flex-wrap: wrap; }
-.story-award-tag {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--bg-light);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--navy);
-}
-.story-award-tag i { color: var(--gold); font-size: 11px; }
-.stories-nav-btns { display: flex; gap: 10px; justify-content: center; margin-top: 36px; }
-.stories-nav-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid #e5e7eb; background: #fff; color: var(--navy); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-.stories-nav-btn:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
-.stories-dots { display: flex; gap: 8px; align-items: center; margin-top: 24px; justify-content: center; }
-.s-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; border: none; cursor: pointer; transition: all 0.3s; }
-.s-dot.active { background: var(--navy); width: 22px; border-radius: 4px; }
-
-/* ─── POSTER SECTION ─── */
-.poster-section { background: linear-gradient(135deg, #0d1b3e 0%, #1a2a5e 100%); overflow: hidden; position: relative; }
-.poster-section::before { content:''; position:absolute; width:600px; height:600px; border-radius:50%; background:rgba(37,99,235,0.06); top:-200px; right:-150px; }
-.poster-section::after { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(245,158,11,0.05); bottom:-150px; left:-100px; }
-.poster-track-wrap { overflow: hidden; position: relative; margin-top: 48px; }
-.poster-track {
-    display: flex;
-    gap: 24px;
-    transition: transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.poster-card {
-    min-width: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-.poster-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
-.poster-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s;
-}
-.poster-card:hover .poster-img { transform: scale(1.04); }
-.poster-label {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    background: var(--gold);
-    color: #1a1a1a;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 5px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-}
-.poster-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: linear-gradient(0deg, rgba(10,18,60,0.95) 0%, transparent 100%);
-}
-.poster-info h4 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.poster-info span { color: rgba(255,255,255,0.65); font-size: 12px; }
-.poster-carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 36px; position: relative; z-index: 2; }
-.pc-btn { width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-.pc-btn:hover { background: var(--gold); border-color: var(--gold); color: #1a1a1a; }
-.poster-dots { display: flex; gap: 8px; align-items: center; }
-.p-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); border: none; cursor: pointer; transition: all 0.3s; }
-.p-dot.active { background: var(--gold); width: 22px; border-radius: 4px; }
-
-/* ─── CTA ─── */
-.cta-section { background: linear-gradient(135deg,#f97316 0%,#f59e0b 100%); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,0.08); top:-180px; left:-120px; }
-.cta-section::after { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,0.06); bottom:-150px; right:-80px; }
-.cta-inner { position: relative; z-index: 1; }
-.cta-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); color: #fff; padding: 7px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 24px; backdrop-filter: blur(4px); }
-.cta-section h2 { font-size: clamp(30px,4vw,50px); font-weight: 800; color: #fff; max-width: 640px; margin: 0 auto 16px; line-height: 1.1; letter-spacing: -1px; }
-.cta-section p { color: rgba(255,255,255,0.88); font-size: 16px; max-width: 520px; margin: 0 auto 36px; line-height: 1.65; }
-.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-white:hover { background: #0a1535; transform: translateY(-2px); }
-.btn-outline-white { display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.7); color: #fff; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; background: rgba(255,255,255,0.1); }
-.btn-outline-white:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
-.cta-features { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
-.cta-feat { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 600; }
-
-/* ─── SOCIAL ─── */
-.social-section { background: #fff; }
-.social-btns { display: flex; gap: 16px; justify-content: center; margin: 32px 0 52px; flex-wrap: wrap; }
-.btn-fb { display: inline-flex; align-items: center; gap: 10px; background: #1877f2; color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-fb:hover { background: #1465d8; transform: translateY(-2px); }
-.btn-ig { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#e1306c,#fd1d1d,#f77737); color: #fff; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-ig:hover { opacity: 0.9; transform: translateY(-2px); }
-.social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.social-card { background: var(--bg-light); border-radius: var(--radius); padding: 24px; transition: box-shadow 0.2s; }
-.social-card:hover { box-shadow: var(--shadow-lg); }
-.social-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.social-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; flex-shrink: 0; }
-.fb-avatar { background: #1877f2; }
-.ig-avatar { background: linear-gradient(135deg,#7c3aed,#e1306c,#f77737); }
-.social-handle .name { font-size: 15px; font-weight: 700; color: var(--navy); }
-.social-handle .handle { font-size: 13px; color: var(--text-muted); }
-.fb-posts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
-.fb-post { background: #fff; border-radius: 10px; padding: 14px 16px; }
-.fb-post p { font-size: 14px; color: var(--text-mid); line-height: 1.55; margin-bottom: 6px; }
-.fb-post .time { font-size: 12px; color: var(--text-muted); }
-.ig-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
-.ig-tile { aspect-ratio: 1; border-radius: 8px; overflow: hidden; }
-.ig-caption { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 12px; }
-.social-link { font-size: 14px; font-weight: 700; color: var(--sky); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
-.social-link.ig-link { color: #e1306c; }
-.social-link:hover { gap: 10px; }
-
-/* ─── CONTACT SECTION ─── */
-.contact-section { background: var(--bg-light); }
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 48px;
-    align-items: start;
-    margin-top: 56px;
-}
-.contact-info { }
-.contact-info h3 { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
-.contact-info p { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 32px; }
-.contact-detail-list { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-bottom: 32px; }
-.contact-detail-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 18px;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-    transition: box-shadow 0.2s;
-}
-.contact-detail-list li:hover { box-shadow: var(--shadow-lg); }
-.contact-detail-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    color: #fff;
-    flex-shrink: 0;
-}
-.icon-blue { background: linear-gradient(135deg, #1a3a8f, #2563eb); }
-.icon-gold { background: linear-gradient(135deg, #d97706, #f59e0b); }
-.icon-teal { background: linear-gradient(135deg, #0891b2, #22d3ee); }
-.icon-purple { background: linear-gradient(135deg, #7c3aed, #a855f7); }
-.contact-detail-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
-.contact-detail-text span { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.55; }
-.contact-detail-text a { font-size: 15px; font-weight: 600; color: var(--sky); text-decoration: none; }
-.contact-detail-text a:hover { text-decoration: underline; }
-.contact-map {
-    width: 100%;
-    height: 200px;
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--navy);
-    margin-top: 8px;
-    position: relative;
-}
-.contact-map iframe { width: 100%; height: 100%; border: none; }
-.map-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    gap: 10px;
-}
-.map-placeholder i { font-size: 36px; color: var(--gold); }
-.map-placeholder span { font-size: 14px; font-weight: 600; opacity: 0.75; }
-/* Contact Form */
-.contact-form-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 40px rgba(15,31,75,0.10);
-}
-.contact-form-card h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
-.contact-form-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-.form-group label { font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; }
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 13px 16px;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: var(--font-main);
-    color: var(--text-dark);
-    background: #fff;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    resize: vertical;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--sky);
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-}
-.form-group textarea { min-height: 120px; }
-.form-inquiry-types { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-.inq-type {
-    padding: 7px 16px;
-    border-radius: 50px;
-    border: 2px solid #e5e7eb;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    background: #fff;
-    color: var(--text-mid);
-    transition: all 0.2s;
-    font-family: var(--font-main);
-}
-.inq-type.active, .inq-type:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
-.btn-submit {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: var(--font-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.2s;
-}
-.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,31,75,0.3); }
-.btn-submit:active { transform: translateY(0); }
-.form-success {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-}
-.form-success.show { display: block; }
-.form-success i { font-size: 56px; color: #10b981; margin-bottom: 16px; }
-.form-success h4 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-.form-success p { font-size: 15px; color: var(--text-muted); }
-
-/* ─── FOOTER ─── */
-footer { background: var(--dark-bg); color: #fff; padding: 72px 24px 0; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1.3fr; gap: 48px; max-width: 1280px; margin: 0 auto; padding-bottom: 56px; }
-.footer-logo { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
-.footer-logo .name { font-size: 20px; font-weight: 800; color: #fff; }
-.footer-logo .sub { font-size: 12px; color: var(--sky); display: flex; align-items: center; gap: 6px; }
-.footer-logo .sub::before { content:''; width:20px; height:2px; background:var(--sky); border-radius:2px; }
-.footer-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 20px; }
-.social-icons { display: flex; gap: 12px; }
-.social-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-size: 15px; text-decoration: none; transition: all 0.2s; }
-.social-icon:hover { background: var(--sky); color: #fff; }
-.footer-col h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 20px; }
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 11px; }
-.footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
-.footer-links a::before { content:'›'; font-size:16px; color:var(--sky); font-weight:700; }
-.footer-links a:hover { color: #fff; }
-.footer-contact { list-style: none; }
-.footer-contact li { display: flex; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 14px; line-height: 1.55; }
-.footer-contact li i { color: var(--sky); flex-shrink: 0; margin-top: 2px; }
-.hours-row { display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 10px; }
-.hours-row .time { color: var(--gold); font-weight: 700; }
-.hours-row .closed { color: #ef4444; font-weight: 700; }
-.newsletter-label { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 12px; }
-.newsletter-form { display: flex; gap: 8px; }
-.newsletter-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 11px 14px; color: #fff; font-size: 14px; font-family: var(--font-main); outline: none; transition: border-color 0.2s; }
-.newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
-.newsletter-form input:focus { border-color: var(--sky); }
-.newsletter-form button { background: var(--gold); border: none; border-radius: 8px; width: 44px; height: 44px; cursor: pointer; color: #1a1a1a; font-size: 16px; transition: background 0.2s; flex-shrink: 0; }
-.newsletter-form button:hover { background: #e08e00; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; flex-wrap: wrap; gap: 12px; }
-.footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
-.footer-bottom-links { display: flex; gap: 20px; }
-.footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-.footer-bottom-links a:hover { color: #fff; }
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-.ripple { position: absolute; border-radius: 50%; background: rgba(37,99,235,0.15); transform: scale(0); animation: rippleAnim 0.65s linear forwards; pointer-events: none; }
-.ac-card.featured .ripple { background: rgba(255,255,255,0.1); }
-@keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
-    nav, .btn-cta { display: none; }
-    .hamburger { display: flex; }
-    .about-grid { grid-template-columns: 1fr; gap: 56px; }
-    .about-images { grid-template-rows: 190px 190px; }
-    .why-grid { grid-template-columns: repeat(2,1fr); }
-    .academics-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
-    .ac-card.featured { transform: none; }
-    .fac-grid { grid-template-columns: repeat(2,1fr); }
-    .stats-grid { grid-template-columns: repeat(2,1fr); gap: 32px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .social-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-    .gal-item:nth-child(5n+1) { grid-column: span 2; grid-row: span 1; }
-    .gal-item:nth-child(5n+4) { grid-column: span 2; }
-}
-@media (max-width: 768px) {
-    .form-row { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gal-item:nth-child(5n+1) { grid-column: span 2; }
-    .gal-item:nth-child(5n+4) { grid-column: span 2; }
-    .story-card { min-width: 280px; }
-    .poster-card { min-width: 260px; }
-}
-@media (max-width: 640px) {
-    section { padding: 64px 16px; }
-    .why-grid { grid-template-columns: 1fr; }
-    .fac-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2,1fr); }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .hero-slide-content { padding: 60px 0; margin-left: 16px; margin-right: 16px; }
-    .hero-slide-content h1 { font-size: 30px; }
-    .contact-form-card { padding: 24px 20px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
-    .logo-img-wrap { width: 48px; height: 48px; }
-    .logo-text .name { font-size: 18px; }
-    .notif-label { display: none; }
-    .story-card { min-width: 260px; }
-    .poster-card { min-width: 240px; }
-    .poster-img { height: 320px; }
-}
-</style>
 </head>
+
 <body>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      NOTIFICATION BAR
 ════════════════════════════════════════════ -->
-<div class="notif-bar">
-  <div class="notif-inner">
-    <div class="notif-label"><i class="fas fa-bell"></i> Latest</div>
-    <div class="notif-ticker">
-      <div class="notif-track" id="notifTrack">
-        <span class="notif-item"><i class="fas fa-trophy"></i> Board Exam Results 2025 — Class XII topper scored 98.6%!</span>
-        <span class="notif-item"><i class="fas fa-calendar-alt"></i> Annual Sports Day — 20 March 2026 | All Parents Welcome</span>
-        <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Limited Seats Available</span>
-        <span class="notif-item"><i class="fas fa-laptop"></i> Smart Lab Inauguration — 25 March 2026</span>
-        <span class="notif-item"><i class="fas fa-star"></i> Science Exhibition Winners Announced — View Results Now</span>
-        <span class="notif-item"><i class="fas fa-leaf"></i> School Holidays: Holi Break 14-16 March 2026</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="notif-item"><i class="fas fa-trophy"></i> Board Exam Results 2025 — Class XII topper scored 98.6%!</span>
-        <span class="notif-item"><i class="fas fa-calendar-alt"></i> Annual Sports Day — 20 March 2026 | All Parents Welcome</span>
-        <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Limited Seats Available</span>
-        <span class="notif-item"><i class="fas fa-laptop"></i> Smart Lab Inauguration — 25 March 2026</span>
-        <span class="notif-item"><i class="fas fa-star"></i> Science Exhibition Winners Announced — View Results Now</span>
-        <span class="notif-item"><i class="fas fa-leaf"></i> School Holidays: Holi Break 14-16 March 2026</span>
+  <div class="notif-bar">
+    <div class="notif-inner">
+      <div class="notif-label"><i class="fas fa-bell"></i> Latest</div>
+      <div class="notif-ticker">
+        <div class="notif-track" id="notifTrack">
+          <span class="notif-item"><i class="fas fa-trophy"></i> Board Exam Results 2025 — Class XII topper scored
+            98.6%!</span>
+          <span class="notif-item"><i class="fas fa-calendar-alt"></i> Annual Sports Day — 20 March 2026 | All Parents
+            Welcome</span>
+          <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Limited Seats
+            Available</span>
+          <span class="notif-item"><i class="fas fa-laptop"></i> Smart Lab Inauguration — 25 March 2026</span>
+          <span class="notif-item"><i class="fas fa-star"></i> Science Exhibition Winners Announced — View Results
+            Now</span>
+          <span class="notif-item"><i class="fas fa-leaf"></i> School Holidays: Holi Break 14-16 March 2026</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="notif-item"><i class="fas fa-trophy"></i> Board Exam Results 2025 — Class XII topper scored
+            98.6%!</span>
+          <span class="notif-item"><i class="fas fa-calendar-alt"></i> Annual Sports Day — 20 March 2026 | All Parents
+            Welcome</span>
+          <span class="notif-item"><i class="fas fa-user-plus"></i> Admissions Open 2026-27 — Limited Seats
+            Available</span>
+          <span class="notif-item"><i class="fas fa-laptop"></i> Smart Lab Inauguration — 25 March 2026</span>
+          <span class="notif-item"><i class="fas fa-star"></i> Science Exhibition Winners Announced — View Results
+            Now</span>
+          <span class="notif-item"><i class="fas fa-leaf"></i> School Holidays: Holi Break 14-16 March 2026</span>
+        </div>
       </div>
+      <button class="notif-btn" onclick="openNotifPanel()"><i class="fas fa-list-ul"></i> All Notices</button>
     </div>
-    <button class="notif-btn" onclick="openNotifPanel()"><i class="fas fa-list-ul"></i> All Notices</button>
   </div>
-</div>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      NOTIFICATION PANEL
 ════════════════════════════════════════════ -->
-<div class="notif-panel-overlay" id="notifPanelOverlay" onclick="handleNotifPanelClick(event)">
-  <div class="notif-panel">
-    <div class="notif-panel-head">
-      <div>
-        <h3>School Notifications <span id="unreadCount">6 new</span></h3>
-      </div>
-      <button class="notif-close-btn" onclick="closeNotifPanel()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="notif-panel-body">
-      <div class="notif-entry unread">
-        <div class="notif-dot result"><i class="fas fa-trophy"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>Board Exam Results 2025 Declared</h4>
-          <p>Class XII topper Priya Sharma scored 98.6%. Class X topper Rahul Meena scored 97.2%. Congratulations!</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 hours ago</div>
+  <div class="notif-panel-overlay" id="notifPanelOverlay" onclick="handleNotifPanelClick(event)">
+    <div class="notif-panel">
+      <div class="notif-panel-head">
+        <div>
+          <h3>School Notifications <span id="unreadCount">6 new</span></h3>
         </div>
-        <div class="notif-unread-badge">New</div>
+        <button class="notif-close-btn" onclick="closeNotifPanel()"><i class="fas fa-times"></i></button>
       </div>
-      <div class="notif-entry unread">
-        <div class="notif-dot event"><i class="fas fa-futbol"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>Annual Sports Day — 20 March 2026</h4>
-          <p>Grand Annual Sports Day scheduled. Parents and guardians are warmly invited to attend and cheer!</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 1 day ago</div>
+      <div class="notif-panel-body">
+        <div class="notif-entry unread">
+          <div class="notif-dot result"><i class="fas fa-trophy"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>Board Exam Results 2025 Declared</h4>
+            <p>Class XII topper Priya Sharma scored 98.6%. Class X topper Rahul Meena scored 97.2%. Congratulations!</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 hours ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-        <div class="notif-unread-badge">New</div>
-      </div>
-      <div class="notif-entry unread">
-        <div class="notif-dot admission"><i class="fas fa-user-plus"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>Admissions Open 2026-27</h4>
-          <p>Registration for session 2026-27 is now open. Limited seats available for Class I to XI. Apply early!</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 days ago</div>
+        <div class="notif-entry unread">
+          <div class="notif-dot event"><i class="fas fa-futbol"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>Annual Sports Day — 20 March 2026</h4>
+            <p>Grand Annual Sports Day scheduled. Parents and guardians are warmly invited to attend and cheer!</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 1 day ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-        <div class="notif-unread-badge">New</div>
-      </div>
-      <div class="notif-entry unread">
-        <div class="notif-dot event"><i class="fas fa-laptop"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>New Smart Computer Lab Inauguration</h4>
-          <p>State-of-the-art computer lab with 60 systems inaugurated on 25 March 2026 by District Collector.</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 3 days ago</div>
+        <div class="notif-entry unread">
+          <div class="notif-dot admission"><i class="fas fa-user-plus"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>Admissions Open 2026-27</h4>
+            <p>Registration for session 2026-27 is now open. Limited seats available for Class I to XI. Apply early!</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 days ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-        <div class="notif-unread-badge">New</div>
-      </div>
-      <div class="notif-entry unread">
-        <div class="notif-dot exam"><i class="fas fa-star"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>Science Exhibition Results</h4>
-          <p>SMS School won 1st prize at District Science Exhibition 2026. Team of Class IX students won the top award.</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 4 days ago</div>
+        <div class="notif-entry unread">
+          <div class="notif-dot event"><i class="fas fa-laptop"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>New Smart Computer Lab Inauguration</h4>
+            <p>State-of-the-art computer lab with 60 systems inaugurated on 25 March 2026 by District Collector.</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 3 days ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-        <div class="notif-unread-badge">New</div>
-      </div>
-      <div class="notif-entry unread">
-        <div class="notif-dot holiday"><i class="fas fa-leaf"></i></div>
-        <div class="notif-entry-text" style="flex:1">
-          <h4>Holi Vacation — 14 to 16 March</h4>
-          <p>School will remain closed on 14, 15 and 16 March 2026 on account of Holi festival. Classes resume 17 March.</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 5 days ago</div>
+        <div class="notif-entry unread">
+          <div class="notif-dot exam"><i class="fas fa-star"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>Science Exhibition Results</h4>
+            <p>SMS School won 1st prize at District Science Exhibition 2026. Team of Class IX students won the top
+              award.</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 4 days ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-        <div class="notif-unread-badge">New</div>
-      </div>
-      <div class="notif-entry">
-        <div class="notif-dot sports"><i class="fas fa-medal"></i></div>
-        <div class="notif-entry-text">
-          <h4>Inter-School Cricket Tournament</h4>
-          <p>SMS School Under-17 cricket team qualifies for state-level inter-school tournament. Best of luck team!</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 1 week ago</div>
+        <div class="notif-entry unread">
+          <div class="notif-dot holiday"><i class="fas fa-leaf"></i></div>
+          <div class="notif-entry-text" style="flex:1">
+            <h4>Holi Vacation — 14 to 16 March</h4>
+            <p>School will remain closed on 14, 15 and 16 March 2026 on account of Holi festival. Classes resume 17
+              March.</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 5 days ago</div>
+          </div>
+          <div class="notif-unread-badge">New</div>
         </div>
-      </div>
-      <div class="notif-entry">
-        <div class="notif-dot exam"><i class="fas fa-book"></i></div>
-        <div class="notif-entry-text">
-          <h4>Half-Yearly Exam Schedule Released</h4>
-          <p>Time table for Half-Yearly examinations has been uploaded. Please check the school notice board and website.</p>
-          <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 weeks ago</div>
+        <div class="notif-entry">
+          <div class="notif-dot sports"><i class="fas fa-medal"></i></div>
+          <div class="notif-entry-text">
+            <h4>Inter-School Cricket Tournament</h4>
+            <p>SMS School Under-17 cricket team qualifies for state-level inter-school tournament. Best of luck team!
+            </p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 1 week ago</div>
+          </div>
+        </div>
+        <div class="notif-entry">
+          <div class="notif-dot exam"><i class="fas fa-book"></i></div>
+          <div class="notif-entry-text">
+            <h4>Half-Yearly Exam Schedule Released</h4>
+            <p>Time table for Half-Yearly examinations has been uploaded. Please check the school notice board and
+              website.</p>
+            <div class="notif-entry-time"><i class="fas fa-clock"></i> 2 weeks ago</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      MOBILE NAV
 ════════════════════════════════════════════ -->
-<div class="mob-overlay" id="mobOverlay" onclick="handleOverlayClick(event)">
-  <div class="mob-drawer">
-    <div class="mob-head">
-      <div class="mob-head-logo">
-        <div class="mob-logo-img"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
-        <div><div class="ln">SMS School</div><div class="ls">Udaipurwati</div></div>
+  <div class="mob-overlay" id="mobOverlay" onclick="handleOverlayClick(event)">
+    <div class="mob-drawer">
+      <div class="mob-head">
+        <div class="mob-head-logo">
+          <div class="mob-logo-img"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
+          <div>
+            <div class="ln">SMS School</div>
+            <div class="ls">Udaipurwati</div>
+          </div>
+        </div>
+        <button class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></button>
       </div>
-      <button class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="mob-links">
-      <a href="#" onclick="closeMob()"><span class="icon"><i class="fas fa-home"></i></span> Home</a>
-      <a href="#about" onclick="closeMob()"><span class="icon"><i class="fas fa-school"></i></span> About</a>
-      <a href="Academics.html" onclick="closeMob()"><span class="icon"><i class="fas fa-book-open"></i></span> Academics</a>
-      <a href="#facilities" onclick="closeMob()"><span class="icon"><i class="fas fa-building"></i></span> Facilities</a>
-      <a href="#gallery" onclick="closeMob()"><span class="icon"><i class="fas fa-images"></i></span> Gallery</a>
-      <a href="#toppers" onclick="closeMob()"><span class="icon"><i class="fas fa-trophy"></i></span> Toppers</a>
-      <a href="#posters" onclick="closeMob()"><span class="icon"><i class="fas fa-photo-video"></i></span> Posters</a>
-      <a href="#contact" onclick="closeMob()"><span class="icon"><i class="fas fa-phone"></i></span> Contact</a>
-    </div>
-    <div class="mob-cta">
-      <a href="#admissions" onclick="closeMob()"><i class="fas fa-user-plus"></i> Secure Your Child's Spot</a>
+      <div class="mob-links">
+        <a href="#" onclick="closeMob()"><span class="icon"><i class="fas fa-home"></i></span> Home</a>
+        <a href="#about" onclick="closeMob()"><span class="icon"><i class="fas fa-school"></i></span> About</a>
+        <a href="Academics.html" onclick="closeMob()"><span class="icon"><i class="fas fa-book-open"></i></span>
+          Academics</a>
+        <a href="#facilities" onclick="closeMob()"><span class="icon"><i class="fas fa-building"></i></span>
+          Facilities</a>
+        <a href="#gallery" onclick="closeMob()"><span class="icon"><i class="fas fa-images"></i></span> Gallery</a>
+        <a href="#toppers" onclick="closeMob()"><span class="icon"><i class="fas fa-trophy"></i></span> Toppers</a>
+        <a href="#posters" onclick="closeMob()"><span class="icon"><i class="fas fa-photo-video"></i></span> Posters</a>
+        <a href="#contact" onclick="closeMob()"><span class="icon"><i class="fas fa-phone"></i></span> Contact</a>
+      </div>
+      <div class="mob-cta">
+        <a href="#admissions" onclick="closeMob()"><i class="fas fa-user-plus"></i> Secure Your Child's Spot</a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      HEADER
 ════════════════════════════════════════════ -->
-<header>
-  <div class="header-inner">
-    <a href="#" class="logo">
-      <div class="logo-img-wrap"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
-      <div class="logo-text">
-        <div class="name">SMS School</div>
-        <div class="sub">Udaipurwati</div>
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-img-wrap"><img src="images/logo2.jpg" alt="SMS School Logo"></div>
+        <div class="logo-text">
+          <div class="name">SMS School</div>
+          <div class="sub">Udaipurwati</div>
+        </div>
+      </a>
+      <div class="header-right">
+        <nav>
+          <a href="#about">About</a>
+          <a href="Academics.html">Academics</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#toppers">Toppers</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="header-notif-btn" onclick="openNotifPanel()" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge" id="headerNotifBadge">6</span>
+        </button>
+        <a href="#admissions" class="btn-cta">Secure Your Child's Spot</a>
+        <button class="hamburger" onclick="openMob()" aria-label="Open menu"><i class="fas fa-bars"></i></button>
       </div>
-    </a>
-    <div class="header-right">
-      <nav>
-        <a href="#about">About</a>
-        <a href="Academics.html">Academics</a>
-        <a href="#facilities">Facilities</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#toppers">Toppers</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="header-notif-btn" onclick="openNotifPanel()" title="Notifications">
-        <i class="fas fa-bell"></i>
-        <span class="badge" id="headerNotifBadge">6</span>
-      </button>
-      <a href="#admissions" class="btn-cta">Secure Your Child's Spot</a>
-      <button class="hamburger" onclick="openMob()" aria-label="Open menu"><i class="fas fa-bars"></i></button>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      HERO CAROUSEL
 ════════════════════════════════════════════ -->
-<section class="hero" id="heroSection">
-  <div class="hero-slides" id="heroSlides">
-    <!-- Slide 1 -->
-    <div class="hero-slide slide-1 active">
-      <div class="hero-slide-bg"></div>
-      <div class=""></div>
-      <div class="hero-slide-content">
-        <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Excellence in Education Since 2005</div>
-        <h1>Shaping Bright Futures Through <span class="accent">Quality Education</span></h1>
-        <p>Welcome to SMS School Udaipurwati, where we nurture young minds with modern teaching methodologies, experienced faculty, and a commitment to academic excellence.</p>
-        <div class="hero-btns">
-          <a href="#admissions" class="btn-primary"><i class="fas fa-user-plus"></i> Apply for Admission</a>
-          <a href="#about" class="btn-outline"><i class="fas fa-info-circle"></i> Book a Campus Visit</a>
+  <section class="hero" id="heroSection">
+    <div class="hero-slides" id="heroSlides">
+      <!-- Slide 1 -->
+      <div class="hero-slide slide-1 active">
+        <div class="hero-slide-bg"></div>
+        <div class=""></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Excellence in Education Since 2005</div>
+          <h1>Shaping Bright Futures Through <span class="accent">Quality Education</span></h1>
+          <p>Welcome to SMS School Udaipurwati, where we nurture young minds with modern teaching methodologies,
+            experienced faculty, and a commitment to academic excellence.</p>
+          <div class="hero-btns">
+            <a href="#admissions" class="btn-primary"><i class="fas fa-user-plus"></i> Apply for Admission</a>
+            <a href="#about" class="btn-outline"><i class="fas fa-info-circle"></i> Book a Campus Visit</a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> CBSE Affiliated</span>
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> Experienced Faculty</span>
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> Modern Infrastructure</span>
+          </div>
         </div>
-        <div class="hero-tags">
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> CBSE Affiliated</span>
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> Experienced Faculty</span>
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> Modern Infrastructure</span>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide slide-2">
+        <div class="hero-slide-bg"></div>
+        <div class=""></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge"><i class="fas fa-users"></i> 1500+ Happy Students</div>
+          <h1>Where Every Child <span class="accent">Discovers</span> Their True Potential</h1>
+          <p>Our holistic approach to education blends academics, sports, arts, and character development to create
+            well-rounded individuals ready for tomorrow's challenges.</p>
+          <div class="hero-btns">
+            <a href="#academics" class="btn-primary"><i class="fas fa-book-open"></i> Explore Academics</a>
+            <a href="#facilities" class="btn-outline"><i class="fas fa-building"></i> View Facilities</a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> Smart Classrooms</span>
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> 50+ Expert Teachers</span>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide slide-3">
+        <div class="hero-slide-bg"></div>
+        <div class=""></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge"><i class="fas fa-trophy"></i> 25+ Awards & Achievements</div>
+          <h1>Building <span class="accent">Champions</span> in Academics & Beyond</h1>
+          <p>Our students consistently excel in board examinations, sports events, and extra-curricular activities,
+            making SMS School a name synonymous with success.</p>
+          <div class="hero-btns">
+            <a href="#toppers" class="btn-primary"><i class="fas fa-star"></i> Meet Our Toppers</a>
+            <a href="#gallery" class="btn-outline"><i class="fas fa-images"></i> View Gallery</a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> District Toppers</span>
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> 100% Board Results</span>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="hero-slide slide-4">
+        <div class="hero-slide-bg"></div>
+        <div class=""></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge"><i class="fas fa-star"></i> Admissions Open 2026–27</div>
+          <h1>Give Your Child the <span class="accent">Best Start</span> in Life</h1>
+          <p>Secure a brighter future for your child by enrolling at SMS School Udaipurwati. Limited seats available —
+            register today and take the first step towards excellence.</p>
+          <div class="hero-btns">
+            <a href="#admissions" class="btn-primary"><i class="fas fa-user-plus"></i> Apply Now</a>
+            <a href="#contact" class="btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> Scholarships Available</span>
+            <span class="hero-tag"><i class="fas fa-check-circle"></i> Transport Facility</span>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Slide 2 -->
-    <div class="hero-slide slide-2">
-      <div class="hero-slide-bg"></div>
-      <div class=""></div>
-      <div class="hero-slide-content">
-        <div class="hero-badge"><i class="fas fa-users"></i> 1500+ Happy Students</div>
-        <h1>Where Every Child <span class="accent">Discovers</span> Their True Potential</h1>
-        <p>Our holistic approach to education blends academics, sports, arts, and character development to create well-rounded individuals ready for tomorrow's challenges.</p>
-        <div class="hero-btns">
-          <a href="#academics" class="btn-primary"><i class="fas fa-book-open"></i> Explore Academics</a>
-          <a href="#facilities" class="btn-outline"><i class="fas fa-building"></i> View Facilities</a>
-        </div>
-        <div class="hero-tags">
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> Smart Classrooms</span>
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> 50+ Expert Teachers</span>
-        </div>
-      </div>
+
+    <!-- Navigation Dots -->
+    <div class="hero-nav" id="heroDots">
+      <button class="hero-dot active" onclick="goToSlide(0)"></button>
+      <button class="hero-dot" onclick="goToSlide(1)"></button>
+      <button class="hero-dot" onclick="goToSlide(2)"></button>
+      <button class="hero-dot" onclick="goToSlide(3)"></button>
     </div>
-    <!-- Slide 3 -->
-    <div class="hero-slide slide-3">
-      <div class="hero-slide-bg"></div>
-      <div class=""></div>
-      <div class="hero-slide-content">
-        <div class="hero-badge"><i class="fas fa-trophy"></i> 25+ Awards & Achievements</div>
-        <h1>Building <span class="accent">Champions</span> in Academics & Beyond</h1>
-        <p>Our students consistently excel in board examinations, sports events, and extra-curricular activities, making SMS School a name synonymous with success.</p>
-        <div class="hero-btns">
-          <a href="#toppers" class="btn-primary"><i class="fas fa-star"></i> Meet Our Toppers</a>
-          <a href="#gallery" class="btn-outline"><i class="fas fa-images"></i> View Gallery</a>
-        </div>
-        <div class="hero-tags">
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> District Toppers</span>
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> 100% Board Results</span>
-        </div>
-      </div>
+
+    <!-- Arrow Buttons -->
+    <div class="hero-arrows">
+      <button class="hero-arrow" onclick="heroSlideBy(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button class="hero-arrow arrow-right" onclick="heroSlideBy(1)"><i class="fas fa-chevron-right"></i></button>
     </div>
-    <!-- Slide 4 -->
-    <div class="hero-slide slide-4">
-      <div class="hero-slide-bg"></div>
-      <div class=""></div>
-      <div class="hero-slide-content">
-        <div class="hero-badge"><i class="fas fa-star"></i> Admissions Open 2026–27</div>
-        <h1>Give Your Child the <span class="accent">Best Start</span> in Life</h1>
-        <p>Secure a brighter future for your child by enrolling at SMS School Udaipurwati. Limited seats available — register today and take the first step towards excellence.</p>
-        <div class="hero-btns">
-          <a href="#admissions" class="btn-primary"><i class="fas fa-user-plus"></i> Apply Now</a>
-          <a href="#contact" class="btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
-        </div>
-        <div class="hero-tags">
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> Scholarships Available</span>
-          <span class="hero-tag"><i class="fas fa-check-circle"></i> Transport Facility</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Navigation Dots -->
-  <div class="hero-nav" id="heroDots">
-    <button class="hero-dot active" onclick="goToSlide(0)"></button>
-    <button class="hero-dot" onclick="goToSlide(1)"></button>
-    <button class="hero-dot" onclick="goToSlide(2)"></button>
-    <button class="hero-dot" onclick="goToSlide(3)"></button>
-  </div>
+    <!-- Progress bar -->
+    <div class="hero-progress" id="heroProgress"></div>
+  </section>
 
-  <!-- Arrow Buttons -->
-  <div class="hero-arrows">
-    <button class="hero-arrow" onclick="heroSlideBy(-1)"><i class="fas fa-chevron-left"></i></button>
-    <button class="hero-arrow" onclick="heroSlideBy(1)"><i class="fas fa-chevron-right"></i></button>
-  </div>
-
-  <!-- Progress bar -->
-  <div class="hero-progress" id="heroProgress"></div>
-</section>
-
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      ABOUT
 ════════════════════════════════════════════ -->
-<section class="about-section" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-images">
-        <img src="images/insta-A.png" alt="Students in classroom" loading="lazy">
-        <img src="images/group-img.png" alt="Classroom learning" loading="lazy">
-        <img src="images/insta-B.png" alt="Students studying" loading="lazy">
-        <img src="images/insta-C.png" alt="Student reading" loading="lazy">
-        <div class="about-badge"><div class="num">20+</div><div class="lbl">Years of Excellence</div></div>
-      </div>
-      <div class="about-text">
-        <div class="section-label">About Our School</div>
-        <h2 class="section-title">Building Tomorrow's <span class="blue">Leaders</span> Today</h2>
-        <p>SMS School Udaipurwati is a premier educational institution committed to providing holistic education that combines academic excellence with character development. Our mission is to nurture young minds into confident, compassionate, and capable individuals.</p>
-        <p>With state-of-the-art infrastructure, experienced faculty, and a student-centered approach, we ensure every child receives personalized attention and the opportunity to excel in their chosen fields.</p>
-        <div class="about-features">
-          <div class="about-feat"><i class="fas fa-book-reader"></i> CBSE Curriculum</div>
-          <div class="about-feat"><i class="fas fa-chalkboard"></i> Smart Classes</div>
-          <div class="about-feat"><i class="fas fa-flask"></i> Well-equipped Labs</div>
-          <div class="about-feat"><i class="fas fa-bus"></i> Transport Facility</div>
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <img src="images/insta-A.png" alt="Students in classroom" loading="lazy">
+          <img src="images/group-img.png" alt="Classroom learning" loading="lazy">
+          <img src="images/insta-B.png" alt="Students studying" loading="lazy">
+          <img src="images/insta-C.png" alt="Student reading" loading="lazy">
+          <div class="about-badge">
+            <div class="num">20+</div>
+            <div class="lbl">Years of Excellence</div>
+          </div>
         </div>
-        <a href="#" class="btn-dark">Read More About Us <i class="fas fa-arrow-right"></i></a>
+        <div class="about-text">
+          <div class="section-label">About Our School</div>
+          <h2 class="section-title">Building Tomorrow's <span class="blue">Leaders</span> Today</h2>
+          <p>SMS School Udaipurwati is a premier educational institution committed to providing holistic education that
+            combines academic excellence with character development. Our mission is to nurture young minds into
+            confident, compassionate, and capable individuals.</p>
+          <p>With state-of-the-art infrastructure, experienced faculty, and a student-centered approach, we ensure every
+            child receives personalized attention and the opportunity to excel in their chosen fields.</p>
+          <div class="about-features">
+            <div class="about-feat"><i class="fas fa-book-reader"></i> CBSE Curriculum</div>
+            <div class="about-feat"><i class="fas fa-chalkboard"></i> Smart Classes</div>
+            <div class="about-feat"><i class="fas fa-flask"></i> Well-equipped Labs</div>
+            <div class="about-feat"><i class="fas fa-bus"></i> Transport Facility</div>
+          </div>
+          <a href="#" class="btn-dark">Read More About Us <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WHY CHOOSE US -->
-    <section class="why-section">
+  <!-- WHY CHOOSE US -->
+  <section class="why-section">
     <div class="container">
-        <div class="text-center">
+      <div class="text-center">
         <div class="section-label center">Why Choose Us</div>
         <h2 class="section-title">Excellence in Every <span class="blue">Aspect</span></h2>
-        <p class="section-subtitle center">We provide a nurturing environment where students can discover their potential and achieve academic success.</p>
-        </div>
-        <div class="why-grid">
+        <p class="section-subtitle center">We provide a nurturing environment where students can discover their
+          potential and achieve academic success.</p>
+      </div>
+      <div class="why-grid">
         <div class="why-card" onclick="addRipple(this,event)">
-            <div class="why-icon blue"><i class="fas fa-chalkboard-teacher"></i></div>
-            <h3>Experienced Teachers</h3>
-            <p>Our dedicated faculty members bring years of experience and passion for teaching, ensuring personalized attention for every student.</p>
-        </div>
-        <div class="why-card" onclick="addRipple(this,event)">
-            <div class="why-icon teal"><i class="fas fa-desktop"></i></div>
-            <h3>Smart Classrooms</h3>
-            <p>State-of-the-art digital classrooms with interactive whiteboards and modern teaching technology for enhanced learning.</p>
+          <div class="why-icon blue"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Experienced Teachers</h3>
+          <p>Our dedicated faculty members bring years of experience and passion for teaching, ensuring personalized
+            attention for every student.</p>
         </div>
         <div class="why-card" onclick="addRipple(this,event)">
-            <div class="why-icon orange"><i class="fas fa-building"></i></div>
-            <h3>Modern Infrastructure</h3>
-            <p>Spacious campus with well-ventilated classrooms, advanced labs, library, and recreational areas designed for holistic development.</p>
+          <div class="why-icon teal"><i class="fas fa-desktop"></i></div>
+          <h3>Smart Classrooms</h3>
+          <p>State-of-the-art digital classrooms with interactive whiteboards and modern teaching technology for
+            enhanced learning.</p>
         </div>
         <div class="why-card" onclick="addRipple(this,event)">
-            <div class="why-icon purple"><i class="fas fa-futbol"></i></div>
-            <h3>Sports Facilities</h3>
-            <p>Comprehensive sports programs including cricket, basketball, football, and indoor games to promote physical fitness and teamwork.</p>
+          <div class="why-icon orange"><i class="fas fa-building"></i></div>
+          <h3>Modern Infrastructure</h3>
+          <p>Spacious campus with well-ventilated classrooms, advanced labs, library, and recreational areas designed
+            for holistic development.</p>
         </div>
+        <div class="why-card" onclick="addRipple(this,event)">
+          <div class="why-icon purple"><i class="fas fa-futbol"></i></div>
+          <h3>Sports Facilities</h3>
+          <p>Comprehensive sports programs including cricket, basketball, football, and indoor games to promote physical
+            fitness and teamwork.</p>
         </div>
+      </div>
     </div>
-    </section>
+  </section>
 
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      ACADEMICS
 ════════════════════════════════════════════ -->
-<section class="academics-section" id="academics">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center">Academics</div>
-      <h2 class="section-title">Comprehensive <span class="blue">Academic Programs</span></h2>
-      <p class="section-subtitle center">Our structured curriculum ensures holistic development from primary to senior secondary education.</p>
+  <section class="academics-section" id="academics">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label center">Academics</div>
+        <h2 class="section-title">Comprehensive <span class="blue">Academic Programs</span></h2>
+        <p class="section-subtitle center">Our structured curriculum ensures holistic development from primary to senior
+          secondary education.</p>
+      </div>
+      <div class="academics-grid">
+        <div class="ac-card" onclick="addRipple(this,event)">
+          <div class="ac-icon primary-icon"><i class="fas fa-child"></i></div>
+          <h3>Primary School</h3>
+          <div class="grade">Classes 1–5</div>
+          <ul class="ac-list">
+            <li><i class="fas fa-check-circle"></i> Foundation Building</li>
+            <li><i class="fas fa-check-circle"></i> Interactive Learning</li>
+            <li><i class="fas fa-check-circle"></i> Art &amp; Craft Activities</li>
+            <li><i class="fas fa-check-circle"></i> Basic Numeracy &amp; Literacy</li>
+          </ul>
+          <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="ac-card featured" onclick="addRipple(this,event)">
+          <div class="ac-icon middle-icon"><i class="fas fa-book-open" style="color:#fff"></i></div>
+          <h3>Middle School</h3>
+          <div class="grade">Classes 6–8</div>
+          <ul class="ac-list">
+            <li><i class="fas fa-check-circle"></i> Conceptual Learning</li>
+            <li><i class="fas fa-check-circle"></i> Science &amp; Mathematics</li>
+            <li><i class="fas fa-check-circle"></i> Computer Education</li>
+            <li><i class="fas fa-check-circle"></i> Character Building</li>
+          </ul>
+          <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="ac-card" onclick="addRipple(this,event)">
+          <div class="ac-icon senior-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Senior Secondary</h3>
+          <div class="grade">Classes 9–12</div>
+          <ul class="ac-list">
+            <li><i class="fas fa-check-circle"></i> Science &amp; Commerce Streams</li>
+            <li><i class="fas fa-check-circle"></i> Competitive Exam Prep</li>
+            <li><i class="fas fa-check-circle"></i> Career Counseling</li>
+            <li><i class="fas fa-check-circle"></i> Higher Education Guidance</li>
+          </ul>
+          <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="academics-grid">
-      <div class="ac-card" onclick="addRipple(this,event)">
-        <div class="ac-icon primary-icon"><i class="fas fa-child"></i></div>
-        <h3>Primary School</h3>
-        <div class="grade">Classes 1–5</div>
-        <ul class="ac-list">
-          <li><i class="fas fa-check-circle"></i> Foundation Building</li>
-          <li><i class="fas fa-check-circle"></i> Interactive Learning</li>
-          <li><i class="fas fa-check-circle"></i> Art &amp; Craft Activities</li>
-          <li><i class="fas fa-check-circle"></i> Basic Numeracy &amp; Literacy</li>
-        </ul>
-        <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="ac-card featured" onclick="addRipple(this,event)">
-        <div class="ac-icon middle-icon"><i class="fas fa-book-open" style="color:#fff"></i></div>
-        <h3>Middle School</h3>
-        <div class="grade">Classes 6–8</div>
-        <ul class="ac-list">
-          <li><i class="fas fa-check-circle"></i> Conceptual Learning</li>
-          <li><i class="fas fa-check-circle"></i> Science &amp; Mathematics</li>
-          <li><i class="fas fa-check-circle"></i> Computer Education</li>
-          <li><i class="fas fa-check-circle"></i> Character Building</li>
-        </ul>
-        <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="ac-card" onclick="addRipple(this,event)">
-        <div class="ac-icon senior-icon"><i class="fas fa-graduation-cap"></i></div>
-        <h3>Senior Secondary</h3>
-        <div class="grade">Classes 9–12</div>
-        <ul class="ac-list">
-          <li><i class="fas fa-check-circle"></i> Science &amp; Commerce Streams</li>
-          <li><i class="fas fa-check-circle"></i> Competitive Exam Prep</li>
-          <li><i class="fas fa-check-circle"></i> Career Counseling</li>
-          <li><i class="fas fa-check-circle"></i> Higher Education Guidance</li>
-        </ul>
-        <a href="#" class="ac-link">Learn More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      FACILITIES
 ════════════════════════════════════════════ -->
-<section class="facilities-section" id="facilities">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center light">Facilities</div>
-      <h2 class="section-title white">World-Class <span class="gold">Infrastructure</span></h2>
-      <p class="section-subtitle center" style="color:rgba(255,255,255,0.65)">Our campus is equipped with modern amenities to support comprehensive student development.</p>
+  <section class="facilities-section" id="facilities">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label center light">Facilities</div>
+        <h2 class="section-title white">World-Class <span class="gold">Infrastructure</span></h2>
+        <p class="section-subtitle center" style="color:rgba(255,255,255,0.65)">Our campus is equipped with modern
+          amenities to support comprehensive student development.</p>
+      </div>
+      <div class="fac-grid">
+        <div class="fac-card">
+          <div class="fac-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80"
+              alt="Library" loading="lazy">
+            <div class="fac-badge orange"><i class="fas fa-book"></i></div>
+          </div>
+          <div class="fac-body">
+            <h3>Library</h3>
+            <p>Well-stocked library with thousands of books, journals, and digital resources for comprehensive learning.
+            </p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-img"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"
+              alt="Computer Lab" loading="lazy">
+            <div class="fac-badge teal"><i class="fas fa-desktop"></i></div>
+          </div>
+          <div class="fac-body">
+            <h3>Computer Lab</h3>
+            <p>Modern computer lab with high-speed internet and latest software for technical education.</p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-img"><img src="https://images.unsplash.com/photo-1532094349884-543559be66b7?w=600&q=80"
+              alt="Science Lab" loading="lazy">
+            <div class="fac-badge purple"><i class="fas fa-flask"></i></div>
+          </div>
+          <div class="fac-body">
+            <h3>Science Lab</h3>
+            <p>Fully equipped physics, chemistry, and biology labs for practical hands-on learning.</p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-img"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80"
+              alt="Smart Classroom" loading="lazy">
+            <div class="fac-badge orange"><i class="fas fa-chalkboard"></i></div>
+          </div>
+          <div class="fac-body">
+            <h3>Smart Classrooms</h3>
+            <p>Interactive digital classrooms with smart boards and audio-visual teaching aids.</p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-img"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80"
+              alt="Sports Ground" loading="lazy">
+            <div class="fac-badge orange" style="background:var(--gold)"><i class="fas fa-futbol"></i></div>
+          </div>
+          <div class="fac-body">
+            <h3>Sports Ground</h3>
+            <p>Spacious playground and sports facilities for cricket, football, basketball, and athletics.</p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-img fac-no-img fac-gradient-blue"><i class="fas fa-bus-alt"
+              style="font-size:56px;color:rgba(255,255,255,0.85)"></i></div>
+          <div class="fac-body">
+            <h3>School Transport</h3>
+            <p>Safe and reliable transportation with GPS-enabled buses covering all major routes in Udaipurwati.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fac-cta"><a href="#" class="btn-gold">View All Facilities <i class="fas fa-arrow-right"></i></a></div>
     </div>
-    <div class="fac-grid">
-      <div class="fac-card">
-        <div class="fac-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Library" loading="lazy"><div class="fac-badge orange"><i class="fas fa-book"></i></div></div>
-        <div class="fac-body"><h3>Library</h3><p>Well-stocked library with thousands of books, journals, and digital resources for comprehensive learning.</p></div>
-      </div>
-      <div class="fac-card">
-        <div class="fac-img"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" alt="Computer Lab" loading="lazy"><div class="fac-badge teal"><i class="fas fa-desktop"></i></div></div>
-        <div class="fac-body"><h3>Computer Lab</h3><p>Modern computer lab with high-speed internet and latest software for technical education.</p></div>
-      </div>
-      <div class="fac-card">
-        <div class="fac-img"><img src="https://images.unsplash.com/photo-1532094349884-543559be66b7?w=600&q=80" alt="Science Lab" loading="lazy"><div class="fac-badge purple"><i class="fas fa-flask"></i></div></div>
-        <div class="fac-body"><h3>Science Lab</h3><p>Fully equipped physics, chemistry, and biology labs for practical hands-on learning.</p></div>
-      </div>
-      <div class="fac-card">
-        <div class="fac-img"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Smart Classroom" loading="lazy"><div class="fac-badge orange"><i class="fas fa-chalkboard"></i></div></div>
-        <div class="fac-body"><h3>Smart Classrooms</h3><p>Interactive digital classrooms with smart boards and audio-visual teaching aids.</p></div>
-      </div>
-      <div class="fac-card">
-        <div class="fac-img"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Sports Ground" loading="lazy"><div class="fac-badge orange" style="background:var(--gold)"><i class="fas fa-futbol"></i></div></div>
-        <div class="fac-body"><h3>Sports Ground</h3><p>Spacious playground and sports facilities for cricket, football, basketball, and athletics.</p></div>
-      </div>
-      <div class="fac-card">
-        <div class="fac-img fac-no-img fac-gradient-blue"><i class="fas fa-bus-alt" style="font-size:56px;color:rgba(255,255,255,0.85)"></i></div>
-        <div class="fac-body"><h3>School Transport</h3><p>Safe and reliable transportation with GPS-enabled buses covering all major routes in Udaipurwati.</p></div>
-      </div>
-    </div>
-    <div class="fac-cta"><a href="#" class="btn-gold">View All Facilities <i class="fas fa-arrow-right"></i></a></div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      STATS
 ════════════════════════════════════════════ -->
-<section class="stats-section">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-num" data-target="1500">0</div><div class="stat-label">Total Students</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="50">0</div><div class="stat-label">Expert Teachers</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-calendar-alt"></i></div><div class="stat-num" data-target="20">0</div><div class="stat-label">Years of Excellence</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="25">0</div><div class="stat-label">Awards Won</div></div>
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-num" data-target="1500">0</div>
+          <div class="stat-label">Total Students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-label">Expert Teachers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="stat-num" data-target="20">0</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="stat-num" data-target="25">0</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      GALLERY SECTION
 ════════════════════════════════════════════ -->
-<section class="gallery-section" id="gallery">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center">School Gallery</div>
-      <h2 class="section-title">Moments That <span class="blue">Define Us</span></h2>
-      <p class="section-subtitle center">Explore our vibrant campus life through photos from events, academics, sports, and cultural celebrations.</p>
-    </div>
-    <div class="gallery-filter">
-      <button class="filter-btn active" data-filter="all">All Photos</button>
-      <button class="filter-btn" data-filter="events">Events</button>
-      <button class="filter-btn" data-filter="sports">Sports</button>
-      <button class="filter-btn" data-filter="academics">Academics</button>
-      <button class="filter-btn" data-filter="cultural">Cultural</button>
-    </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gal-item" data-cat="events" onclick="openLightbox(0)">
-        <img src="images/insta-A.png" alt="Annual Day Celebration">
-        <div class="gal-tag">Events</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Annual Day 2025</span></div>
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label center">School Gallery</div>
+        <h2 class="section-title">Moments That <span class="blue">Define Us</span></h2>
+        <p class="section-subtitle center">Explore our vibrant campus life through photos from events, academics,
+          sports, and cultural celebrations.</p>
       </div>
-      <div class="gal-item" data-cat="academics" onclick="openLightbox(1)">
-        <img src="images/insta-B.png" alt="Smart Class">
-        <div class="gal-tag">Academics</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Smart Classroom</span></div>
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="academics">Academics</button>
+        <button class="filter-btn" data-filter="cultural">Cultural</button>
       </div>
-      <div class="gal-item" data-cat="cultural" onclick="openLightbox(2)">
-        <img src="images/insta-C.png" alt="Cultural Program">
-        <div class="gal-tag">Cultural</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Cultural Program</span></div>
-      </div>
-      <div class="gal-item" data-cat="sports" onclick="openLightbox(3)">
-        <img src="images/insta-D.png" alt="Sports Day">
-        <div class="gal-tag">Sports</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Sports Day</span></div>
-      </div>
-      
-      <div class="gal-item" data-cat="events" onclick="openLightbox(4)">
-        <img src="images/insta-E.png" alt="Republic Day">
-        <div class="gal-tag">Events</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Republic Day</span></div>
-      </div>
-      <div class="gal-item" data-cat="academics" onclick="openLightbox(5)">
-        <img src="images/group-img.png" alt="Science Exhibition">
-        <div class="gal-tag">Academics</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Science Exhibition</span></div>
-      </div>
-      
-      <div class="gal-item" data-cat="cultural" onclick="openLightbox(6)">
-        <img src="images/insta-G.png" alt="Dance Performance">
-        <div class="gal-tag">Cultural</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Dance Performance</span></div>
-      </div>
-      
-      <div class="gal-item" data-cat="sports" onclick="openLightbox(7)">
-        <img src="images/insta-A.png" alt="Cricket Tournament">
-        <div class="gal-tag">Sports</div>
-        <div class="gal-overlay"><span><i class="fas fa-expand"></i> Cricket Tournament</span></div>
-      </div>
-    </div>
-    
-    <div class="gallery-load-more">
-      <a href="gallery.php" class="btn-dark">View Full Gallery <i class="fas fa-images"></i></a>
-    </div>
-  </div>
-</section>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gal-item" data-cat="events" onclick="openLightbox(0)">
+          <img src="images/insta-A.png" alt="Annual Day Celebration">
+          <div class="gal-tag">Events</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Annual Day 2025</span></div>
+        </div>
+        <div class="gal-item" data-cat="academics" onclick="openLightbox(1)">
+          <img src="images/insta-B.png" alt="Smart Class">
+          <div class="gal-tag">Academics</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Smart Classroom</span></div>
+        </div>
+        <div class="gal-item" data-cat="cultural" onclick="openLightbox(2)">
+          <img src="images/insta-C.png" alt="Cultural Program">
+          <div class="gal-tag">Cultural</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Cultural Program</span></div>
+        </div>
+        <div class="gal-item" data-cat="sports" onclick="openLightbox(3)">
+          <img src="images/insta-D.png" alt="Sports Day">
+          <div class="gal-tag">Sports</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Sports Day</span></div>
+        </div>
 
-<!-- Lightbox -->
-<div class="lightbox-overlay" id="lightboxOverlay" onclick="handleLBClick(event)">
-  <div class="lightbox-img-wrap">
-    <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
-    <img id="lbImg" src="" alt="">
-    <div class="lb-caption" id="lbCaption"></div>
-  </div>
-  <div class="lb-arrows">
-    <button class="lb-arrow" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
-    <button class="lb-arrow" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
-  </div>
-</div>
+        <div class="gal-item" data-cat="events" onclick="openLightbox(4)">
+          <img src="images/insta-E.png" alt="Republic Day">
+          <div class="gal-tag">Events</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Republic Day</span></div>
+        </div>
+        <div class="gal-item" data-cat="academics" onclick="openLightbox(5)">
+          <img src="images/group-img.png" alt="Science Exhibition">
+          <div class="gal-tag">Academics</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Science Exhibition</span></div>
+        </div>
 
-<!-- ════════════════════════════════════════════
+        <div class="gal-item" data-cat="cultural" onclick="openLightbox(6)">
+          <img src="images/insta-G.png" alt="Dance Performance">
+          <div class="gal-tag">Cultural</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Dance Performance</span></div>
+        </div>
+
+        <div class="gal-item" data-cat="sports" onclick="openLightbox(7)">
+          <img src="images/insta-A.png" alt="Cricket Tournament">
+          <div class="gal-tag">Sports</div>
+          <div class="gal-overlay"><span><i class="fas fa-expand"></i> Cricket Tournament</span></div>
+        </div>
+      </div>
+
+      <div class="gallery-load-more">
+        <a href="gallery.php" class="btn-dark">View Full Gallery <i class="fas fa-images"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="handleLBClick(event)">
+    <div class="lightbox-img-wrap">
+      <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+      <img id="lbImg" src="" alt="">
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+    <div class="lb-arrows">
+      <button class="lb-arrow" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button class="lb-arrow" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
      TOPPERS STORIES
 ════════════════════════════════════════════ -->
-<section class="stories-section" id="toppers">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center">Hall of Fame</div>
-      <h2 class="section-title">Our Star <span class="blue">Achievers</span></h2>
-      <p class="section-subtitle center">Meet the brilliant minds who have made SMS School proud through their academic excellence and dedication.</p>
-    </div>
-    <div style="margin-top:48px">
-      <div class="stories-track-wrap">
-        <div class="stories-track" id="storiesTrack">
+  <section class="stories-section" id="toppers">
+    <div class="container-default">
+      <div class="text-center">
+        <div class="section-label center">Hall of Fame</div>
+        <h2 class="section-title">Our Star <span class="blue">Achievers</span></h2>
+        <p class="section-subtitle center">Meet the brilliant minds who have made SMS School proud through their
+          academic excellence and dedication.</p>
+      </div>
+      <div style="margin-top:48px">
+        <div class="stories-track-wrap">
+          <div class="stories-track" id="storiesTrack">
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-G.png" alt="Priya Sharma">
-              <div class="story-rank rank-gold">1st</div>
-              <div class="story-pct">98.6%</div>
-            </div>
-            <div class="story-body">
-              <h3>Priya Sharma</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science Stream</div>
-              <div class="story-quote">"SMS School gave me the foundation to dream big. The teachers here are not just educators, they are mentors who believe in you."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-trophy"></i> District Topper</span>
-                <span class="story-award-tag"><i class="fas fa-star"></i> School Gold Medal</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-G.png" alt="Priya Sharma">
+                <div class="story-rank rank-gold">1st</div>
+                <div class="story-pct">98.6%</div>
+              </div>
+              <div class="story-body">
+                <h3>Priya Sharma</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science Stream</div>
+                <div class="story-quote">"SMS School gave me the foundation to dream big. The teachers here are not just
+                  educators, they are mentors who believe in you."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-trophy"></i> District Topper</span>
+                  <span class="story-award-tag"><i class="fas fa-star"></i> School Gold Medal</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-B.png" alt="Rahul Meena">
-              <div class="story-rank rank-gold">1st</div>
-              <div class="story-pct">97.2%</div>
-            </div>
-            <div class="story-body">
-              <h3>Rahul Meena</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class X — Board Exams</div>
-              <div class="story-quote">"Hard work and guidance from teachers helped me achieve this score. I am grateful to every teacher at SMS School."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-trophy"></i> State Ranker</span>
-                <span class="story-award-tag"><i class="fas fa-medal"></i> Merit Certificate</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-B.png" alt="Rahul Meena">
+                <div class="story-rank rank-gold">1st</div>
+                <div class="story-pct">97.2%</div>
+              </div>
+              <div class="story-body">
+                <h3>Rahul Meena</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class X — Board Exams</div>
+                <div class="story-quote">"Hard work and guidance from teachers helped me achieve this score. I am
+                  grateful to every teacher at SMS School."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-trophy"></i> State Ranker</span>
+                  <span class="story-award-tag"><i class="fas fa-medal"></i> Merit Certificate</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-C.png" alt="Anjali Choudhary">
-              <div class="story-rank rank-silver">2nd</div>
-              <div class="story-pct">96.8%</div>
-            </div>
-            <div class="story-body">
-              <h3>Anjali Choudhary</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Commerce</div>
-              <div class="story-quote">"The smart classrooms and dedicated faculty made complex subjects easy to understand. I owe my success to this school."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-award"></i> Commerce Topper</span>
-                <span class="story-award-tag"><i class="fas fa-star"></i> Best Student</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-C.png" alt="Anjali Choudhary">
+                <div class="story-rank rank-silver">2nd</div>
+                <div class="story-pct">96.8%</div>
+              </div>
+              <div class="story-body">
+                <h3>Anjali Choudhary</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Commerce</div>
+                <div class="story-quote">"The smart classrooms and dedicated faculty made complex subjects easy to
+                  understand. I owe my success to this school."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-award"></i> Commerce Topper</span>
+                  <span class="story-award-tag"><i class="fas fa-star"></i> Best Student</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-D.png" alt="Vikash Kumar">
-              <div class="story-rank rank-bronze">3rd</div>
-              <div class="story-pct">95.4%</div>
-            </div>
-            <div class="story-body">
-              <h3>Vikash Kumar</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science Stream</div>
-              <div class="story-quote">"The labs and extracurricular activities at SMS School helped me grow beyond textbooks. I'm proud to be an SMS student."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-flask"></i> Science Olympiad</span>
-                <span class="story-award-tag"><i class="fas fa-chess"></i> Chess Champion</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-D.png" alt="Vikash Kumar">
+                <div class="story-rank rank-bronze">3rd</div>
+                <div class="story-pct">95.4%</div>
+              </div>
+              <div class="story-body">
+                <h3>Vikash Kumar</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science Stream</div>
+                <div class="story-quote">"The labs and extracurricular activities at SMS School helped me grow beyond
+                  textbooks. I'm proud to be an SMS student."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-flask"></i> Science Olympiad</span>
+                  <span class="story-award-tag"><i class="fas fa-chess"></i> Chess Champion</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-E.png" alt="Sunita Yadav">
-              <div class="story-rank rank-general">Top</div>
-              <div class="story-pct">94.8%</div>
-            </div>
-            <div class="story-body">
-              <h3>Sunita Yadav</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class X — Board Exams</div>
-              <div class="story-quote">"Being from a small town, I never thought I could achieve so much. SMS School helped me believe in myself."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-music"></i> Cultural Star</span>
-                <span class="story-award-tag"><i class="fas fa-trophy"></i> Academic Excellence</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-E.png" alt="Sunita Yadav">
+                <div class="story-rank rank-general">Top</div>
+                <div class="story-pct">94.8%</div>
+              </div>
+              <div class="story-body">
+                <h3>Sunita Yadav</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class X — Board Exams</div>
+                <div class="story-quote">"Being from a small town, I never thought I could achieve so much. SMS School
+                  helped me believe in myself."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-music"></i> Cultural Star</span>
+                  <span class="story-award-tag"><i class="fas fa-trophy"></i> Academic Excellence</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="story-card">
-            <div class="story-img-wrap">
-              <img src="images/insta-G.png" alt="Arjun Singh">
-              <div class="story-rank rank-general">Top</div>
-              <div class="story-pct">93.6%</div>
-            </div>
-            <div class="story-body">
-              <h3>Arjun Singh</h3>
-              <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science</div>
-              <div class="story-quote">"I represented SMS School in state-level competitions three years in a row. This school shapes not just students but future leaders."</div>
-              <div class="story-awards">
-                <span class="story-award-tag"><i class="fas fa-futbol"></i> Cricket Captain</span>
-                <span class="story-award-tag"><i class="fas fa-star"></i> Scholar Award</span>
+            <div class="story-card">
+              <div class="story-img-wrap">
+                <img src="images/insta-G.png" alt="Arjun Singh">
+                <div class="story-rank rank-general">Top</div>
+                <div class="story-pct">93.6%</div>
+              </div>
+              <div class="story-body">
+                <h3>Arjun Singh</h3>
+                <div class="story-class"><i class="fas fa-graduation-cap"></i> Class XII — Science</div>
+                <div class="story-quote">"I represented SMS School in state-level competitions three years in a row.
+                  This school shapes not just students but future leaders."</div>
+                <div class="story-awards">
+                  <span class="story-award-tag"><i class="fas fa-futbol"></i> Cricket Captain</span>
+                  <span class="story-award-tag"><i class="fas fa-star"></i> Scholar Award</span>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+          <div class="stories-dots" id="storiesDots"></div>
+          <div class="stories-nav-btns">
+            <button class="stories-nav-btn" onclick="storiesNav(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="stories-nav-btn" onclick="storiesNav(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:36px;flex-wrap:wrap;gap:16px">
-        <div class="stories-dots" id="storiesDots"></div>
-        <div class="stories-nav-btns">
-          <button class="stories-nav-btn" onclick="storiesNav(-1)"><i class="fas fa-chevron-left"></i></button>
-          <button class="stories-nav-btn" onclick="storiesNav(1)"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
+  </section>
+  
+  <!-- ════════════════════════════════════════════
      POSTER SECTION
 ════════════════════════════════════════════ -->
-<section class="poster-section" id="posters">
-  <div class="container" style="position:relative;z-index:2">
-    <div class="text-center">
-      <div class="section-label center light">School Posters</div>
-      <h2 class="section-title white">Events, <span class="gold">Notices</span> & Announcements</h2>
-      <p class="section-subtitle center" style="color:rgba(255,255,255,0.65)">Stay updated with our latest event posters, notices, achievements and school activities.</p>
-    </div>
-    <div class="poster-track-wrap">
-      <div class="poster-track" id="posterTrack">
+  <section class="poster-section" id="posters">
+    <div class="container" style="position:relative;z-index:2">
+      <div class="text-center">
+        <div class="section-label center light">School Posters</div>
+        <h2 class="section-title white">Events, <span class="gold">Notices</span> & Announcements</h2>
+        <p class="section-subtitle center" style="color:rgba(255,255,255,0.65)">Stay updated with our latest event
+          posters, notices, achievements and school activities.</p>
+      </div>
+      <div class="poster-track-wrap">
+        <div class="poster-track" id="posterTrack">
 
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-e.png" alt="Annual Day Poster">
-          <div class="poster-label">Event</div>
-          <div class="poster-info"><h4>Annual Day 2025</h4><span><i class="fas fa-calendar"></i> 15 Feb 2025</span></div>
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-e.png" alt="Annual Day Poster">
+            <div class="poster-label">Event</div>
+            <div class="poster-info">
+              <h4>Annual Day 2025</h4><span><i class="fas fa-calendar"></i> 15 Feb 2025</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-f.png" alt="Sports Day Poster">
+            <div class="poster-label">Sports</div>
+            <div class="poster-info">
+              <h4>Annual Sports Day</h4><span><i class="fas fa-calendar"></i> 20 Mar 2026</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-g.png" alt="Admission Poster">
+            <div class="poster-label">Admission</div>
+            <div class="poster-info">
+              <h4>Admissions Open 2026-27</h4><span><i class="fas fa-door-open"></i> Session 2026-27</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-h.png" alt="Science Fair">
+            <div class="poster-label">Academic</div>
+            <div class="poster-info">
+              <h4>Science Exhibition 2026</h4><span><i class="fas fa-flask"></i> 28 Mar 2026</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-i.png" alt="Cultural Festival">
+            <div class="poster-label">Cultural</div>
+            <div class="poster-info">
+              <h4>Cultural Festival — Rang Utsav</h4><span><i class="fas fa-music"></i> 5 Apr 2026</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-j.png" alt="Result Poster">
+            <div class="poster-label">Result</div>
+            <div class="poster-info">
+              <h4>Board Results — Class XII</h4><span><i class="fas fa-trophy"></i> 100% Pass Rate</span>
+            </div>
+          </div>
+
+          <div class="poster-card">
+            <img class="poster-img" src="images/poster-k.png" alt="Scholarship Poster">
+            <div class="poster-label">Scholarship</div>
+            <div class="poster-info">
+              <h4>Merit Scholarship 2026</h4><span><i class="fas fa-star"></i> Apply by 30 Mar</span>
+            </div>
+          </div>
+
         </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-f.png" alt="Sports Day Poster">
-          <div class="poster-label">Sports</div>
-          <div class="poster-info"><h4>Annual Sports Day</h4><span><i class="fas fa-calendar"></i> 20 Mar 2026</span></div>
-        </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-g.png" alt="Admission Poster">
-          <div class="poster-label">Admission</div>
-          <div class="poster-info"><h4>Admissions Open 2026-27</h4><span><i class="fas fa-door-open"></i> Session 2026-27</span></div>
-        </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-h.png" alt="Science Fair">
-          <div class="poster-label">Academic</div>
-          <div class="poster-info"><h4>Science Exhibition 2026</h4><span><i class="fas fa-flask"></i> 28 Mar 2026</span></div>
-        </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-i.png" alt="Cultural Festival">
-          <div class="poster-label">Cultural</div>
-          <div class="poster-info"><h4>Cultural Festival — Rang Utsav</h4><span><i class="fas fa-music"></i> 5 Apr 2026</span></div>
-        </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-j.png" alt="Result Poster">
-          <div class="poster-label">Result</div>
-          <div class="poster-info"><h4>Board Results — Class XII</h4><span><i class="fas fa-trophy"></i> 100% Pass Rate</span></div>
-        </div>
-
-        <div class="poster-card">
-          <img class="poster-img" src="images/poster-k.png" alt="Scholarship Poster">
-          <div class="poster-label">Scholarship</div>
-          <div class="poster-info"><h4>Merit Scholarship 2026</h4><span><i class="fas fa-star"></i> Apply by 30 Mar</span></div>
-        </div>
-
+      </div>
+      <div class="poster-carousel-nav">
+        <button class="pc-btn" onclick="posterNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="poster-dots" id="posterDots"></div>
+        <button class="pc-btn" onclick="posterNav(1)"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-    <div class="poster-carousel-nav">
-      <button class="pc-btn" onclick="posterNav(-1)"><i class="fas fa-chevron-left"></i></button>
-      <div class="poster-dots" id="posterDots"></div>
-      <button class="pc-btn" onclick="posterNav(1)"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      CTA / ADMISSIONS
 ════════════════════════════════════════════ -->
-<section class="cta-section" id="admissions">
-  <div class="cta-inner">
-    <div class="cta-badge"><i class="fas fa-bell"></i> Admissions Open for 2026–27</div>
-    <h2>Give Your Child the Gift of Quality Education</h2>
-    <p>Join the SMS School Udaipurwati family and provide your child with the best educational foundation. Our admission process is simple and hassle-free.</p>
-    <div class="cta-btns">
-      <a href="#" class="btn-white"><i class="fas fa-user-plus"></i> Apply for Admission</a>
-      <a href="#contact" class="btn-outline-white"><i class="fas fa-phone"></i> Contact Us</a>
+  <section class="cta-section" id="admissions">
+    <div class="cta-inner">
+      <div class="cta-badge"><i class="fas fa-bell"></i> Admissions Open for 2026–27</div>
+      <h2>Give Your Child the Gift of Quality Education</h2>
+      <p>Join the SMS School Udaipurwati family and provide your child with the best educational foundation. Our
+        admission process is simple and hassle-free.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-white"><i class="fas fa-user-plus"></i> Apply for Admission</a>
+        <a href="#contact" class="btn-outline-white"><i class="fas fa-phone"></i> Contact Us</a>
+      </div>
+      <div class="cta-features">
+        <span class="cta-feat"><i class="fas fa-check-circle"></i> Easy Online Application</span>
+        <span class="cta-feat"><i class="fas fa-check-circle"></i> Quick Response</span>
+        <span class="cta-feat"><i class="fas fa-check-circle"></i> Scholarship Available</span>
+      </div>
     </div>
-    <div class="cta-features">
-      <span class="cta-feat"><i class="fas fa-check-circle"></i> Easy Online Application</span>
-      <span class="cta-feat"><i class="fas fa-check-circle"></i> Quick Response</span>
-      <span class="cta-feat"><i class="fas fa-check-circle"></i> Scholarship Available</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      SOCIAL MEDIA
 ════════════════════════════════════════════ -->
-<section class="social-section">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center">Stay Connected</div>
-      <h2 class="section-title">Follow Us on <span class="blue">Social Media</span></h2>
-      <p class="section-subtitle center">Stay updated with the latest news, events, and activities at SMS School Udaipurwati.</p>
-    </div>
-    <div class="social-btns">
-      <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="btn-fb"><i class="fab fa-facebook-f"></i> Follow us on Facebook</a>
-      <a href="https://www.instagram.com/sms_school_udaipurwati/" class="btn-ig"><i class="fab fa-instagram"></i> Follow us on Instagram</a>
-    </div>
-    <div class="social-grid">
-      <div class="social-card">
-        <div class="social-header">
-          <div class="social-avatar fb-avatar"><i class="fab fa-facebook-f"></i></div>
-          <div class="social-handle"><div class="name">SMS Science School Udaipurwati</div><div class="handle">@smsschooludaipurwati</div></div>
-        </div>
-        <div class="fb-posts">
-          <div class="fb-post"><p>🏆 Congratulations to our students for outstanding performance in Board Exams! We are proud of your achievements.</p><div class="time">2 days ago</div></div>
-          <div class="fb-post"><p>📚 Annual Book Fair starts next week! Stay tuned for more updates.</p><div class="time">5 days ago</div></div>
-        </div>
-        <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="social-link"><i class="fas fa-external-link-alt"></i> View More on Facebook</a>
+  <section class="social-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label center">Stay Connected</div>
+        <h2 class="section-title">Follow Us on <span class="blue">Social Media</span></h2>
+        <p class="section-subtitle center">Stay updated with the latest news, events, and activities at SMS School
+          Udaipurwati.</p>
       </div>
-      <div class="social-card">
-        <div class="social-header">
-          <div class="social-avatar ig-avatar"><i class="fab fa-instagram"></i></div>
-          <div class="social-handle"><div class="name">@sms_school_udaipurwati</div><div class="handle">SMS School Instagram</div></div>
+      <div class="social-btns">
+        <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="btn-fb"><i
+            class="fab fa-facebook-f"></i> Follow us on Facebook</a>
+        <a href="https://www.instagram.com/sms_school_udaipurwati/" class="btn-ig"><i class="fab fa-instagram"></i>
+          Follow us on Instagram</a>
+      </div>
+      <div class="social-grid">
+        <div class="social-card">
+          <div class="social-header">
+            <div class="social-avatar fb-avatar"><i class="fab fa-facebook-f"></i></div>
+            <div class="social-handle">
+              <div class="name">SMS Science School Udaipurwati</div>
+              <div class="handle">@smsschooludaipurwati</div>
+            </div>
+          </div>
+          <div class="fb-posts">
+            <div class="fb-post">
+              <p>🏆 Congratulations to our students for outstanding performance in Board Exams! We are proud of your
+                achievements.</p>
+              <div class="time">2 days ago</div>
+            </div>
+            <div class="fb-post">
+              <p>📚 Annual Book Fair starts next week! Stay tuned for more updates.</p>
+              <div class="time">5 days ago</div>
+            </div>
+          </div>
+          <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="social-link"><i
+              class="fas fa-external-link-alt"></i> View More on Facebook</a>
         </div>
-        <div class="ig-grid">
-          <div class="ig-tile"><img src="images/insta-D.png" alt="Instagram post 1" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
-          <div class="ig-tile"><img src="images/insta-E.png" alt="Instagram post 2" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
-          <div class="ig-tile"><img src="images/insta-G.png" alt="Instagram post 3" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
+        <div class="social-card">
+          <div class="social-header">
+            <div class="social-avatar ig-avatar"><i class="fab fa-instagram"></i></div>
+            <div class="social-handle">
+              <div class="name">@sms_school_udaipurwati</div>
+              <div class="handle">SMS School Instagram</div>
+            </div>
+          </div>
+          <div class="ig-grid">
+            <div class="ig-tile"><img src="images/insta-D.png" alt="Instagram post 1"
+                style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
+            <div class="ig-tile"><img src="images/insta-E.png" alt="Instagram post 2"
+                style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
+            <div class="ig-tile"><img src="images/insta-G.png" alt="Instagram post 3"
+                style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></div>
+          </div>
+          <div class="ig-caption">Follow us for daily updates &amp; school activities</div>
+          <a href="https://www.instagram.com/sms_school_udaipurwati/" class="social-link ig-link"><i
+              class="fas fa-external-link-alt"></i> View More on Instagram</a>
         </div>
-        <div class="ig-caption">Follow us for daily updates &amp; school activities</div>
-        <a href="https://www.instagram.com/sms_school_udaipurwati/" class="social-link ig-link"><i class="fas fa-external-link-alt"></i> View More on Instagram</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      CONTACT SECTION
 ════════════════════════════════════════════ -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label center">Get In Touch</div>
-      <h2 class="section-title">We'd Love to <span class="blue">Hear From You</span></h2>
-      <p class="section-subtitle center">Have questions about admissions, academics, or anything else? Reach out to us — we're happy to help.</p>
-    </div>
-    <div class="contact-grid">
-      <!-- Contact Info -->
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>Visit us, call us, or send an email. Our team is available during school hours to assist parents, students, and educators.</p>
-        <ul class="contact-detail-list">
-          <li>
-            <div class="contact-detail-icon icon-blue"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="contact-detail-text">
-              <strong>Address</strong>
-              <span>SMS School Udaipurwati, Near Bus Stand,<br>Udaipurwati, Rajasthan – 333307</span>
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label center">Get In Touch</div>
+        <h2 class="section-title">We'd Love to <span class="blue">Hear From You</span></h2>
+        <p class="section-subtitle center">Have questions about admissions, academics, or anything else? Reach out to us
+          — we're happy to help.</p>
+      </div>
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Visit us, call us, or send an email. Our team is available during school hours to assist parents, students,
+            and educators.</p>
+          <ul class="contact-detail-list">
+            <li>
+              <div class="contact-detail-icon icon-blue"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-detail-text">
+                <strong>Address</strong>
+                <span>SMS School Udaipurwati, Near Bus Stand,<br>Udaipurwati, Rajasthan – 333307</span>
+              </div>
+            </li>
+            <li>
+              <div class="contact-detail-icon icon-gold"><i class="fas fa-phone-alt"></i></div>
+              <div class="contact-detail-text">
+                <strong>Phone</strong>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-detail-icon icon-teal"><i class="fas fa-envelope"></i></div>
+              <div class="contact-detail-text">
+                <strong>Email</strong>
+                <a href="mailto:info@smsschooludaipurwati.com">info@smsschooludaipurwati.com</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-detail-icon icon-purple"><i class="fas fa-clock"></i></div>
+              <div class="contact-detail-text">
+                <strong>Office Hours</strong>
+                <span>Mon–Fri: 8:00 AM – 3:00 PM<br>Saturday: 8:00 AM – 1:00 PM</span>
+              </div>
+            </li>
+          </ul>
+          <div class="contact-map">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <span>SMS School Udaipurwati, Rajasthan</span>
+              <a href="https://maps.google.com/?q=Udaipurwati+Rajasthan" target="_blank"
+                style="color:var(--gold);font-size:13px;font-weight:700;text-decoration:none;margin-top:4px"><i
+                  class="fas fa-external-link-alt"></i> Open in Google Maps</a>
             </div>
-          </li>
-          <li>
-            <div class="contact-detail-icon icon-gold"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail-text">
-              <strong>Phone</strong>
-              <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <div id="contactFormWrap">
+            <h3>Send Us a Message</h3>
+            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+
+            <div style="margin-bottom:18px">
+              <div
+                style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">
+                Inquiry Type</div>
+              <div class="form-inquiry-types">
+                <button class="inq-type active" onclick="selectInqType(this)">Admission</button>
+                <button class="inq-type" onclick="selectInqType(this)">Academics</button>
+                <button class="inq-type" onclick="selectInqType(this)">Facilities</button>
+                <button class="inq-type" onclick="selectInqType(this)">Fees</button>
+                <button class="inq-type" onclick="selectInqType(this)">Other</button>
+              </div>
             </div>
-          </li>
-          <li>
-            <div class="contact-detail-icon icon-teal"><i class="fas fa-envelope"></i></div>
-            <div class="contact-detail-text">
-              <strong>Email</strong>
-              <a href="mailto:info@smsschooludaipurwati.com">info@smsschooludaipurwati.com</a>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" id="fname" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" required>
+              </div>
             </div>
-          </li>
-          <li>
-            <div class="contact-detail-icon icon-purple"><i class="fas fa-clock"></i></div>
-            <div class="contact-detail-text">
-              <strong>Office Hours</strong>
-              <span>Mon–Fri: 8:00 AM – 3:00 PM<br>Saturday: 8:00 AM – 1:00 PM</span>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="femail" placeholder="your@email.com">
             </div>
-          </li>
-        </ul>
-        <div class="contact-map">
-          <div class="map-placeholder">
-            <i class="fas fa-map-marked-alt"></i>
-            <span>SMS School Udaipurwati, Rajasthan</span>
-            <a href="https://maps.google.com/?q=Udaipurwati+Rajasthan" target="_blank" style="color:var(--gold);font-size:13px;font-weight:700;text-decoration:none;margin-top:4px"><i class="fas fa-external-link-alt"></i> Open in Google Maps</a>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Student's Class</label>
+                <select id="fclass">
+                  <option value="">Select Class</option>
+                  <option>Nursery / KG</option>
+                  <option>Class I – V</option>
+                  <option>Class VI – VIII</option>
+                  <option>Class IX – X</option>
+                  <option>Class XI – XII</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preferred Language</label>
+                <select id="flang">
+                  <option>Hindi</option>
+                  <option>English</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Your Message</label>
+              <textarea id="fmessage" placeholder="Write your query or message here…"></textarea>
+            </div>
+
+            <button class="btn-submit" onclick="submitContactForm()">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for contacting SMS School Udaipurwati. Our team will reach out to you within 24 hours.</p>
           </div>
         </div>
       </div>
-
-      <!-- Contact Form -->
-      <div class="contact-form-card">
-        <div id="contactFormWrap">
-          <h3>Send Us a Message</h3>
-          <p>Fill out the form below and we'll get back to you within 24 hours.</p>
-
-          <div style="margin-bottom:18px">
-            <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Inquiry Type</div>
-            <div class="form-inquiry-types">
-              <button class="inq-type active" onclick="selectInqType(this)">Admission</button>
-              <button class="inq-type" onclick="selectInqType(this)">Academics</button>
-              <button class="inq-type" onclick="selectInqType(this)">Facilities</button>
-              <button class="inq-type" onclick="selectInqType(this)">Fees</button>
-              <button class="inq-type" onclick="selectInqType(this)">Other</button>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name *</label>
-              <input type="text" id="fname" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-              <label>Phone Number *</label>
-              <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="femail" placeholder="your@email.com">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Student's Class</label>
-              <select id="fclass">
-                <option value="">Select Class</option>
-                <option>Nursery / KG</option>
-                <option>Class I – V</option>
-                <option>Class VI – VIII</option>
-                <option>Class IX – X</option>
-                <option>Class XI – XII</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Preferred Language</label>
-              <select id="flang">
-                <option>Hindi</option>
-                <option>English</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Your Message</label>
-            <textarea id="fmessage" placeholder="Write your query or message here…"></textarea>
-          </div>
-
-          <button class="btn-submit" onclick="submitContactForm()">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </div>
-
-        <div class="form-success" id="formSuccess">
-          <i class="fas fa-check-circle"></i>
-          <h4>Message Sent Successfully!</h4>
-          <p>Thank you for contacting SMS School Udaipurwati. Our team will reach out to you within 24 hours.</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">
-        <div style="width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0;">
-          <img src="images/logo2.jpg" alt="SMS School Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div style="width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0;">
+            <img src="images/logo2.jpg" alt="SMS School Logo"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div>
+            <div class="name">SMS School</div>
+            <div class="sub">Udaipurwati</div>
+          </div>
         </div>
-        <div><div class="name">SMS School</div><div class="sub">Udaipurwati</div></div>
-      </div>
-      <p class="footer-desc">SMS School Udaipurwati is committed to providing quality education that nurtures young minds into confident, capable individuals ready to lead tomorrow.</p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/sms_school_udaipurwati/" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="Academics.html">Academics</a></li>
-        <li><a href="#facilities">Facilities</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#toppers">Toppers</a></li>
-        <li><a href="#posters">Posters</a></li>
-        <li><a href="#">Events &amp; News</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <ul class="footer-contact">
-        <li><i class="fas fa-map-marker-alt"></i><span>SMS School Udaipurwati,<br>Near Bus Stand, Udaipurwati,<br>Rajasthan – 333307</span></li>
-        <li><i class="fas fa-phone"></i> <a href="tel:+919876543210" style="color:inherit;text-decoration:none">+91 98765 43210</a></li>
-        <li><i class="fas fa-envelope"></i> <a href="mailto:info@smsschooludaipurwati.com" style="color:inherit;text-decoration:none">info@smsschooludaipurwati.com</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>School Hours</h4>
-      <div class="hours-row"><span>Monday – Friday</span><span class="time">8:00 AM – 3:00 PM</span></div>
-      <div class="hours-row"><span>Saturday</span><span class="time">8:00 AM – 1:00 PM</span></div>
-      <div class="hours-row"><span>Sunday</span><span class="closed">Closed</span></div>
-      <div style="margin-top:24px">
-        <div class="newsletter-label">Newsletter</div>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Your email">
-          <button type="button"><i class="fas fa-paper-plane"></i></button>
+        <p class="footer-desc">SMS School Udaipurwati is committed to providing quality education that nurtures young
+          minds into confident, capable individuals ready to lead tomorrow.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="social-icon social-facebook"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sms_school_udaipurwati/" class="social-icon social-instagram"><i
+              class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon social-youtube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon social-linkedin"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="Academics.html">Academics</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#toppers">Toppers</a></li>
+          <li><a href="#posters">Posters</a></li>
+          <li><a href="#">Events &amp; News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i><span>SMS School Udaipurwati,<br>Near Bus Stand,
+              Udaipurwati,<br>Rajasthan – 333307</span></li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+919876543210" style="color:inherit;text-decoration:none">+91
+              98765 43210</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@smsschooludaipurwati.com"
+              style="color:inherit;text-decoration:none">info@smsschooludaipurwati.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>School Hours</h4>
+        <div class="hours-row"><span>Monday – Friday</span><span class="time">8:00 AM – 3:00 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span class="time">8:00 AM – 1:00 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span class="closed">Closed</span></div>
+        <div style="margin-top:24px">
+          <div class="newsletter-label">Newsletter</div>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button type="button"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 SMS School Udaipurwati. All Rights Reserved.</p>
-    <div class="footer-bottom-links">
-      <a href="#">Admin Login</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms &amp; Conditions</a>
+    <div class="footer-bottom">
+      <p>© 2026 SMS School Udaipurwati. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Admin Login</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
     </div>
+  </footer>
+
+  <!-- social icon in left side-->
+
+  <div class="social-float">
+
+  <a href="https://wa.me/917014689785" target="_blank" class="social-btn whatsapp">
+  <i class="fab fa-whatsapp"></i>
+  <span>WhatsApp</span>
+  </a>
+
+  <a href="https://instagram.com/" target="_blank" class="social-btn instagram">
+  <i class="fab fa-instagram"></i>
+  <span>Instagram</span>
+  </a>
+  <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" target="_blank" class="social-btn facebook">
+  <i class="fab fa-facebook-f"></i>
+  <span>Facebook</span>
+  </a>
+
+
   </div>
-</footer>
+<!--end social icon-->
 
-<!-- ════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════ -->
-<script>
-/* ─── MOBILE NAV ─── */
-function openMob() { document.getElementById('mobOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); document.body.style.overflow=''; }
-function handleOverlayClick(e) { if(e.target===document.getElementById('mobOverlay')) closeMob(); }
+  <!-- JAVASCRIPT -->
+  <script src="js/js.main.js"></script>
 
-/* ─── NOTIFICATION PANEL ─── */
-function openNotifPanel() {
-    document.getElementById('notifPanelOverlay').classList.add('open');
-    document.body.style.overflow='hidden';
-    // mark as read
-    setTimeout(() => {
-        document.querySelectorAll('.notif-entry.unread').forEach(el => el.classList.remove('unread'));
-        document.querySelectorAll('.notif-unread-badge').forEach(el => el.remove());
-        const badge = document.getElementById('headerNotifBadge');
-        if(badge) badge.style.display='none';
-        document.getElementById('unreadCount').textContent = '';
-    }, 1500);
-}
-function closeNotifPanel() {
-    document.getElementById('notifPanelOverlay').classList.remove('open');
-    document.body.style.overflow='';
-}
-function handleNotifPanelClick(e) {
-    if(e.target===document.getElementById('notifPanelOverlay')) closeNotifPanel();
-}
-
-/* ─── HERO CAROUSEL ─── */
-let heroIndex = 0;
-let heroTimer;
-let heroProgressInterval;
-let heroPct = 0;
-const HERO_INTERVAL = 5000;
-
-function goToSlide(idx) {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    slides[heroIndex].classList.remove('active');
-    dots[heroIndex].classList.remove('active');
-    heroIndex = (idx + slides.length) % slides.length;
-    slides[heroIndex].classList.add('active');
-    dots[heroIndex].classList.add('active');
-    document.getElementById('heroSlides').style.transform = `translateX(-${heroIndex * 100}%)`;
-    resetHeroTimer();
-}
-
-function heroSlideBy(dir) { goToSlide(heroIndex + dir); }
-
-function resetHeroTimer() {
-    clearInterval(heroTimer);
-    clearInterval(heroProgressInterval);
-    heroPct = 0;
-    document.getElementById('heroProgress').style.transition = 'none';
-    document.getElementById('heroProgress').style.width = '0%';
-    setTimeout(() => {
-        document.getElementById('heroProgress').style.transition = `width ${HERO_INTERVAL}ms linear`;
-        document.getElementById('heroProgress').style.width = '100%';
-    }, 50);
-    heroTimer = setInterval(() => goToSlide(heroIndex + 1), HERO_INTERVAL);
-}
-
-document.addEventListener('DOMContentLoaded', () => { resetHeroTimer(); });
-
-/* ─── RIPPLE ─── */
-function addRipple(card, e) {
-    const r = document.createElement('span');
-    r.className = 'ripple';
-    const rect = card.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = (e ? e.clientX - rect.left : rect.width/2) - size/2;
-    const y = (e ? e.clientY - rect.top  : rect.height/2) - size/2;
-    r.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`;
-    card.appendChild(r);
-    setTimeout(()=>r.remove(), 700);
-}
-
-/* ─── GALLERY FILTER & LIGHTBOX ─── */
-const galleryImgs = [
-    {src:'images/insta-A.png', cap:'Annual Day Celebration 2025'},
-    {src:'images/insta-B.png', cap:'Smart Classroom — Interactive Learning'},
-    {src:'images/insta-C.png', cap:'Cultural Program — Dance Performance'},
-    {src:'images/insta-D.png', cap:'Sports Day — Athletic Events'},
-    {src:'images/insta-E.png', cap:'Republic Day Celebration'},
-    {src:'images/group-img.png', cap:'Science Exhibition — Student Projects'},
-    {src:'images/insta-G.png', cap:'Cultural Festival — Rang Utsav'},
-    {src:'images/insta-A.png', cap:'Inter-School Cricket Tournament'},
-];
-let lbCurrent = 0;
-
-function openLightbox(idx) {
-    lbCurrent = idx;
-    document.getElementById('lbImg').src = galleryImgs[idx].src;
-    document.getElementById('lbCaption').textContent = galleryImgs[idx].cap;
-    document.getElementById('lightboxOverlay').classList.add('open');
-    document.body.style.overflow='hidden';
-}
-function closeLightbox() {
-    document.getElementById('lightboxOverlay').classList.remove('open');
-    document.body.style.overflow='';
-}
-function lbNav(dir) {
-    lbCurrent = (lbCurrent + dir + galleryImgs.length) % galleryImgs.length;
-    document.getElementById('lbImg').src = galleryImgs[lbCurrent].src;
-    document.getElementById('lbCaption').textContent = galleryImgs[lbCurrent].cap;
-}
-function handleLBClick(e) { if(e.target===document.getElementById('lightboxOverlay')) closeLightbox(); }
-document.addEventListener('keydown', e => {
-    if(document.getElementById('lightboxOverlay').classList.contains('open')) {
-        if(e.key==='Escape') closeLightbox();
-        if(e.key==='ArrowLeft') lbNav(-1);
-        if(e.key==='ArrowRight') lbNav(1);
-    }
-});
-
-// Gallery filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const filter = this.dataset.filter;
-        document.querySelectorAll('.gal-item').forEach(item => {
-            if(filter === 'all' || item.dataset.cat === filter) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-/* ─── STORIES CAROUSEL ─── */
-let storiesIdx = 0;
-const STORIES_VISIBLE = () => window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-const STORIES_TOTAL = 6;
-
-function buildStoriesDots() {
-    const wrap = document.getElementById('storiesDots');
-    wrap.innerHTML = '';
-    const pages = Math.ceil(STORIES_TOTAL / STORIES_VISIBLE());
-    for(let i = 0; i < pages; i++) {
-        const d = document.createElement('button');
-        d.className = 'stories-dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => storiesGoTo(i);
-        wrap.appendChild(d);
-    }
-}
-
-function storiesGoTo(pageIdx) {
-    storiesIdx = pageIdx;
-    const cardW = 320 + 24;
-    const offset = pageIdx * STORIES_VISIBLE() * cardW;
-    document.getElementById('storiesTrack').style.transform = `translateX(-${offset}px)`;
-    document.querySelectorAll('.stories-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === pageIdx);
-    });
-}
-
-function storiesNav(dir) {
-    const pages = Math.ceil(STORIES_TOTAL / STORIES_VISIBLE());
-    storiesGoTo((storiesIdx + dir + pages) % pages);
-}
-
-/* ─── POSTER CAROUSEL ─── */
-let posterIdx = 0;
-const POSTER_TOTAL = 7;
-const POSTER_VISIBLE = () => window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-
-function buildPosterDots() {
-    const wrap = document.getElementById('posterDots');
-    wrap.innerHTML = '';
-    const pages = Math.ceil(POSTER_TOTAL / POSTER_VISIBLE());
-    for(let i = 0; i < pages; i++) {
-        const d = document.createElement('button');
-        d.className = 'p-dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => posterGoTo(i);
-        wrap.appendChild(d);
-    }
-}
-
-function posterGoTo(pageIdx) {
-    posterIdx = pageIdx;
-    const cardW = 300 + 24;
-    const offset = pageIdx * POSTER_VISIBLE() * cardW;
-    document.getElementById('posterTrack').style.transform = `translateX(-${offset}px)`;
-    document.querySelectorAll('.p-dot').forEach((d, i) => d.classList.toggle('active', i === pageIdx));
-}
-
-function posterNav(dir) {
-    const pages = Math.ceil(POSTER_TOTAL / POSTER_VISIBLE());
-    posterGoTo((posterIdx + dir + pages) % pages);
-}
-
-/* ─── CONTACT FORM ─── */
-function selectInqType(btn) {
-    document.querySelectorAll('.inq-type').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-}
-
-function submitContactForm() {
-    const name = document.getElementById('fname').value.trim();
-    const phone = document.getElementById('fphone').value.trim();
-    if(!name || !phone) {
-        alert('Please fill in your name and phone number.');
-        return;
-    }
-    document.getElementById('contactFormWrap').style.display='none';
-    document.getElementById('formSuccess').classList.add('show');
-}
-
-/* ─── COUNTER ANIMATION ─── */
-function animateCounters() {
-    const counters = document.querySelectorAll('[data-target]');
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target, target = +el.dataset.target;
-            const step = target / (1800/16); let cur = 0;
-            const t = setInterval(() => {
-                cur += step;
-                if (cur >= target) { cur = target; clearInterval(t); }
-                el.textContent = Math.floor(cur).toLocaleString();
-                if(target >= 1000) el.textContent = Math.floor(cur).toLocaleString() + '+';
-            }, 16);
-            obs.unobserve(el);
-        });
-    }, {threshold:0.3});
-    counters.forEach(c => obs.observe(c));
-}
-
-/* ─── SCROLL REVEAL ─── */
-function initReveal() {
-    const els = document.querySelectorAll('.why-card,.ac-card,.fac-card,.stat-item,.story-card,.poster-card,.gal-item');
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (!entry.isIntersecting) return;
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = entry.target.classList.contains('featured')
-                    ? 'scale(1.03) translateY(0)' : 'translateY(0)';
-            }, i * 60);
-            obs.unobserve(entry.target);
-        });
-    }, {threshold:0.08});
-    els.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
-        el.style.transform = el.classList.contains('featured') ? 'scale(1.03) translateY(28px)' : 'translateY(28px)';
-        obs.observe(el);
-    });
-}
-
-/* ─── INIT ─── */
-document.addEventListener('DOMContentLoaded', () => {
-    animateCounters();
-    initReveal();
-    buildStoriesDots();
-    buildPosterDots();
-});
-window.addEventListener('resize', () => {
-    buildStoriesDots();
-    buildPosterDots();
-    storiesGoTo(0);
-    posterGoTo(0);
-});
-</script>
 </body>
+
 </html>
