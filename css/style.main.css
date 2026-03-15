@@ -68,7 +68,7 @@
    right: 0;
    width:40px;
    height:40px;
-   border-radius:50%;
+   border-radius:5%;
    text-align:center;
    line-height:30px;
    font-size:27px;
@@ -3374,6 +3374,9 @@
  }
 
  @media (max-width: 768px) {
+       .poster-content {
+         min-width: 87%;
+    }
     .form-row {
        grid-template-columns: 1fr;
     }
@@ -3403,6 +3406,12 @@
     section {
        padding: 64px 16px;
     }
+    .poster-content {
+         min-width: 96%;
+    }
+      .posters-img-wrap{
+         border-radius: 4px;
+      }
 
     .why-grid {
        grid-template-columns: 1fr;
