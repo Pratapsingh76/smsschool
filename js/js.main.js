@@ -4,6 +4,24 @@ function openMob() { document.getElementById('mobOverlay').classList.add('open')
 function closeMob() { document.getElementById('mobOverlay').classList.remove('open'); document.body.style.overflow = ''; }
 function handleOverlayClick(e) { if (e.target === document.getElementById('mobOverlay')) closeMob(); }
 
+/* ─── ADMISSION POSTER MODAL ─── */
+document.addEventListener("DOMContentLoaded", function(){
+
+   let modal = document.getElementById("admissionPosterModal");
+   let lastShown = localStorage.getItem("posterLastShown");
+   let now = new Date().getTime();
+   let thirtyMinutes = 30 * 60 * 1000;
+      if(!lastShown || (now - lastShown) > thirtyMinutes)
+      {
+         modal.style.display = "flex";
+         localStorage.setItem("posterLastShown", now);
+      }
+   });
+
+   function closePosterModal(){
+   document.getElementById("admissionPosterModal").style.display="none";
+
+}
 /* ─── NOTIFICATION PANEL ─── */
 function openNotifPanel() {
    document.getElementById('notifPanelOverlay').classList.add('open');
@@ -270,6 +288,101 @@ function animateCounters() {
       });
    }, { threshold: 0.3 });
    counters.forEach(c => obs.observe(c));
+}
+
+function openAdmissionModal() {
+   document.getElementById("admissionModal").style.display = "flex";
+}
+
+function closeAdmissionModal() {
+   document.getElementById("admissionModal").style.display = "none";
+}
+
+/* ─── UPDATE CLASS OPTIONS BASED ON MEDIUM SELECTION ─── */
+function updateClassOptions() {
+
+   let medium = document.getElementById("flang").value;
+   let classSelect = document.getElementById("fclass");
+
+   classSelect.innerHTML = '<option value="">Select Class</option>';
+
+   if (medium === "hindi") {
+
+      let classes = [
+         "Class I",
+         "Class II",
+         "Class III",
+         "Class IV",
+         "Class V",
+         "Class VI",
+         "Class VII",
+         "Class VIII",
+         "Class IX",
+         "Class X",
+         "Class XI (Science)",
+         "Class XI (Arts)",
+         "Class Xl (Commerce)",
+         "Class XII (Science)",
+         "Class XII (Arts)",
+         "Class XII (Commerce)"
+      ];
+
+      classes.forEach(function (cls) {
+         let option = document.createElement("option");
+         option.text = cls;
+         option.value = cls;
+         classSelect.add(option);
+      });
+
+   }
+
+   else if (medium === "english") {
+
+      let classes = [
+         "Nursery",
+         "LKG",
+         "UKG",
+         "Class I",
+         "Class II",
+         "Class III",
+         "Class IV",
+         "Class V",
+         "Class VI",
+         "Class VII",
+         "Class VIII",
+         "Class IX",
+         "Class X",
+         "Class XI (Science)",
+         "Class XI (Arts)",
+         "Class Xl (Commerce)",
+         "Class XII (Science)",
+         "Class XII (Arts)",
+         "Class XII (Commerce)"
+      ];
+
+      classes.forEach(function (cls) {
+         let option = document.createElement("option");
+         option.text = cls;
+         option.value = cls;
+         classSelect.add(option);
+      });
+
+   }
+
+}
+
+/* ─── TRANSPORT OPTIONS TOGGLE ─── */
+function toggleTransport() {
+
+   let check = document.getElementById("transportCheck");
+   let options = document.getElementById("transportOptions");
+
+   if (check.checked) {
+      options.style.display = "block";
+   } else {
+      options.style.display = "none";
+   }
+
 }
 
 /* ─── SCROLL REVEAL ─── */
