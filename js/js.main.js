@@ -371,18 +371,13 @@ function updateClassOptions() {
 
 }
 
-/* ─── TRANSPORT OPTIONS TOGGLE ─── */
-function toggleTransport() {
+/* ─── Register Modal ─── */
+function openRegisterModal(){
+   document.getElementById("registerModal").style.display="flex";
+}
 
-   let check = document.getElementById("transportCheck");
-   let options = document.getElementById("transportOptions");
-
-   if (check.checked) {
-      options.style.display = "block";
-   } else {
-      options.style.display = "none";
-   }
-
+function closeRegisterModal(){
+   document.getElementById("registerModal").style.display="none";
 }
 
 /* ─── SCROLL REVEAL ─── */

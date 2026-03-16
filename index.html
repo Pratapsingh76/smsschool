@@ -25,9 +25,13 @@
 ════════════════════════════════════════════ -->
 
   <div id="admissionPosterModal" class="poster-modal">
+    <h2 class="poster-title"
+      style="display: flex; justify-content: center; margin-bottom: 20px; position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">
+      Admissions Open for 2026-27</h2>
+
     <div class="poster-content">
-    <span class="poster-close" onclick="closePosterModal()">&times;</span>
-    <img src="images/main-poster.jpg" alt="Admission Open" class="posters-img-wrap">
+      <span class="poster-close" onclick="closePosterModal()">&times;</span>
+      <img src="images/main-poster.jpg" alt="Admission Open" class="posters-img-wrap">
     </div>
   </div>
 
@@ -395,7 +399,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ════════════════════════════════════════════
      ACADEMICS
@@ -928,26 +931,27 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
-              <input type="checkbox" id="transportCheck" onchange="toggleTransport()" style="margin:0;"> Require School Transport</label>
+          <div class="form-group">
+            <label>Bus Route / Kiraya</label>
+            <select>
+              <option>No Transport</option>
+              <option>City Area - ₹500</option>
+              <option>Station Area - ₹600</option>
+              <option>Village Route - ₹700</option>
+              <option>City Center - ₹500 / Month</option>
+              <option>Nawalgarh Road - ₹600 / Month</option>
+              <option>Station Area - ₹700 / Month</option>
+              <option>Mandawa Road - ₹800 / Month</option>
+              <option>Nearby Village - ₹900 / Month</option>
+            </select>
 
-            </div>
-
-            <div class="form-group" id="transportOptions" style="display:none;">
-              <label>Select Bus Route / Kiraya</label>
-              <select id="busRoute">
-                <option value="">Select Route</option>
-                <option>City Center - ₹500 / Month</option>
-                <option>Nawalgarh Road - ₹600 / Month</option>
-                <option>Station Area - ₹700 / Month</option>
-                <option>Mandawa Road - ₹800 / Month</option>
-                <option>Nearby Village - ₹900 / Month</option>
-              </select>
-            </div>
           </div>
 
-          <button class="btn-submit">
+          <!-- <button class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Apply Now
+          </button> -->
+
+          <button class="btn-submit" onclick="openRegisterModal()">
             <i class="fas fa-paper-plane"></i> Apply Now
           </button>
 
@@ -957,16 +961,136 @@
 
     </div>
   </div>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="register-modal">
+
+    <div class="register-box modal-content">
+
+      <span class="modal-close" onclick="closeRegisterModal()">×</span>
+
+      <!-- School Header -->
+      <div class="school-header">
+        <div class="header-content">
+          <img src="images/logo2.jpg" alt="School Logo">
+          <div class="header-text">
+            <h2>SMS School</h2>
+            <p>Udaipurwati</p>
+          </div>
+        </div>
+        <h3>Student Admission Registration</h3>
+      </div>
+
+
+      <!-- Student Information -->
+      <div class="student-info">
+
+        <div class="info-grid form-row">
+
+          <div class="info-item form-group">
+            <label>Student Name</label>
+            <span>Rajveer Singh</span>
+          </div>
+
+          <div class="info-item form-group">
+            <label>Father's Name</label>
+            <span>Suresh Singh</span>
+          </div>
+
+          <div class="info-item form-group">
+            <label>Email</label>
+            <span>rajveersingh@example.com</span>
+          </div>
+
+          <div class="info-item form-group">
+            <label>Phone (WhatsApp)</label>
+            <span>+91 9876543210</span>
+          </div>
+
+          <div class="info-item form-group">
+            <span>English Medium</span>
+          </div>
+
+          <div class="info-item form-group">
+            <span>Class 6</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Fee Structure -->
+      <div class="fee-table">
+
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Fee Structure</th>
+              <th>Amount (₹)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>First Installment</td>
+              <td>5000</td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>Second Installment</td>
+              <td>10000</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Third Installment</td>
+              <td>15000</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Bus Route</td>
+              <td>5500</td>
+            </tr>
+
+            <!-- Total Row -->
+            <tr class="total-row">
+              <td colspan="2">Total Amount</td>
+              <td>₹35,500</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+      <div class="fee-note">
+        <p><strong>Note:</strong> The above fee structure is for reference only. Actual fees may vary based on the
+          selected class, medium, and transport options. Please contact the school administration for the final fee
+          details and payment process.</p>
+      </div>
+      <div class="" style="margin-top:24px;justify-content:flex-end">
+        <button class="btn-submit" style="flex:0"><i class="fas fa-check"></i> Confirm Registration</button>
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- ════════════════════════════════════════════
      SOCIAL MEDIA
 ════════════════════════════════════════════ -->
   <section class="social-section">
     <div class="container">
       <div class="text-center">
-        <div class="section-label center">Stay Connected</div>
+        <!-- <div class="section-label center">Stay Connected</div> -->
         <h2 class="section-title">Follow Us on <span class="blue">Social Media</span></h2>
-        <p class="section-subtitle center">Stay updated with the latest news, events, and activities at SMS School
-          Udaipurwati.</p>
+        <!-- <p class="section-subtitle center">Stay updated with the latest news, events, and activities at SMS School
+          Udaipurwati.</p> -->
       </div>
       <div class="social-btns">
         <a href="https://www.facebook.com/p/SMS-Science-School-Udaipurwati-100063813173272/" class="btn-fb"><i
@@ -1026,12 +1150,12 @@
 ════════════════════════════════════════════ -->
   <section class="contact-section" id="contact">
     <div class="container">
-      <div class="text-center">
+      <!-- <div class="text-center">
         <div class="section-label center">Get In Touch</div>
         <h2 class="section-title">We'd Love to <span class="blue">Hear From You</span></h2>
         <p class="section-subtitle center">Have questions about admissions, academics, or anything else? Reach out to us
           — we're happy to help.</p>
-      </div>
+      </div> -->
       <div class="contact-grid">
         <!-- Contact Info -->
         <div class="contact-info">
@@ -1060,13 +1184,13 @@
                 <a href="mailto:info@smsschooludaipurwati.com">info@smsschooludaipurwati.com</a>
               </div>
             </li>
-            <li>
+            <!-- <li>
               <div class="contact-detail-icon icon-purple"><i class="fas fa-clock"></i></div>
               <div class="contact-detail-text">
                 <strong>Office Hours</strong>
                 <span>Mon–Fri: 8:00 AM – 3:00 PM<br>Saturday: 8:00 AM – 1:00 PM</span>
               </div>
-            </li>
+            </li> -->
           </ul>
           <div class="contact-map">
             <div class="map-placeholder">

@@ -37,43 +37,159 @@
     overflow-x: hidden;
  }
 
-/* ADMISSION POSTER MODAL */
- .poster-modal{
-   display:none;
-   position:fixed;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
-   background:rgba(0,0,0,0.7);
-   z-index:9999;
-   align-items:center;
-   justify-content:center;
-   }
+ /* ADMISSION POSTER MODAL */
+ .poster-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+ }
 
-   .poster-content{
-   position:relative;
-   max-width: 65%;
-   width:90%;
-   }
+ .poster-content {
+    position: relative;
+    max-width: 65%;
+    width: 90%;
+ }
 
-   .posters-img-wrap{
-   width:100%;
-   border-radius:10px;
-   }
+ .poster-title {
+    font-size: 28px;
+    color: var(--gold);
+    background: var(--navy);
+    padding: 12px 24px;
+    border-radius: 8px;
 
-   .poster-close{
-   position:absolute;
-   top: 0;
-   right: 0;
-   width:40px;
-   height:40px;
-   border-radius:5%;
-   text-align:center;
-   line-height:30px;
-   font-size:27px;
-   cursor:pointer;
-   }
+ }
+
+ .posters-img-wrap {
+    width: 100%;
+    border-radius: 10px;
+ }
+
+ .poster-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 5%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 27px;
+    cursor: pointer;
+ }
+
+ /* Registration Modal */
+
+ .register-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+ }
+
+
+ .register-box {
+    background: #fff;
+    width: 800px;
+    max-width: 95%;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Header */
+ .school-header {
+    text-align: center;
+    margin-bottom: 25px;
+ }
+
+ .school-header img {
+    width: 60px;
+    margin-bottom: 10px;
+ }
+
+ .school-header h2 {
+    margin: 0;
+    font-size: 24px;
+ }
+
+ .school-header p {
+    margin: 0;
+    color: #555;
+ }
+
+ .school-header h3 {
+    margin-top: 10px;
+    font-size: 18px;
+ }
+
+ /* Student Info */
+
+ .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+ }
+
+ .info-item {
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+ }
+
+ .info-item label {
+    display: block;
+    font-weight: bold;
+    font-size: 13px;
+    color: #666;
+ }
+
+ .info-item span {
+    font-size: 15px;
+ }
+
+ .info-item.full {
+    grid-column: span 2;
+ }
+
+ /* Table */
+
+ .fee-table table {
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ .fee-table th {
+    background: #f0f0f0;
+ }
+
+ .fee-table th,
+ .fee-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+ }
+
+ .total-row {
+    font-weight: bold;
+    background: #f9f9f9;
+    font-size: 16px;
+ }
+
 
  /* ─── NOTIFICATION BAR ─── */
  .notif-bar {
@@ -2648,10 +2764,10 @@
 
  .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 48px;
     align-items: start;
-    margin-top: 56px;
+    /* margin-top: 56px; */
  }
 
  .contact-info h3 {
@@ -3241,12 +3357,13 @@
 
  .social-float {
     position: fixed;
-    left: 15px;
+    /* left: 15px; */
     bottom: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     z-index: 999;
+    padding: 0 20px;
  }
 
  .social-btn {
@@ -3374,9 +3491,10 @@
  }
 
  @media (max-width: 768px) {
-       .poster-content {
-         min-width: 87%;
+    .poster-content {
+       min-width: 87%;
     }
+
     .form-row {
        grid-template-columns: 1fr;
     }
@@ -3406,12 +3524,14 @@
     section {
        padding: 64px 16px;
     }
+
     .poster-content {
-         min-width: 96%;
+       min-width: 96%;
     }
-      .posters-img-wrap{
-         border-radius: 4px;
-      }
+
+    .posters-img-wrap {
+       border-radius: 4px;
+    }
 
     .why-grid {
        grid-template-columns: 1fr;
@@ -3452,8 +3572,12 @@
        font-size: 30px;
     }
 
+    .modal-content {
+       padding: 0px;
+    }
+
     .contact-form-card {
-       padding: 24px 20px;
+       padding: 10px;
     }
 
     .gallery-grid {
@@ -3485,4 +3609,29 @@
     .poster-img {
        height: 320px;
     }
+ }
+
+ @media (max-width: 480px) {
+
+    .social-float {
+       right: 15px;
+       padding: 0;
+
+    }
+
+    .social-float .instagram,
+    .social-float .facebook {
+       display: none;
+    }
+
+    .hero-slide-content .hero-btns {
+       display: flex;
+       justify-content: center;
+    }
+
+    .hero-slide-content .hero-btns a {
+       padding: 12px 24px;
+       font-size: 14px;
+    }
+
  }
